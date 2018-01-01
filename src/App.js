@@ -106,21 +106,51 @@ class App extends Component {
     }
   }
 
+  //Play/Pause
   playSequence = () => {
-    this.setState({playing: true});this.setState({intervalId: setInterval(this.timer, 60/this.state.bpm*1000)});
+    //If playing, pause the sequence
+    if(this.state.playing) {
+      this.setState({playing: false});
+      clearInterval(this.state.intervalId);
+    } else {
+      //If paused, play the sequence
+      this.setState({playing: true});
+      this.setState({intervalId: setInterval(this.timer, 60/this.state.bpm*1000)});
+    }
   }
 
   stop = () => {
     this.setState({playing: false});
     clearInterval(this.state.intervalId);
+    //Set current frame back to beginning
+    this.setState({currentFrame: -1});
   }
 
+  //make sure greater than 0
   updateBPM = (event) => {
-    this.setState({bpm: event.target.value});
+    if(parseInt(event.target.value, 0) < 1 || !event.target.value) {
+      //Set the new bpm in the state
+      this.setState({bpm: event.target.value});
+      //Clear the current interval
+      clearInterval(this.state.intervalId);
+    } else {
+      //Set the new bpm in the state
+      this.setState({bpm: event.target.value});
+      //Clear the current interval
+      clearInterval(this.state.intervalId);
+      //If playing, start interval again with new BPM
+      if(this.state.playing) {
+      this.setState({intervalId: setInterval(this.timer, 60/event.target.value*1000)});
+    }
+    }
+    
   }
 
   updateSequence = (event) => {
+    //Update sequence number in the state
     this.setState({currentSequence: parseInt(event.target.value, 0)});
+    //Set current frame back to beginning
+    this.setState({currentFrame: -1});
   }
 
   render() {
