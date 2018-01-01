@@ -86,36 +86,34 @@ class App extends Component {
     this.setState({sequences: newSequences})
   }
 
-  changeVolume = (instrumentNum, volumeChange) => {
-    //create newSounds object so state is mutated
+  muteSound = (instrumentNum) => {
+    //create newSounds object so state is not mutated
     var newSounds = this.state.sounds;
     var instrument = newSounds[instrumentNum];
-    var currentVolume = instrument.volume();
-    switch (volumeChange) {
-      case -1:
-        //decrease volume
-        if(currentVolume > 0) {
-          instrument.volume(currentVolume - 0.1);
-          instrument.mute(false);
-          this.setState({sounds: newSounds});
-        }
-        break;
-      case 0:
-        //mute
-        instrument.mute(!instrument.mute());
-        this.setState({sounds: newSounds});
-        break;
-      case 1:
-        //increase volume
-        if(currentVolume < 1) {
-          instrument.volume(currentVolume + 0.1);
-          instrument.mute(false);
-          this.setState({sounds: newSounds});
-        }
-        break;
-      default:
-        console.log("Not an instrument");
+    instrument.mute(!instrument.mute());
+    this.setState({sounds: newSounds});
+  }
+
+  changeVolume = (event, increment) => {
+    //create newSounds object so state is not mutated
+    var newSounds = this.state.sounds;
+    var instrumentNum = event.target.getAttribute("instrument");
+    var instrument = newSounds[instrumentNum];
+    var newVolume = instrument.volume();
+    if(increment) {
+      //if using buttons
+      if(increment > 0){
+        newVolume = newVolume + 0.1;
+      } else {
+        newVolume = newVolume - 0.1;
+      }
+    } else {
+      //if dragging the range
+      newVolume = parseFloat(event.target.value, 0);
     }
+    instrument.volume(newVolume);
+    instrument.mute(false);
+    this.setState({sounds: newSounds});
   }
 
   componentWillUnmount = () => {
@@ -198,7 +196,8 @@ class App extends Component {
     return (
       <div className="App">
         <Header play={this.playSequence} stop={this.stop} updateBPM={this.updateBPM} updateSequence={this.updateSequence} bpm={this.state.bpm}/>
-        <Sequence sequence={this.state.sequences[this.state.currentSequence]} number={this.state.currentSequence} currentFrame={this.state.currentFrame} changeNote={this.changeNote} changeVolume={this.changeVolume}/>
+        <Sequence sequence={this.state.sequences[this.state.currentSequence]} number={this.state.currentSequence} currentFrame={this.state.currentFrame} changeNote={this.changeNote} 
+        sounds={this.state.sounds} muteSound={this.muteSound} changeVolume={this.changeVolume}/>
       </div>
     );
   }

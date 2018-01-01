@@ -9,6 +9,10 @@
   width: 25%;
 }
 
+.Instrument__volume-range {
+  display: flex;
+}
+
 .Instrument ul {
   flex-grow: 1;
   justify-content: space-between;
