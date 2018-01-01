@@ -5,11 +5,15 @@
   margin: 0;
 }
 
-.Instrument h1 {
+.Instrument__controls {
   width: 25%;
 }
 
 .Instrument ul {
   flex-grow: 1;
   justify-content: space-between;
+}
+
+.Instrument__volume-controls {
+  width: 10%;
 }

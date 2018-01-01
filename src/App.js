@@ -50,20 +50,24 @@ class App extends Component {
       playing: false,
       bpm: 128,
       intervalId: 0,
-      sounds: {
-        kickSound: new Howl({
-          src: [bubbleSound]
+      sounds: [
+        new Howl({
+          src: [bubbleSound],
+          volume: 0.5
         }),
-        snareSound: new Howl({
-          src: [claySound]
+        new Howl({
+          src: [claySound],
+          volume: 0.5
         }),
-        openHatSound: new Howl({
-          src: [coronaSound]
+        new Howl({
+          src: [coronaSound],
+          volume: 0.5
         }),
-        closedHatSound: new Howl({
-          src: [moonSound]
+        new Howl({
+          src: [moonSound],
+          volume: 0.5
         })
-      }
+      ]
     }
   }
 
@@ -76,6 +80,30 @@ class App extends Component {
       newSequences[sequenceNum].frames[instrumentNum][frameNum] = 0;
     }
     this.setState({sequences: newSequences})
+  }
+
+  changeVolume = (instrumentNum, volumeChange) => {
+    var currentVolume = this.state.sounds[instrumentNum].volume();
+    switch (volumeChange) {
+      case -1:
+        //decrease volume
+        if(currentVolume > 0) {
+          this.state.sounds[instrumentNum].volume(currentVolume - 0.1);
+        }
+        break;
+      case 0:
+        //mute
+        this.state.sounds[instrumentNum].volume(0);
+        break;
+      case 1:
+        //increase volume
+        if(currentVolume < 1) {
+          this.state.sounds[instrumentNum].volume(currentVolume + 0.1);
+        }
+        break;
+      default:
+        console.log("Not an instrument");
+    }
   }
 
   componentWillUnmount = () => {
@@ -93,16 +121,16 @@ class App extends Component {
 
   playSounds = (currentFrame, currentSequence, sequences) => {
     if(sequences[currentSequence].frames[0][currentFrame]){
-      this.state.sounds.kickSound.play();
+      this.state.sounds[0].play();
     }
     if(sequences[currentSequence].frames[1][currentFrame]){
-      this.state.sounds.snareSound.play();
+      this.state.sounds[1].play();
     }
     if(sequences[currentSequence].frames[2][currentFrame]){
-      this.state.sounds.openHatSound.play();
+      this.state.sounds[2].play();
     }
     if(sequences[currentSequence].frames[3][currentFrame]){
-      this.state.sounds.closedHatSound.play();
+      this.state.sounds[3].play();
     }
   }
 
@@ -158,7 +186,7 @@ class App extends Component {
     return (
       <div className="App">
         <Header play={this.playSequence} stop={this.stop} updateBPM={this.updateBPM} updateSequence={this.updateSequence} bpm={this.state.bpm}/>
-        <Sequence sequence={this.state.sequences[this.state.currentSequence]} number={this.state.currentSequence} currentFrame={this.state.currentFrame} changeNote={this.changeNote}/>
+        <Sequence sequence={this.state.sequences[this.state.currentSequence]} number={this.state.currentSequence} currentFrame={this.state.currentFrame} changeNote={this.changeNote} changeVolume={this.changeVolume}/>
       </div>
     );
   }
