@@ -9,7 +9,7 @@ class Note extends React.Component {
   render(){
     return(
       <li className={`Note ${this.getClass()}`} onClick={() => this.props.changeNote(this.props.sequenceNum, this.props.instrumentNum, this.props.index)}>
-        {this.props.noteVal ? <i className="fa fa-circle"></i> : ""}
+        {this.props.noteVal ? <i onClick={this.playSound} className="fa fa-circle"></i> : ""}
       </li>
     )
   }

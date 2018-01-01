@@ -3,6 +3,12 @@ import './App.css';
 import Header from './Header';
 import Sequence from './Sequence';
 
+import { Howl } from 'howler';
+import * as bubbleSound from "./sounds/bubbles.mp3";
+import * as claySound from "./sounds/clay.mp3";
+import * as coronaSound from "./sounds/corona.mp3";
+import * as moonSound from "./sounds/moon.mp3";
+
 class App extends Component {
   constructor(props) {
     super(props);
@@ -40,10 +46,24 @@ class App extends Component {
         }
       ],
       currentSequence: 0,
-      currentFrame: 0,
+      currentFrame: -1,
       playing: false,
       bpm: 128,
-      intervalId: 0
+      intervalId: 0,
+      sounds: {
+        kickSound: new Howl({
+          src: [bubbleSound]
+        }),
+        snareSound: new Howl({
+          src: [claySound]
+        }),
+        openHatSound: new Howl({
+          src: [coronaSound]
+        }),
+        closedHatSound: new Howl({
+          src: [moonSound]
+        })
+      }
     }
   }
 
@@ -64,11 +84,29 @@ class App extends Component {
 
   timer = () => {
     const {currentFrame, currentSequence, sequences} = this.state;
+    //advance frame number
     currentFrame < sequences[currentSequence].totalFrames - 1 ? 
     this.setState({currentFrame: currentFrame + 1}) : this.setState({currentFrame: 0});
+    //play sounds
+    this.playSounds(this.state.currentFrame, currentSequence, sequences);
   }
 
-  play = () => {
+  playSounds = (currentFrame, currentSequence, sequences) => {
+    if(sequences[currentSequence].frames[0][currentFrame]){
+      this.state.sounds.kickSound.play();
+    }
+    if(sequences[currentSequence].frames[1][currentFrame]){
+      this.state.sounds.snareSound.play();
+    }
+    if(sequences[currentSequence].frames[2][currentFrame]){
+      this.state.sounds.openHatSound.play();
+    }
+    if(sequences[currentSequence].frames[3][currentFrame]){
+      this.state.sounds.closedHatSound.play();
+    }
+  }
+
+  playSequence = () => {
     this.setState({playing: true});this.setState({intervalId: setInterval(this.timer, 60/this.state.bpm*1000)});
   }
 
@@ -89,7 +127,7 @@ class App extends Component {
 
     return (
       <div className="App">
-        <Header play={this.play} stop={this.stop} updateBPM={this.updateBPM} updateSequence={this.updateSequence} bpm={this.state.bpm}/>
+        <Header play={this.playSequence} stop={this.stop} updateBPM={this.updateBPM} updateSequence={this.updateSequence} bpm={this.state.bpm}/>
         <Sequence sequence={this.state.sequences[this.state.currentSequence]} number={this.state.currentSequence} currentFrame={this.state.currentFrame} changeNote={this.changeNote}/>
       </div>
     );
