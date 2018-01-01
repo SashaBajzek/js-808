@@ -1,5 +1,6 @@
 import * as React from 'react';
 import Instrument from "./Instrument";
+import "./Sequence.css";
 
 class Sequence extends React.Component {
   renderInstruments = () => {
@@ -10,10 +11,27 @@ class Sequence extends React.Component {
     return instrumentList;
   }
 
+  renderHeader = () => {
+    let headerList = [];
+    for(var i = 1; i <= this.props.sequence.totalFrames; i += 1) {
+      headerList.push(<li className={this.getClass(i)} key={`header${i}`}>{i}</li>)
+    }
+    return headerList;
+  }
+
+  getClass = (i) => {
+    return i-1 === this.props.currentFrame ? "Sequence__current" : "";
+  }
+
   render() {
     return (
       <div className="Sequence">
-        <h1>Sequence {this.props.number + 1}</h1>
+        <div className="Sequence__header">
+          <h1>Sequence {this.props.number + 1}</h1>
+          <ul className="Sequence__header-list">
+            {this.renderHeader()}
+          </ul>
+        </div>
         <ul className="">
           {this.renderInstruments()}
         </ul>

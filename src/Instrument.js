@@ -1,5 +1,6 @@
 import * as React from 'react';
 import Note from "./Note";
+import "./Instrument.css";
 
 const Instrument = ({ name, frames, currentFrame, changeNote, sequenceNum, instrumentNum }) => (
   <li className="Instrument">

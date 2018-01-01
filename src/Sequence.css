@@ -1,0 +1,22 @@
+.Sequence__header {
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+  margin: 0;
+}
+
+.Sequence__header h1 {
+  width: 25%;
+}
+
+.Sequence__header-list {
+  display: flex;
+  flex-grow: 1;
+  justify-content: space-between;
+}
+
+.Sequence__current {
+  background-color: rgba(255, 255, 0, 0.5);
+  color: purple;
+  font-weight: bold;
+}
