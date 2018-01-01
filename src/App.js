@@ -53,19 +53,23 @@ class App extends Component {
       sounds: [
         new Howl({
           src: [bubbleSound],
-          volume: 0.5
+          volume: 0.5,
+          mute: false
         }),
         new Howl({
           src: [claySound],
-          volume: 0.5
+          volume: 0.5,
+          mute: false
         }),
         new Howl({
           src: [coronaSound],
-          volume: 0.5
+          volume: 0.5,
+          mute: false
         }),
         new Howl({
           src: [moonSound],
-          volume: 0.5
+          volume: 0.5,
+          mute: false
         })
       ]
     }
@@ -83,22 +87,30 @@ class App extends Component {
   }
 
   changeVolume = (instrumentNum, volumeChange) => {
-    var currentVolume = this.state.sounds[instrumentNum].volume();
+    //create newSounds object so state is mutated
+    var newSounds = this.state.sounds;
+    var instrument = newSounds[instrumentNum];
+    var currentVolume = instrument.volume();
     switch (volumeChange) {
       case -1:
         //decrease volume
         if(currentVolume > 0) {
-          this.state.sounds[instrumentNum].volume(currentVolume - 0.1);
+          instrument.volume(currentVolume - 0.1);
+          instrument.mute(false);
+          this.setState({sounds: newSounds});
         }
         break;
       case 0:
         //mute
-        this.state.sounds[instrumentNum].volume(0);
+        instrument.mute(!instrument.mute());
+        this.setState({sounds: newSounds});
         break;
       case 1:
         //increase volume
         if(currentVolume < 1) {
-          this.state.sounds[instrumentNum].volume(currentVolume + 0.1);
+          instrument.volume(currentVolume + 0.1);
+          instrument.mute(false);
+          this.setState({sounds: newSounds});
         }
         break;
       default:
