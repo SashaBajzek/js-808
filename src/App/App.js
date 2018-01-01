@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
 import './App.css';
-import Header from './Header';
-import Sequence from './Sequence';
+import Header from '../Header/Header';
+import Sequence from '../Sequence/Sequence';
 
 import { Howl } from 'howler';
-import * as bubbleSound from "./sounds/bubbles.mp3";
-import * as claySound from "./sounds/clay.mp3";
-import * as coronaSound from "./sounds/corona.mp3";
-import * as moonSound from "./sounds/moon.mp3";
+import * as bubbleSound from "../sounds/bubbles.mp3";
+import * as claySound from "../sounds/clay.mp3";
+import * as coronaSound from "../sounds/corona.mp3";
+import * as moonSound from "../sounds/moon.mp3";
 
 class App extends Component {
   constructor(props) {

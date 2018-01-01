@@ -1,6 +1,6 @@
 import * as React from 'react';
 import './Header.css';
-import '../node_modules/font-awesome/css/font-awesome.min.css'; 
+import '../../node_modules/font-awesome/css/font-awesome.min.css'; 
 
 class Header extends React.Component {
   handleSubmit(event){

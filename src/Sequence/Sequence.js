@@ -1,5 +1,5 @@
 import * as React from 'react';
-import Instrument from "./Instrument";
+import Instrument from "../Instrument/Instrument";
 import "./Sequence.css";
 
 class Sequence extends React.Component {
