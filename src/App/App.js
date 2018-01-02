@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import './App.css';
 import Header from '../Header/Header';
 import Sequence from '../Sequence/Sequence';
+import Footer from '../Footer/Footer';
 
 import { Howl } from 'howler';
 import * as bubbleSound from "../sounds/bubbles.mp3";
@@ -195,9 +196,10 @@ class App extends Component {
 
     return (
       <div className="App">
-        <Header play={this.playSequence} stop={this.stop} updateBPM={this.updateBPM} updateSequence={this.updateSequence} bpm={this.state.bpm}/>
+        <Header play={this.playSequence} stop={this.stop} updateBPM={this.updateBPM} updateSequence={this.updateSequence} bpm={this.state.bpm} playing={this.state.playing}/>
         <Sequence sequence={this.state.sequences[this.state.currentSequence]} number={this.state.currentSequence} currentFrame={this.state.currentFrame} changeNote={this.changeNote} 
         sounds={this.state.sounds} muteSound={this.muteSound} changeVolume={this.changeVolume}/>
+        <Footer />
       </div>
     );
   }

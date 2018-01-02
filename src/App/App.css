@@ -2,8 +2,17 @@
   box-sizing: border-box;
 }
 
+html,
+body,
+#root {
+  height: 100vh;
+}
+
 body {
+  background-color: #DDDDDD;
+  color: white;
   font-family: Roboto, sans-serif;
+  margin: 0;
 }
 
 ul {
@@ -15,12 +24,9 @@ li {
   padding: 10px;
 }
 
-.current {
-  background-color: rgba(255, 255, 0, 0.5);
-  color: purple;
-  font-weight: bold;
-}
-
-.Instrument ul {
+.App {
   display: flex;
+  flex-direction: column;
+  height: 100%;
+  justify-content: space-between;
 }

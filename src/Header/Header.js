@@ -8,12 +8,15 @@ class Header extends React.Component {
   }
 
   render(){
-    const {stop, play, bpm, updateBPM, updateSequence} = this.props;
+    const {stop, play, bpm, updateBPM, updateSequence, playing} = this.props;
     return (
       <header className="Header">
         <h1 className="Header__title">JS-808</h1>
-        <button onClick={stop}><i className="fa fa-stop" aria-hidden="true"></i> Stop</button>
-        <button onClick={play}><i className="fa fa-play" aria-hidden="true"></i> / <i className="fa fa-pause" aria-hidden="true"></i> Play / Pause</button>
+        <button className="Header__button--stop" onClick={stop}><i className="fa fa-stop" aria-hidden="true"></i><span className="Header__button-text">Stop</span></button>
+        <button className="Header__button--play" onClick={play}>
+        {playing ? <i className="fa fa-pause"><span className="Header__button-text">Pause</span></i> :
+        <i className="fa fa-play"><span className="Header__button-text">Play</span></i> }
+        </button>
         <form onSubmit={this.handleSubmit}>
           <input type="number" name="bpm" value={bpm} onChange={updateBPM}/>
           <label htmlFor="bpm">BPM</label>

@@ -1,3 +1,11 @@
+.Sequence {
+  background-color: rgba(0, 0, 0, 0.75);
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  justify-content: space-between;
+}
+
 .Sequence__header {
   align-items: center;
   display: flex;
@@ -15,8 +23,30 @@
   justify-content: space-between;
 }
 
-.Sequence__current {
-  background-color: rgba(255, 255, 0, 0.5);
-  color: purple;
-  font-weight: bold;
+.Sequence__header li {
+  background-color: rgba(0, 0, 0, 0.8);
+  border: 2px solid rgba(0, 0, 0, 0);
+  flex-grow: 1;
+  font-size: 18px;
+  height: 40px;
+  line-height: 40px;
+  margin: 1px;
+  padding: 0;
+  text-align: center;
+  transition: all .2s linear;
+}
+
+
+li.Sequence__current {
+  background-color: #Dee5e5;
+  border: 2px solid #Dee5e5;
+  box-shadow: 0 0 10px #Dee5e5;
+  color: black;
+}
+
+.Sequence__instrument-list {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  justify-content: space-between;
 }

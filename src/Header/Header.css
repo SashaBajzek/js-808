@@ -1,5 +1,32 @@
-header {
+.Header {
   align-items: center;
+  background-color: black;
+  color: #Dee5e5;
   display: flex;
   justify-content: space-between;
+}
+
+.Header__button--play,
+.Header__button--stop {
+  border-radius: 5px;
+  font-size: 14px;
+  height: 26px;
+  width: 40px;
+}
+
+.Header__button--play:hover,
+.Header__button--play:focus{
+  box-shadow: 0 0 10px #0050FF;
+  color: #0050FF;
+}
+
+.Header__button--stop:hover,
+.Header__button--stop:focus {
+  box-shadow: 0 0 10px #db5461;
+  color: #db5461;
+}
+
+.Header__button-text {
+  position: absolute;
+  transform: translateX(100vw);
 }

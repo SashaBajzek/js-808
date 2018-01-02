@@ -1,23 +1,174 @@
 .Instrument {
   align-items: center;
   display: flex;
+  flex-direction: column;
   justify-content: space-between;
-  margin: 0;
+  margin: 20px 0;
+  padding: 0;
+}
+
+.Instrument--0 h2{
+  color: rgb(215, 40, 170);
+}
+
+.Instrument--1 h2{
+  color: rgb(215, 155, 50);
+}
+
+.Instrument--2 h2{
+  color: rgb(45, 200, 200);
+}
+
+.Instrument--3 h2{
+  color: rgb(50, 205, 55);
 }
 
 .Instrument__controls {
   width: 25%;
 }
 
-.Instrument__volume-range {
+.Instrument__controls h2 {
+  margin: 0;
+}
+
+li .Instrument__volume-range {
   display: flex;
 }
 
 .Instrument ul {
+  display: flex;
   flex-grow: 1;
   justify-content: space-between;
 }
 
+.Instrument__volume-button-text {
+  position: absolute;
+  transform: translateX(100vw);
+}
+
 .Instrument__volume-controls {
+  /* Need to set width for custom slider */
   width: 10%;
+}
+
+.Instrument__volume-controls button {
+  border-radius: 13px;
+  cursor: pointer;
+  font-size: 14px;
+  height: 26px;
+  overflow: hidden;
+  width: 26px;
+}
+
+.Instrument__volume:hover,
+.Instrument__volume:focus{
+  box-shadow: 0 0 10px #0050FF;
+  color: #0050FF;
+}
+
+.Instrument__mute:hover,
+.Instrument__mute:focus {
+  box-shadow: 0 0 10px #db5461;
+  color: #db5461;
+}
+
+
+/* Customizing Range */
+/* Following:  https://css-tricks.com/styling-cross-browser-compatible-range-inputs-css/ */
+
+/* NEED TO FIX FOCUS FOR ACCESSIBILITIY!!!!!!! */
+
+/* input[type=range] {
+  -webkit-appearance: none;
+  margin: 18px 0;
+  width: 100%;
+}
+input[type=range]:focus {
+  outline: none;
+}
+input[type=range]::-webkit-slider-runnable-track {
+  width: 100%;
+  height: 8.4px;
+  cursor: pointer;
+  animate: 0.2s;
+  box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+  background: #3071a9;
+  border-radius: 1.3px;
+  border: 0.2px solid #010101;
+}
+input[type=range]::-webkit-slider-thumb {
+  box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+  border: 1px solid #000000;
+  height: 36px;
+  width: 16px;
+  border-radius: 3px;
+  background: #ffffff;
+  cursor: pointer;
+  -webkit-appearance: none;
+  margin-top: -14px;
+}
+input[type=range]:focus::-webkit-slider-runnable-track {
+  background: #367ebd;
+}
+input[type=range]::-moz-range-track {
+  width: 100%;
+  height: 8.4px;
+  cursor: pointer;
+  animate: 0.2s;
+  box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+  background: #3071a9;
+  border-radius: 1.3px;
+  border: 0.2px solid #010101;
+}
+input[type=range]::-moz-range-thumb {
+  box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+  border: 1px solid #000000;
+  height: 36px;
+  width: 16px;
+  border-radius: 3px;
+  background: #ffffff;
+  cursor: pointer;
+}
+input[type=range]::-ms-track {
+  width: 100%;
+  height: 8.4px;
+  cursor: pointer;
+  animate: 0.2s;
+  background: transparent;
+  border-color: transparent;
+  border-width: 16px 0;
+  color: transparent;
+}
+input[type=range]::-ms-fill-lower {
+  background: #2a6495;
+  border: 0.2px solid #010101;
+  border-radius: 2.6px;
+  box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+}
+input[type=range]::-ms-fill-upper {
+  background: #3071a9;
+  border: 0.2px solid #010101;
+  border-radius: 2.6px;
+  box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+}
+input[type=range]::-ms-thumb {
+  box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+  border: 1px solid #000000;
+  height: 36px;
+  width: 16px;
+  border-radius: 3px;
+  background: #ffffff;
+  cursor: pointer;
+}
+input[type=range]:focus::-ms-fill-lower {
+  background: #3071a9;
+}
+input[type=range]:focus::-ms-fill-upper {
+  background: #367ebd;
+} */
+
+@media (min-width: 400px) {
+  .Instrument {
+    flex-direction: row;
+  }
 }

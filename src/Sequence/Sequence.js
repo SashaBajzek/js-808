@@ -32,7 +32,7 @@ class Sequence extends React.Component {
             {this.renderHeader()}
           </ul>
         </div>
-        <ul className="">
+        <ul className="Sequence__instrument-list">
           {this.renderInstruments()}
         </ul>
       </div>
