@@ -71,11 +71,45 @@
   width: 26px;
 }
 
-.Instrument__vol-button--gold:hover,
-.Instrument__vol-button--gold:focus{
-  box-shadow: 0 0 10px $gold-light;
-  color: $gold-light;
+
+.Instrument--0 {
+  .Instrument__vol-button--gold:hover,
+  .Instrument__vol-button--gold:focus{
+    box-shadow: 0 0 10px $magenta-light;
+    color: $magenta-light;
+  }
 }
+
+.Instrument--1 {
+  .Instrument__vol-button--gold:hover,
+  .Instrument__vol-button--gold:focus{
+    box-shadow: 0 0 10px $gold-light;
+    color: $gold-light;
+  }
+}
+
+.Instrument--2 {
+  .Instrument__vol-button--gold:hover,
+  .Instrument__vol-button--gold:focus{
+    box-shadow: 0 0 10px $teal-light;
+    color: $teal-light;
+  }
+}
+
+.Instrument--3 {
+  .Instrument__vol-button--gold:hover,
+  .Instrument__vol-button--gold:focus{
+    box-shadow: 0 0 10px $green-light;
+    color: $green-light;
+  }
+}
+
+
+
+
+
+
+
 
 .Instrument__mute:hover,
 .Instrument__mute:focus,
@@ -96,96 +130,181 @@
 /* Customizing Range */
 /* Following:  https://css-tricks.com/styling-cross-browser-compatible-range-inputs-css/ */
 
-/* NEED TO FIX FOCUS FOR ACCESSIBILITIY!!!!!!! */
-
-/* input[type=range] {
-  -webkit-appearance: none;
-  margin: 18px 0;
-  width: 100%;
-}
 input[type=range]:focus {
   outline: none;
 }
-input[type=range]::-webkit-slider-runnable-track {
-  width: 100%;
-  height: 8.4px;
-  cursor: pointer;
-  animate: 0.2s;
-  box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
-  background: #3071a9;
-  border-radius: 1.3px;
-  border: 0.2px solid #010101;
+
+/* Box shadows added here to replace the outline */
+
+.Instrument--0 {
+  input[type=range]:focus::-webkit-slider-thumb {
+    box-shadow: 0 0 10px $magenta-light;
+  }
+  
+  input[type=range]:focus::-moz-range-thumb {
+    box-shadow: 0 0 10px $magenta-light;
+  }
+  
+  input[type=range]:focus::-ms-thumb {
+    box-shadow: 0 0 10px $magenta-light;
+  }
 }
+
+.Instrument--1 {
+  input[type=range]:focus::-webkit-slider-thumb {
+    box-shadow: 0 0 10px $gold-light;
+  }
+  
+  input[type=range]:focus::-moz-range-thumb {
+    box-shadow: 0 0 10px $gold-light;
+  }
+  
+  input[type=range]:focus::-ms-thumb {
+    box-shadow: 0 0 10px $gold-light;
+  }
+}
+
+.Instrument--2 {
+  input[type=range]:focus::-webkit-slider-thumb {
+    box-shadow: 0 0 10px $teal-light;
+  }
+  
+  input[type=range]:focus::-moz-range-thumb {
+    box-shadow: 0 0 10px $teal-light;
+  }
+  
+  input[type=range]:focus::-ms-thumb {
+    box-shadow: 0 0 10px $teal-light;
+  }
+}
+
+.Instrument--3 {
+  input[type=range]:focus::-webkit-slider-thumb {
+    box-shadow: 0 0 10px $green-light;
+  }
+  
+  input[type=range]:focus::-moz-range-thumb {
+    box-shadow: 0 0 10px $green-light;
+  }
+  
+  input[type=range]:focus::-ms-thumb {
+    box-shadow: 0 0 10px $green-light;
+  }
+}
+
+
+/* Generic formatting for new range css */
+
+input[type=range] {
+  -webkit-appearance: none; /* Hides the slider so that custom slider can be made */
+  width: 100%; /* Specific width is required for Firefox. */
+  background: transparent; /* Otherwise white in Chrome */
+}
+
 input[type=range]::-webkit-slider-thumb {
-  box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
-  border: 1px solid #000000;
-  height: 36px;
-  width: 16px;
-  border-radius: 3px;
-  background: #ffffff;
-  cursor: pointer;
   -webkit-appearance: none;
-  margin-top: -14px;
 }
-input[type=range]:focus::-webkit-slider-runnable-track {
-  background: #367ebd;
-}
-input[type=range]::-moz-range-track {
-  width: 100%;
-  height: 8.4px;
-  cursor: pointer;
-  animate: 0.2s;
-  box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
-  background: #3071a9;
-  border-radius: 1.3px;
-  border: 0.2px solid #010101;
-}
-input[type=range]::-moz-range-thumb {
-  box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
-  border: 1px solid #000000;
-  height: 36px;
-  width: 16px;
-  border-radius: 3px;
-  background: #ffffff;
-  cursor: pointer;
-}
+
+/* Removes the blue border. You should probably do some kind of focus styling for accessibility reasons though. */
+/* input[type=range]:focus {
+   outline: none;
+ } */
+
 input[type=range]::-ms-track {
   width: 100%;
-  height: 8.4px;
   cursor: pointer;
-  animate: 0.2s;
+
+  /* Hides the slider so custom styles can be added */
+  background: transparent; 
+  border-color: transparent;
+  color: transparent;
+}
+
+/* Track */
+
+input[type=range]::-webkit-slider-runnable-track {
+  background: $darkgrey;
+  border-radius: 1.3px;
+  border: 0.2px solid $darkgrey;
+  cursor: pointer;
+  height: 8.4px;
+  width: 100%;
+}
+
+input[type=range]:focus::-webkit-slider-runnable-track {
+  background: $darkgrey;
+}
+
+input[type=range]::-moz-range-track {
+  background: $darkgrey;
+  border: 0.2px solid $darkgrey;
+  border-radius: 1.3px;
+  cursor: pointer;
+  height: 8.4px;
+  width: 100%;
+}
+
+input[type=range]::-ms-track {
   background: transparent;
   border-color: transparent;
   border-width: 16px 0;
   color: transparent;
+  cursor: pointer;
+  height: 8.4px;
+  width: 100%;
 }
 input[type=range]::-ms-fill-lower {
-  background: #2a6495;
-  border: 0.2px solid #010101;
+  background: $darkgrey;
+  border: 0.2px solid $darkgrey;
   border-radius: 2.6px;
-  box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
-}
-input[type=range]::-ms-fill-upper {
-  background: #3071a9;
-  border: 0.2px solid #010101;
-  border-radius: 2.6px;
-  box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
-}
-input[type=range]::-ms-thumb {
-  box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
-  border: 1px solid #000000;
-  height: 36px;
-  width: 16px;
-  border-radius: 3px;
-  background: #ffffff;
-  cursor: pointer;
 }
 input[type=range]:focus::-ms-fill-lower {
-  background: #3071a9;
+  background: $darkgrey;
+}
+input[type=range]::-ms-fill-upper {
+  background: $darkgrey;
+  border: 0.2px solid$darkgrey;
+  border-radius: 2.6px;
 }
 input[type=range]:focus::-ms-fill-upper {
-  background: #367ebd;
-} */
+  background: $darkgrey;
+}
+
+
+/* Thumb */
+
+/* Special styling for WebKit/Blink */
+input[type=range]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  border: 1px solid $white;
+  border-radius: 8px;
+  background: $mediumgrey;
+  cursor: pointer;
+  height: 16px;
+  margin-top: -5px; /* You need to specify a margin in Chrome, but in Firefox and IE it is automatic */
+  width: 16px;
+}
+
+/* All the same stuff for Firefox */
+input[type=range]::-moz-range-thumb {
+  background: $mediumgrey;
+  border: 1px solid $white;
+  border-radius: 8px;
+  cursor: pointer;
+  height: 16px;
+  width: 16px;
+}
+
+/* All the same stuff for IE */
+input[type=range]::-ms-thumb {
+  background: $mediumgrey;
+  border: 1px solid $white;
+  border-radius: 8px;
+  cursor: pointer;
+  height: 16px;
+  width: 16px;
+}
+
 
 @media (min-width: 800px) {
   .Instrument {
