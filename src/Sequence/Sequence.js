@@ -3,6 +3,15 @@ import Instrument from "../Instrument/Instrument";
 import "./Sequence.scss";
 
 class Sequence extends React.Component {
+  
+  renderHeader = () => {
+    let headerList = [];
+    for(var i = 1; i <= this.props.sequence.totalFrames; i += 1) {
+      headerList.push(<li className={`Sequence__header-item ${this.getClass(i)}`} key={`header${i}`}>{i}</li>)
+    }
+    return headerList;
+  }
+
   renderInstruments = () => {
     let instrumentList = [];
     for(var i = 0; i < this.props.sequence.frames.length; i+=1) {
@@ -11,23 +20,15 @@ class Sequence extends React.Component {
     return instrumentList;
   }
 
-  renderHeader = () => {
-    let headerList = [];
-    for(var i = 1; i <= this.props.sequence.totalFrames; i += 1) {
-      headerList.push(<li className={this.getClass(i)} key={`header${i}`}>{i}</li>)
-    }
-    return headerList;
-  }
-
   getClass = (i) => {
-    return i-1 === this.props.currentFrame ? "Sequence__current" : "";
+    return i-1 === this.props.currentFrame ? "Sequence__header-item--current" : "";
   }
 
   render() {
     return (
       <div className="Sequence">
         <div className="Sequence__header">
-          <h2>Sequence {this.props.number + 1}</h2>
+          <h2 className="Sequence__title">Sequence {this.props.number + 1}</h2>
           <ul className="Sequence__header-list">
             {this.renderHeader()}
           </ul>

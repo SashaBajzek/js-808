@@ -9,7 +9,7 @@ const Footer = () => (
     <div className="Footer__container">
       <small className="Footer__copyright">&copy; {year} Sasha Bajzek</small>
       <a href="https://github.com/SashaBajzek/js-808">
-        <img className="Footer__image--github" src={GitHubLogo} alt="Github" />
+        <img className="Footer__image" src={GitHubLogo} alt="Github" />
       </a>
     </div>
   </footer>

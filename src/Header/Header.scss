@@ -5,12 +5,26 @@
   background-color: $blackgrey;
   color: $white;
   display: flex;
+  flex-direction: column;
+  height: 100px;
   justify-content: space-between;
   padding: 0 10px;
 }
 
-.Header__button--play,
-.Header__button--stop {
+.Header__title {
+  font-size: 1.5em;
+  margin: 10px auto;
+}
+
+.Header__controls-container {
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 5px;
+  width: 100%;
+}
+
+.Header__button {
   background: rgb(55, 55, 55);
   border: 1px solid rgb(55, 55, 55);
   border-radius: 2px;
@@ -37,6 +51,7 @@
 .Header__button-text {
   position: absolute;
   transform: translateX(100vw);
+  /* Buttons use an icon visually, pushing text off screen */
 }
 
 .Header input:focus,
@@ -64,5 +79,33 @@
   color: $blackgrey;
   font-size: 14px;
   margin-left: 20px;
+}
+
+@media (min-width: 430px) {
+  .Header__controls-container {
+    width: 80%;
+  }
+}
+
+@media (min-width: 650px) {
+  .Header {
+    flex-direction: row;
+    height: 70px;
+  }
+
+  .Header__title {
+    font-size: 2em;
+    margin: 20px 0;
+  }
+
+  .Header__controls-container {
+    justify-content: space-between;
+    margin: 0;
+    width: inherit;
+  }
+
+  .Header__button-container {
+    margin-right: 50px;
+  }
 }
 

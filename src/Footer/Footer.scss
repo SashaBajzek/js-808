@@ -4,6 +4,7 @@
   align-items: center;
   background-color: $blackgrey;
   display: flex;
+  flex-shrink: 0;
   justify-content: center;
   margin: 0
 }
@@ -20,6 +21,6 @@
 }
 
 .Footer a,
-.Footer__image--github {
+.Footer__image {
   height: 18px;
 }
