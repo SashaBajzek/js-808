@@ -1,0 +1,68 @@
+@import '../variables.scss';
+
+.Header {
+  align-items: center;
+  background-color: $blackgrey;
+  color: $white;
+  display: flex;
+  justify-content: space-between;
+  padding: 0 10px;
+}
+
+.Header__button--play,
+.Header__button--stop {
+  background: rgb(55, 55, 55);
+  border: 1px solid rgb(55, 55, 55);
+  border-radius: 2px;
+  color: $white;
+  cursor: pointer;
+  font-size: 18px;
+  margin: 0 4px;
+  outline: none; /* replaced with boxshadow */
+  padding: 2px 10px;
+}
+
+.Header__button--play:hover,
+.Header__button--play:focus{
+  box-shadow: 0 0 10px $gold-light;
+  color: $gold-light;
+}
+
+.Header__button--stop:hover,
+.Header__button--stop:focus {
+  box-shadow: 0 0 10px $red;
+  color: $red;
+}
+
+.Header__button-text {
+  position: absolute;
+  transform: translateX(100vw);
+}
+
+.Header input:focus,
+.Header input:hover,
+.Header select:focus,
+.Header select:hover {
+  box-shadow: 0 0 10px $gold-light;
+  background: $gold-light;
+}
+
+.Header input {
+  background: $white;
+  border: none;
+  border-radius: 2px;
+  color: $blackgrey;
+  font-size: 14px;
+  margin-right: 5px;
+  text-align: center;
+  width: 80px;
+}
+
+.Header select {
+  background: $white;
+  border: none;
+  color: $blackgrey;
+  font-size: 14px;
+  margin-left: 20px;
+}
+

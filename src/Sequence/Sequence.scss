@@ -1,9 +1,12 @@
+@import '../variables.scss';
+
 .Sequence {
   background-color: rgba(0, 0, 0, 0.75);
   display: flex;
   flex-direction: column;
   flex-grow: 1;
   justify-content: space-between;
+  padding: 0 10px;
 }
 
 .Sequence__header {
@@ -13,7 +16,7 @@
   margin: 0;
 }
 
-.Sequence__header h1 {
+.Sequence__header h2 {
   width: 25%;
 }
 
@@ -24,8 +27,9 @@
 }
 
 .Sequence__header li {
-  background-color: rgba(0, 0, 0, 0.8);
-  border: 2px solid rgba(0, 0, 0, 0);
+  background-color: $darkgrey;
+  border: 2px solid $darkgrey;
+  flex-basis: 0; /* grow the elements equally, ignoring content size */
   flex-grow: 1;
   font-size: 18px;
   height: 40px;
@@ -35,7 +39,6 @@
   text-align: center;
   transition: all .2s linear;
 }
-
 
 li.Sequence__current {
   background-color: #Dee5e5;
@@ -49,4 +52,10 @@ li.Sequence__current {
   flex-direction: column;
   flex-grow: 1;
   justify-content: space-between;
+}
+
+@media (min-width: 650px) {
+  .Sequence__header h2 {
+    font-size: 30px;
+  }
 }

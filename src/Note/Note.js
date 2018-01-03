@@ -1,5 +1,5 @@
 import * as React from 'react';
-import "./Note.css";
+import "./Note.scss";
 
 class Note extends React.Component {
   getClass = () => {

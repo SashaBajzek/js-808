@@ -1,38 +1,60 @@
+@import '../variables.scss';
+
 .Instrument {
   align-items: center;
   display: flex;
   flex-direction: column;
+  flex-grow: 1;
   justify-content: space-between;
-  margin: 20px 0;
-  padding: 0;
+  margin: 0;
+  padding: 10px 0;
 }
 
 .Instrument--0 h2{
-  color: rgb(215, 40, 170);
+  color: $magenta-light;
 }
 
 .Instrument--1 h2{
-  color: rgb(215, 155, 50);
+  color: $gold-light;
 }
 
 .Instrument--2 h2{
-  color: rgb(45, 200, 200);
+  color: $teal-light;
 }
 
 .Instrument--3 h2{
-  color: rgb(50, 205, 55);
+  color: $green-light;
+}
+
+.Instrument__notes-list {
+  display: block;
+  flex-grow: 1;
+  height: 100%;
+  width: 100%;
 }
 
 .Instrument__controls {
-  width: 25%;
+  align-items: center;
+  display: flex;
+  width: 100%;
 }
 
 .Instrument__controls h2 {
   margin: 0;
 }
 
-li .Instrument__volume-range {
+.Instrument__volume-controls {
+  /* Need to set width for custom slider */
+  width: 100%;
+}
+
+.Instrument__volume-range {
   display: flex;
+  width: 80%;
+}
+
+.Instrument__volume-range input {
+  width: 60px;
 }
 
 .Instrument ul {
@@ -46,28 +68,29 @@ li .Instrument__volume-range {
   transform: translateX(100vw);
 }
 
-.Instrument__volume-controls {
-  /* Need to set width for custom slider */
-  width: 10%;
-}
-
 .Instrument__volume-controls button {
+  background: $darkgrey;
+  border: none;
   border-radius: 13px;
+  color: $white;
   cursor: pointer;
+  flex-shrink: 0;
   font-size: 14px;
   height: 26px;
+  outline: none; /* replaced with boxshadow */
   overflow: hidden;
   width: 26px;
 }
 
 .Instrument__volume:hover,
 .Instrument__volume:focus{
-  box-shadow: 0 0 10px #0050FF;
-  color: #0050FF;
+  box-shadow: 0 0 10px $gold-light;
+  color: $gold-light;
 }
 
 .Instrument__mute:hover,
-.Instrument__mute:focus {
+.Instrument__mute:focus,
+.Instrument__mute--muted {
   box-shadow: 0 0 10px #db5461;
   color: #db5461;
 }
@@ -167,8 +190,22 @@ input[type=range]:focus::-ms-fill-upper {
   background: #367ebd;
 } */
 
-@media (min-width: 400px) {
+@media (min-width: 650px) {
   .Instrument {
     flex-direction: row;
+  }
+
+  .Instrument__controls {
+    padding-right: 10px;
+    width: 25%;
+  }
+
+  .Instrument__notes-list {
+    width: inherit;
+  }
+
+  .Instrument__controls {
+    align-items: flex-start;
+    flex-direction: column;
   }
 }

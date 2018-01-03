@@ -1,0 +1,75 @@
+@import '../variables.scss';
+
+.Note {
+  background-color: rgba(0, 0, 0, 0.8);
+  border: 2px solid rgba(0, 0, 0, 0);
+  border-radius: 5px;
+  cursor: pointer;
+  flex-grow: 1;
+  height: 80%;
+  margin: 1px;
+  min-height: 40px;
+  padding: 0;
+  text-align: center;
+  transition: all .2s linear;
+}
+
+.current {
+  background-color: $white;
+  border: 2px solid $white;
+  box-shadow: 0 0 10px $white;
+}
+
+.Instrument--0 .Note {
+  background-color: $magenta-dark;
+  color: $magenta-dark;
+}
+
+.Instrument--0 .Note.selected,
+.Instrument--0 .Note:hover,
+.Instrument--0 .Note:focus {
+  background-image: radial-gradient($magenta-light 10%,$magenta-light-transparent 100%);
+  color: $magenta-light;
+}
+
+.Instrument--1 .Note {
+  background-color: $gold-dark;
+  color: $gold-dark;
+}
+
+.Instrument--1 .Note.selected,
+.Instrument--1 .Note:hover,
+.Instrument--1 .Note:focus {
+  background-image: radial-gradient($gold-light 10%, $gold-light-transparent 100%);
+  color: $gold-light;
+}
+
+.Instrument--2 .Note {
+  background-color: $teal-dark;
+  color: $teal-dark;
+}
+
+.Instrument--2 .Note.selected,
+.Instrument--2 .Note:hover,
+.Instrument--2 .Note:focus {
+  background-image: radial-gradient($teal-light 10%, $teal-light-transparent 100%);
+  color: $teal-light;
+}
+
+.Instrument--3 .Note {
+  background-color: $green-dark;
+  color: $green-dark;
+}
+
+.Instrument--3 .Note.selected,
+.Instrument--3 .Note:hover,
+.Instrument--3 .Note:focus {
+  background-image: radial-gradient($green-light 10%, $green-light-transparent 100%);
+  color: $green-light;
+}
+
+@media (min-width: 650px) {
+  .Note {
+    min-height: 60px;
+  }
+}

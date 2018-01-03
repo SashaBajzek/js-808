@@ -1,12 +1,12 @@
 import * as React from 'react';
 import Instrument from "../Instrument/Instrument";
-import "./Sequence.css";
+import "./Sequence.scss";
 
 class Sequence extends React.Component {
   renderInstruments = () => {
     let instrumentList = [];
     for(var i = 0; i < this.props.sequence.frames.length; i+=1) {
-      instrumentList.push(<Instrument key={`instrument${i}`} name={this.props.sequence.instruments[i]} frames={this.props.sequence.frames[i]} currentFrame={this.props.currentFrame} changeNote={this.props.changeNote} instrumentVolume={this.props.sounds[i].volume()} muteSound={this.props.muteSound} changeVolume={this.props.changeVolume} sequenceNum={this.props.number} instrumentNum={i} />);
+      instrumentList.push(<Instrument key={`instrument${i}`} name={this.props.sequence.instruments[i]} frames={this.props.sequence.frames[i]} currentFrame={this.props.currentFrame} changeNote={this.props.changeNote} instrumentVolume={this.props.sounds[i].volume()} instrumentMute={this.props.sounds[i].mute()} muteSound={this.props.muteSound} changeVolume={this.props.changeVolume} sequenceNum={this.props.number} instrumentNum={i} />);
     }
     return instrumentList;
   }
@@ -27,7 +27,7 @@ class Sequence extends React.Component {
     return (
       <div className="Sequence">
         <div className="Sequence__header">
-          <h1>Sequence {this.props.number + 1}</h1>
+          <h2>Sequence {this.props.number + 1}</h2>
           <ul className="Sequence__header-list">
             {this.renderHeader()}
           </ul>

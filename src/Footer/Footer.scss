@@ -1,0 +1,25 @@
+@import '../variables.scss';
+
+.Footer {
+  align-items: center;
+  background-color: $blackgrey;
+  display: flex;
+  justify-content: center;
+  margin: 0
+}
+
+.Footer__container {
+  align-items: center;
+  display: flex;
+  margin: 3px auto;
+}
+
+.Footer__copyright {
+  background-color: $blackgrey;
+  margin-right: 10px;
+}
+
+.Footer a,
+.Footer__image--github {
+  height: 18px;
+}

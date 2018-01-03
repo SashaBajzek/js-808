@@ -1,5 +1,5 @@
 import * as React from 'react';
-import "./Footer.css";
+import "./Footer.scss";
 import GitHubLogo from './GitHub-Mark-Light-64px.png';
 
 const year = new Date().getFullYear();

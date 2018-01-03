@@ -1,3 +1,5 @@
+@import '../variables.scss';
+
 * {
   box-sizing: border-box;
 }
@@ -6,10 +8,11 @@ html,
 body,
 #root {
   height: 100vh;
+  overflow: hidden;
 }
 
 body {
-  background-color: #DDDDDD;
+  background-color: $mediumgrey;
   color: white;
   font-family: Roboto, sans-serif;
   margin: 0;
