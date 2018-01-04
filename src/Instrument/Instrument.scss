@@ -104,18 +104,13 @@
   }
 }
 
-
-
-
-
-
-
-
 .Instrument__mute:hover,
-.Instrument__mute:focus,
+.Instrument__mute:focus {
+  box-shadow: 0 0 10px $red;
+}
+
 .Instrument__mute--muted {
-  box-shadow: 0 0 10px #db5461;
-  color: #db5461;
+  color: $red;
 }
 
 .Instrument__notes-list {
