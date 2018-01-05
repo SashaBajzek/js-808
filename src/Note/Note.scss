@@ -18,6 +18,7 @@
   border: 2px solid rgba(0, 0, 0, 0);
   border-radius: 5px;
   bottom: 0;
+  cursor: pointer;
   left: 0;
   position: absolute;
   right: 0;
@@ -29,7 +30,10 @@
 .Note__button span {
   /* Next added to the note buttons for accessibility, */
   /* However, it's not wanted visually so hiding the text */
-  color: rgba(0, 0, 0, 0);
+  color: white;
+  position: absolute;
+  transform: translateX(100vw);
+  /* Buttons use an icon visually, pushing text off screen */
 }
 
 .current {
@@ -38,14 +42,17 @@
   box-shadow: 0 0 10px $white;
 }
 
+.Note__button:focus {
+  box-shadow: 0 0 10px $mediumgrey;
+}
+
 .Instrument--0 .Note__button {
   background-color: $magenta-dark;
   color: $magenta-dark;
 }
 
 .Instrument--0 .Note__button.selected,
-.Instrument--0 .Note__button:hover,
-.Instrument--0 .Note__button:focus {
+.Instrument--0 .Note__button:hover {
   background-image: radial-gradient($magenta-light 10%,$magenta-light-transparent 100%);
 }
 
@@ -54,8 +61,7 @@
 }
 
 .Instrument--1 .Note__button.selected,
-.Instrument--1 .Note__button:hover,
-.Instrument--1 .Note__button:focus {
+.Instrument--1 .Note__button:hover {
   background-image: radial-gradient($gold-light 10%, $gold-light-transparent 100%);
 }
 
@@ -64,8 +70,7 @@
 }
 
 .Instrument--2 .Note__button.selected,
-.Instrument--2 .Note__button:hover,
-.Instrument--2 .Note__button:focus {
+.Instrument--2 .Note__button:hover {
   background-image: radial-gradient($teal-light 10%, $teal-light-transparent 100%);
 }
 
@@ -74,8 +79,7 @@
 }
 
 .Instrument--3 .Note__button.selected,
-.Instrument--3 .Note__button:hover,
-.Instrument--3 .Note__button:focus {
+.Instrument--3 .Note__button:hover {
   background-image: radial-gradient($green-light 10%, $green-light-transparent 100%);
 }
 

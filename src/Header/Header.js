@@ -21,13 +21,14 @@ class Header extends React.Component {
             </button>
           </div>
           <form onSubmit={this.handleSubmit}>
-            <input type="number" name="bpm" value={bpm} onChange={updateBPM}/>
+            <input type="number" name="bpm" id="bpm" value={bpm} onChange={updateBPM}/>
             <label htmlFor="bpm">BPM</label>
-            <select name="sequence" onChange={updateSequence}>
+            <select name="sequence" id="sequence" onChange={updateSequence}>
               <option value="0">Sequence 1</option>
               <option value="1">Sequence 2</option>
               <option value="2">Sequence 3</option>
             </select>
+            <label htmlFor="sequence" className="Header__label--sequence">Sequence</label>
           </form>
         </div>
       </header>

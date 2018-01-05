@@ -25,8 +25,8 @@
 }
 
 .Header__button {
-  background: rgb(55, 55, 55);
-  border: 1px solid rgb(55, 55, 55);
+  background: $header-button-grey;
+  border: 1px solid $header-button-grey;
   border-radius: 2px;
   color: $white;
   cursor: pointer;
@@ -37,18 +37,29 @@
 }
 
 .Header__button--play:hover,
-.Header__button--play:focus{
+.Header__button--stop:hover {
+  background: $header-button-hover;
+  border: 1px solid $header-button-hover;
+}
+
+.Header__button--play:focus,
+.Header__button--stop:focus {
+  box-shadow: 0 0 10px $mediumgrey;
+}
+
+.Header__button--play:active {
   box-shadow: 0 0 10px $gold-light;
   color: $gold-light;
 }
 
-.Header__button--stop:hover,
-.Header__button--stop:focus {
+.Header__button--stop:active {
   box-shadow: 0 0 10px $red;
   color: $red;
 }
 
+.Header__label--sequence,
 .Header__button-text {
+  color: white;
   position: absolute;
   transform: translateX(100vw);
   /* Buttons use an icon visually, pushing text off screen */

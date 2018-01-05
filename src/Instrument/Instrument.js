@@ -16,7 +16,8 @@ class Instrument extends React.Component {
               <button className="Instrument__vol-button Instrument__vol-button--gold" instrument={instrumentNum} onClick={(e) => {changeVolume(e, -1)}}>
                 <i instrument={instrumentNum} className="fa fa-volume-down" aria-hidden="true"></i><span className="Instrument__vol-button-text">Volume Down</span>
               </button>
-              <input type="range" min="0" max="1" step="0.1" instrument={instrumentNum} value={instrumentVolume} onChange={(e) => {changeVolume(e)}}/>
+              <label htmlFor={`Volume--${instrumentNum}`} className="Instrument__label">Adjust Volume</label>
+              <input type="range" id={`Volume--${instrumentNum}`} min="0" max="1" step="0.1" instrument={instrumentNum} value={instrumentVolume} onChange={(e) => {changeVolume(e)}}/>
               <button className="Instrument__vol-button Instrument__vol-button--gold" instrument={instrumentNum} onClick={(e) => {changeVolume(e, 1)}}>
                 <i instrument={instrumentNum} className="fa fa-volume-up" aria-hidden="true"></i><span className="Instrument__vol-button-text">Volume Up</span>
               </button>

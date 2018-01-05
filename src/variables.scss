@@ -18,10 +18,17 @@ $green-light-transparent: rgba(50, 205, 55, .8);
 
 $white: #Dee5e5;
 
-/* main background & header button background */
-$blackgrey: rgb(23, 24, 26);
 /* header background */
+$blackgrey: rgb(23, 24, 26);
+/* sequence header background */
 $darkgrey: rgb(34, 36, 38);
+
+/* header button */
+$header-button-grey: rgb(55, 55, 55);
+$header-button-hover: rgb(75, 75, 75);
+
+/* volume button */
+$vol-button-hover: rgb(39, 41, 43);
 
 /* main background*/
 $mediumgrey: #DDDDDD;

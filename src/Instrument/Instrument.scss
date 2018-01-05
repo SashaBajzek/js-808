@@ -16,7 +16,7 @@
 }
 
 .Instrument--0 .Instrument__title {
-  color: $magenta-light;
+  color: #DB3DB4; /* Need to increase lightness for enough contrast */
 }
 
 .Instrument--1 .Instrument__title {
@@ -52,14 +52,17 @@
   justify-content: space-between;
 }
 
+.Instrument__label,
+.Instrument__vol-button-text.Instrument__mute--muted,
 .Instrument__vol-button-text {
+  color: white;
   position: absolute;
   transform: translateX(100vw);
 }
 
 .Instrument__vol-button {
   background: $darkgrey;
-  border: none;
+  border: 1px solid transparent;
   border-radius: 13px;
   color: $white;
   cursor: pointer;
@@ -71,45 +74,45 @@
   width: 26px;
 }
 
+.Instrument__vol-button:hover {
+  background: $vol-button-hover;
+}
+
+.Instrument__vol-button:focus {
+  box-shadow: 0 0 10px $mediumgrey;
+}
 
 .Instrument--0 {
-  .Instrument__vol-button--gold:hover,
-  .Instrument__vol-button--gold:focus{
+  .Instrument__vol-button--gold:active {
     box-shadow: 0 0 10px $magenta-light;
     color: $magenta-light;
   }
 }
 
 .Instrument--1 {
-  .Instrument__vol-button--gold:hover,
-  .Instrument__vol-button--gold:focus{
+  .Instrument__vol-button--gold:active {
     box-shadow: 0 0 10px $gold-light;
     color: $gold-light;
   }
 }
 
 .Instrument--2 {
-  .Instrument__vol-button--gold:hover,
-  .Instrument__vol-button--gold:focus{
+  .Instrument__vol-button--gold:active {
     box-shadow: 0 0 10px $teal-light;
     color: $teal-light;
   }
 }
 
 .Instrument--3 {
-  .Instrument__vol-button--gold:hover,
-  .Instrument__vol-button--gold:focus{
+  .Instrument__vol-button--gold:active {
     box-shadow: 0 0 10px $green-light;
     color: $green-light;
   }
 }
 
-.Instrument__mute:hover,
-.Instrument__mute:focus {
+.Instrument__mute--muted,
+.Instrument__mute--muted:focus {
   box-shadow: 0 0 10px $red;
-}
-
-.Instrument__mute--muted {
   color: $red;
 }
 
