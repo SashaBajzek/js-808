@@ -88,7 +88,6 @@ class App extends Component {
   }
 
   muteSound = (instrumentNum) => {
-    //create newSounds object so state is not mutated
     var newSounds = this.state.sounds;
     var instrument = newSounds[instrumentNum];
     instrument.mute(!instrument.mute());
@@ -96,7 +95,6 @@ class App extends Component {
   }
 
   changeVolume = (event, increment) => {
-    //create newSounds object so state is not mutated
     var newSounds = this.state.sounds;
     var instrumentNum = event.target.getAttribute("instrument");
     var instrument = newSounds[instrumentNum];
@@ -124,8 +122,11 @@ class App extends Component {
   timer = () => {
     const {currentFrame, currentSequence, sequences} = this.state;
     //advance frame number
-    currentFrame < sequences[currentSequence].totalFrames - 1 ? 
-    this.setState({currentFrame: currentFrame + 1}) : this.setState({currentFrame: 0});
+    if (currentFrame < sequences[currentSequence].totalFrames - 1) {
+      this.setState({currentFrame: currentFrame + 1});
+    } else {
+      this.setState({currentFrame: 0});
+    }
     //play sounds
     this.playSounds(this.state.currentFrame, currentSequence, sequences);
   }
@@ -153,16 +154,23 @@ class App extends Component {
       clearInterval(this.state.intervalId);
     } else {
       //If paused, play the sequence
-      this.setState({playing: true});
-      this.setState({intervalId: setInterval(this.timer, 60/this.state.bpm*1000)});
+      this.setState(
+        {
+          playing: true, 
+          intervalId: setInterval(this.timer, 60/this.state.bpm*1000)
+        });
     }
   }
 
   stop = () => {
-    this.setState({playing: false});
     clearInterval(this.state.intervalId);
     //Set current frame back to beginning
-    this.setState({currentFrame: -1});
+    this.setState(
+      {
+        playing: false,
+        currentFrame: -1
+      }
+    );
   }
 
   //make sure greater than 0
@@ -173,23 +181,29 @@ class App extends Component {
       //Clear the current interval
       clearInterval(this.state.intervalId);
     } else {
-      //Set the new bpm in the state
-      this.setState({bpm: event.target.value});
       //Clear the current interval
       clearInterval(this.state.intervalId);
+      //Set the new bpm in the state
       //If playing, start interval again with new BPM
       if(this.state.playing) {
-      this.setState({intervalId: setInterval(this.timer, 60/event.target.value*1000)});
+        this.setState(
+          {
+            bpm: event.target.value,
+            intervalId: setInterval(this.timer, 60/event.target.value*1000)}
+        );
+      }
     }
-    }
-    
   }
 
   updateSequence = (event) => {
     //Update sequence number in the state
-    this.setState({currentSequence: parseInt(event.target.value, 0)});
     //Set current frame back to beginning
-    this.setState({currentFrame: -1});
+    this.setState(
+      {
+        currentFrame: -1,
+        currentSequence: parseInt(event.target.value, 0)
+      }
+    );
   }
 
   render() {
