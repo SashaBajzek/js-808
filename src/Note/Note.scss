@@ -46,6 +46,10 @@
   box-shadow: 0 0 10px $mediumgrey;
 }
 
+.Note__button.selected:hover {
+  opacity: 0.8;
+}
+
 .Instrument--0 .Note__button {
   background-color: $magenta-dark;
   color: $magenta-dark;
