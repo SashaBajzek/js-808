@@ -1,0 +1,65 @@
+@import "../variables.scss";
+
+.VolumeButton__vol-button-text.VolumeButton__mute--muted,
+.VolumeButton__vol-button-text {
+  color: white;
+  position: absolute;
+  transform: translateX(100vw);
+}
+
+.VolumeButton__vol-button {
+  background: $darkgrey;
+  border: 1px solid transparent;
+  border-radius: 13px;
+  color: $white;
+  cursor: pointer;
+  flex-shrink: 0;
+  font-size: 14px;
+  height: 26px;
+  outline: none; /* replaced with boxshadow */
+  overflow: hidden;
+  width: 26px;
+}
+
+.VolumeButton__vol-button:hover {
+  background: $vol-button-hover;
+}
+
+.VolumeButton__vol-button:focus {
+  box-shadow: 0 0 10px $mediumgrey;
+}
+
+.VolumeButton__mute--muted,
+.VolumeButton__mute--muted:focus {
+  box-shadow: 0 0 10px $red;
+  color: $red;
+}
+
+
+.Instrument--0 {
+  .VolumeButton__vol-button--gold:active {
+    box-shadow: 0 0 10px $magenta-light;
+    color: $magenta-light;
+  }
+}
+
+.Instrument--1 {
+  .VolumeButton__vol-button--gold:active {
+    box-shadow: 0 0 10px $gold-light;
+    color: $gold-light;
+  }
+}
+
+.Instrument--2 {
+  .VolumeButton__vol-button--gold:active {
+    box-shadow: 0 0 10px $teal-light;
+    color: $teal-light;
+  }
+}
+
+.Instrument--3 {
+  .VolumeButton__vol-button--gold:active {
+    box-shadow: 0 0 10px $green-light;
+    color: $green-light;
+  }
+}

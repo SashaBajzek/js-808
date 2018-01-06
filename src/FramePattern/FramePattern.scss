@@ -1,0 +1,15 @@
+@import "../variables.scss";
+
+.FramePattern {
+  display: flex;
+  flex-grow: 1;
+  height: 100%;
+  justify-content: space-between;
+  width: 100%;
+}
+
+@media (min-width: 800px) {
+  .FramePattern {
+    width: inherit;
+  }
+}

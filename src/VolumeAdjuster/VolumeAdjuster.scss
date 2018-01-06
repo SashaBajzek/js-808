@@ -1,0 +1,32 @@
+@import "../variables.scss";
+
+.VolumeAdjuster__vol-adjuster {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.VolumeAdjuster__vol-controls-list {
+  display: flex;
+  justify-content: space-between;
+}
+
+@media (min-width: 800px) {
+
+  .VolumeAdjuster__details {
+    align-items: flex-start;
+    flex-direction: column;
+    padding-right: 10px;
+    width: 25%;
+  }
+
+  .VolumeAdjuster__vol-controls-list {
+    flex-grow: 1;
+    width: 100%;
+  }
+
+  .VolumeAdjuster__vol-adjuster {
+    justify-content: flex-start;
+    width: 80%;
+  }
+
+}

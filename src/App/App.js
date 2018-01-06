@@ -94,9 +94,8 @@ class App extends Component {
     this.setState({sounds: newSounds});
   }
 
-  changeVolume = (event, increment) => {
+  changeVolume = (instrumentNum, event, increment) => {
     var newSounds = this.state.sounds;
-    var instrumentNum = event.target.getAttribute("instrument");
     var instrument = newSounds[instrumentNum];
     var newVolume = instrument.volume();
     if(increment) {
