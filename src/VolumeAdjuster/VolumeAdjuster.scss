@@ -1,11 +1,11 @@
 @import "../variables.scss";
 
-.VolumeAdjuster__vol-adjuster {
+.VolumeAdjuster {
   display: flex;
   justify-content: flex-end;
 }
 
-.VolumeAdjuster__vol-controls-list {
+.VolumeAdjuster__list {
   display: flex;
   justify-content: space-between;
 }
@@ -19,12 +19,12 @@
     width: 25%;
   }
 
-  .VolumeAdjuster__vol-controls-list {
+  .VolumeAdjuster__list {
     flex-grow: 1;
     width: 100%;
   }
 
-  .VolumeAdjuster__vol-adjuster {
+  .VolumeAdjuster {
     justify-content: flex-start;
     width: 80%;
   }

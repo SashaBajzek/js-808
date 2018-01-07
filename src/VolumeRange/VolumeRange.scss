@@ -1,8 +1,14 @@
 @import "../variables";
 
+.VolumeRange {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+}
+
 .VolumeRange,
-.VolumeRange__vol-adjuster input {
-  width: 60px;
+.VolumeRange input {
+  width: 80px;
 }
 
 .VolumeRange__label {
@@ -187,12 +193,4 @@ input[type=range]::-ms-thumb {
   cursor: pointer;
   height: 16px;
   width: 16px;
-}
-
-@media (min-width: 800px) {
-
-  .VolumeRange,
-  .VolumeRange__vol-adjuster input {
-    width: 80px;
-  }
 }

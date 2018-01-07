@@ -8,16 +8,16 @@ class VolumeAdjuster extends React.Component {
     const { instrumentMute, muteSound, changeVolume, instrumentNum, instrumentVolume } = this.props;
 
     return (
-      <ul className="VolumeAdjuster__vol-controls-list">
+      <ul className="VolumeAdjuster__list">
         <li>
           <VolumeButton extraClassName={`VolumeButton__mute ${instrumentMute ? "VolumeButton__mute--muted": ""}`} text="Mute" icon="fa-volume-off" instrumentNum={instrumentNum} handleClick={muteSound}  volIncrement="0" />
         </li>
-        <li className="VolumeAdjuster__vol-adjuster">
-          <VolumeButton extraClassName="VolumeButton__vol-button--gold" text="Volume Down" icon="fa-volume-down" instrumentNum={instrumentNum} handleClick={changeVolume} volIncrement="-1" />
+        <li className="VolumeAdjuster">
+          <VolumeButton extraClassName="VolumeButton__increment" text="Volume Down" icon="fa-volume-down" instrumentNum={instrumentNum} handleClick={changeVolume} volIncrement="-1" />
 
           <VolumeRange extraClassName={`VolumeButton__mute ${instrumentMute ? "VolumeButton__mute--muted": ""}`} instrumentNum={instrumentNum} instrumentVolume={instrumentVolume} changeVolume={changeVolume} />
 
-          <VolumeButton extraClassName="VolumeButton__vol-button--gold"  text="Volume Up" icon="fa-volume-up" instrumentNum={instrumentNum} handleClick={changeVolume} volIncrement="1" />
+          <VolumeButton extraClassName="VolumeButton__increment"  text="Volume Up" icon="fa-volume-up" instrumentNum={instrumentNum} handleClick={changeVolume} volIncrement="1" />
         </li>
       </ul>
     );
