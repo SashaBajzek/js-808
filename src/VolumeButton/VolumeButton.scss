@@ -22,43 +22,35 @@
   box-shadow: 0 0 10px $mediumgrey;
 }
 
-.VolumeButton__text.VolumeButton__mute--muted,
-.VolumeButton__text {
+.text.muted,
+.text {
   color: white;
   position: absolute;
   transform: translateX(100vw);
 }
 
-.VolumeButton__mute--muted,
-.VolumeButton__mute--muted:focus {
+.muted,
+.muted:focus {
   box-shadow: 0 0 10px $red;
   color: $red;
 }
 
-.Instrument--0 {
-  .VolumeButton__increment:active {
-    box-shadow: 0 0 10px $magenta-light;
-    color: $magenta-light;
-  }
+.increment0:active {
+  box-shadow: 0 0 10px $magenta-light;
+  color: $magenta-light;
 }
 
-.Instrument--1 {
-  .VolumeButton__increment:active {
-    box-shadow: 0 0 10px $gold-light;
-    color: $gold-light;
-  }
+.increment1:active {
+  box-shadow: 0 0 10px $gold-light;
+  color: $gold-light;
 }
 
-.Instrument--2 {
-  .VolumeButton__increment:active {
-    box-shadow: 0 0 10px $teal-light;
-    color: $teal-light;
-  }
+.increment2:active {
+  box-shadow: 0 0 10px $teal-light;
+  color: $teal-light;
 }
 
-.Instrument--3 {
-  .VolumeButton__increment:active {
-    box-shadow: 0 0 10px $green-light;
-    color: $green-light;
-  }
+.increment3:active {
+  box-shadow: 0 0 10px $green-light;
+  color: $green-light;
 }

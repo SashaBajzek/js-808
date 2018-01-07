@@ -10,7 +10,7 @@
   padding: 0 10px;
 }
 
-.Sequence__header {
+.header {
   align-items: center;
   display: flex;
   flex-direction: column;
@@ -18,11 +18,11 @@
   margin: 0;
 }
 
-.Sequence__title {
+.title {
   margin: 10px auto;
 }
 
-.Sequence__header-list {
+.headerlist {
   display: flex;
   flex-grow: 1;
   justify-content: space-between;
@@ -30,7 +30,7 @@
   width: 100%;
 }
 
-.Sequence__header-item {
+.headeritem {
   background-color: $darkgrey;
   border: 2px solid $darkgrey;
   flex-basis: 0; /* grow the elements equally, ignoring content size */
@@ -44,14 +44,14 @@
   transition: all .2s linear;
 }
 
-.Sequence__header-item--current {
+.current {
   background-color: $white;
   border: 2px solid $white;
   box-shadow: 0 0 10px $white;
   color: black;
 }
 
-.Sequence__instrument-list {
+.instrumentlist {
   display: flex;
   flex-direction: column;
   flex-grow: 1;
@@ -59,21 +59,21 @@
 }
 
 @media (min-width: 800px) {
-  .Sequence__header {
+  .header {
     flex-direction: row;
   }
 
-  .Sequence__title {
+  .title {
     font-size: 30px;
     width: 25%;
   }
 
-  .Sequence__header-list {
+  .headerlist {
     margin: 16px 0;
     width: inherit;
   }
 
-  .Sequence__header-item {
+  .headeritem {
     font-size: 18px;
     height: 40px;
     line-height: 40px;

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import './App.scss';
+import styles from './App.scss';
 import Header from '../Header/Header';
 import Sequence from '../Sequence/Sequence';
 import Footer from '../Footer/Footer';
@@ -208,7 +208,7 @@ class App extends Component {
   render() {
 
     return (
-      <div className="App">
+      <div className={styles.App}>
         <Header play={this.playSequence} stop={this.stop} updateBPM={this.updateBPM} updateSequence={this.updateSequence} bpm={this.state.bpm} playing={this.state.playing}/>
         <Sequence sequence={this.state.sequences[this.state.currentSequence]} number={this.state.currentSequence} currentFrame={this.state.currentFrame} changeNote={this.changeNote} 
         sounds={this.state.sounds} muteSound={this.muteSound} changeVolume={this.changeVolume}/>

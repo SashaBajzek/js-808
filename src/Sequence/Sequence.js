@@ -1,13 +1,14 @@
 import React from 'react';
 import Instrument from "../Instrument/Instrument";
-import "./Sequence.scss";
+import styles from "./Sequence.scss";
 
 class Sequence extends React.Component {
+  current = styles.current;
   
   renderHeader = () => {
     let headerList = [];
     for(var i = 1; i <= this.props.sequence.totalFrames; i += 1) {
-      headerList.push(<li className={`Sequence__header-item ${this.getClass(i)}`} key={`header${i}`}>{i}</li>)
+      headerList.push(<li className={`${styles.headeritem} ${this.getClass(i)}`} key={`header${i}`}>{i}</li>)
     }
     return headerList;
   }
@@ -21,19 +22,19 @@ class Sequence extends React.Component {
   }
 
   getClass = (i) => {
-    return i-1 === this.props.currentFrame ? "Sequence__header-item--current" : "";
+    return i-1 === this.props.currentFrame ? this.current : "";
   }
 
   render() {
     return (
-      <div className="Sequence">
-        <div className="Sequence__header">
-          <h2 className="Sequence__title">Sequence {this.props.number + 1}</h2>
-          <ul className="Sequence__header-list">
+      <div className={styles.Sequence}>
+        <div className={styles.header}>
+          <h2 className={styles.title}>Sequence {this.props.number + 1}</h2>
+          <ul className={styles.headerlist}>
             {this.renderHeader()}
           </ul>
         </div>
-        <ul className="Sequence__instrument-list">
+        <ul className={styles.instrumentlist}>
           {this.renderInstruments()}
         </ul>
       </div>

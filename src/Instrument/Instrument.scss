@@ -10,28 +10,28 @@
   padding: 10px 0;
 }
 
-.Instrument__title {
+.title {
   flex-grow: 1;
   margin: 0;
 }
 
-.Instrument--0 .Instrument__title {
+.Instrument0 .title {
   color: #DB3DB4; /* Need to increase lightness for enough contrast */
 }
 
-.Instrument--1 .Instrument__title {
+.Instrument1 .title {
   color: $gold-light;
 }
 
-.Instrument--2 .Instrument__title {
+.Instrument2 .title {
   color: $teal-light;
 }
 
-.Instrument--3 .Instrument__title {
+.Instrument3 .title {
   color: $green-light;
 }
 
-.Instrument__details {
+.details {
   align-items: center;
   display: flex;
   width: 100%;
@@ -42,7 +42,7 @@
     flex-direction: row;
   }
 
-  .Instrument__details {
+  .details {
     align-items: flex-start;
     flex-direction: column;
     padding-right: 10px;

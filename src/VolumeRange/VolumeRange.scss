@@ -11,7 +11,7 @@
   width: 80px;
 }
 
-.VolumeRange__label {
+.label {
   color: white;
   position: absolute;
   transform: translateX(100vw);
@@ -26,60 +26,52 @@ input[type=range]:focus {
 
 /* Box shadows added here to replace the outline */
 
-.Instrument--0 {
-  input[type=range]:focus::-webkit-slider-thumb {
-    box-shadow: 0 0 10px $magenta-light;
-  }
-  
-  input[type=range]:focus::-moz-range-thumb {
-    box-shadow: 0 0 10px $magenta-light;
-  }
-  
-  input[type=range]:focus::-ms-thumb {
-    box-shadow: 0 0 10px $magenta-light;
-  }
+.input0[type=range]:focus::-webkit-slider-thumb {
+  box-shadow: 0 0 10px $magenta-light;
 }
 
-.Instrument--1 {
-  input[type=range]:focus::-webkit-slider-thumb {
-    box-shadow: 0 0 10px $gold-light;
-  }
-  
-  input[type=range]:focus::-moz-range-thumb {
-    box-shadow: 0 0 10px $gold-light;
-  }
-  
-  input[type=range]:focus::-ms-thumb {
-    box-shadow: 0 0 10px $gold-light;
-  }
+.input0[type=range]:focus::-moz-range-thumb {
+  box-shadow: 0 0 10px $magenta-light;
 }
 
-.Instrument--2 {
-  input[type=range]:focus::-webkit-slider-thumb {
-    box-shadow: 0 0 10px $teal-light;
-  }
-  
-  input[type=range]:focus::-moz-range-thumb {
-    box-shadow: 0 0 10px $teal-light;
-  }
-  
-  input[type=range]:focus::-ms-thumb {
-    box-shadow: 0 0 10px $teal-light;
-  }
+.input0[type=range]:focus::-ms-thumb {
+  box-shadow: 0 0 10px $magenta-light;
 }
 
-.Instrument--3 {
-  input[type=range]:focus::-webkit-slider-thumb {
-    box-shadow: 0 0 10px $green-light;
-  }
-  
-  input[type=range]:focus::-moz-range-thumb {
-    box-shadow: 0 0 10px $green-light;
-  }
-  
-  input[type=range]:focus::-ms-thumb {
-    box-shadow: 0 0 10px $green-light;
-  }
+.input1[type=range]:focus::-webkit-slider-thumb {
+  box-shadow: 0 0 10px $gold-light;
+}
+
+.input1[type=range]:focus::-moz-range-thumb {
+  box-shadow: 0 0 10px $gold-light;
+}
+
+.input1[type=range]:focus::-ms-thumb {
+  box-shadow: 0 0 10px $gold-light;
+}
+
+.input2[type=range]:focus::-webkit-slider-thumb {
+  box-shadow: 0 0 10px $teal-light;
+}
+
+.input2[type=range]:focus::-moz-range-thumb {
+  box-shadow: 0 0 10px $teal-light;
+}
+
+.input2[type=range]:focus::-ms-thumb {
+  box-shadow: 0 0 10px $teal-light;
+}
+
+.input3[type=range]:focus::-webkit-slider-thumb {
+  box-shadow: 0 0 10px $green-light;
+}
+
+.input3[type=range]:focus::-moz-range-thumb {
+  box-shadow: 0 0 10px $green-light;
+}
+
+.input3[type=range]:focus::-ms-thumb {
+  box-shadow: 0 0 10px $green-light;
 }
 
 

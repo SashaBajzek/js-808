@@ -5,12 +5,16 @@
   justify-content: flex-end;
 }
 
-.VolumeAdjuster__list {
+.list {
   display: flex;
   justify-content: space-between;
 }
 
 @media (min-width: 800px) {
+  .VolumeAdjuster {
+    justify-content: flex-start;
+    width: 80%;
+  }
 
   .VolumeAdjuster__details {
     align-items: flex-start;
@@ -19,14 +23,8 @@
     width: 25%;
   }
 
-  .VolumeAdjuster__list {
+  .list {
     flex-grow: 1;
     width: 100%;
   }
-
-  .VolumeAdjuster {
-    justify-content: flex-start;
-    width: 80%;
-  }
-
 }

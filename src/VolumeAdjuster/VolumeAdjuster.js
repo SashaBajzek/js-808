@@ -1,5 +1,5 @@
 import React from 'react';
-import "./VolumeAdjuster.scss";
+import styles from "./VolumeAdjuster.scss";
 import VolumeButton from "../VolumeButton/VolumeButton";
 import VolumeRange from "../VolumeRange/VolumeRange";
 
@@ -8,16 +8,16 @@ class VolumeAdjuster extends React.Component {
     const { instrumentMute, muteSound, changeVolume, instrumentNum, instrumentVolume } = this.props;
 
     return (
-      <ul className="VolumeAdjuster__list">
+      <ul className={styles.list}>
         <li>
-          <VolumeButton extraClassName={`VolumeButton__mute ${instrumentMute ? "VolumeButton__mute--muted": ""}`} text="Mute" icon="fa-volume-off" instrumentNum={instrumentNum} handleClick={muteSound}  volIncrement="0" />
+          <VolumeButton extraClassName={`${instrumentMute ? "muted": ""}`} text="Mute" icon="fa-volume-off" instrumentNum={instrumentNum} handleClick={muteSound}  volIncrement="0" />
         </li>
-        <li className="VolumeAdjuster">
-          <VolumeButton extraClassName="VolumeButton__increment" text="Volume Down" icon="fa-volume-down" instrumentNum={instrumentNum} handleClick={changeVolume} volIncrement="-1" />
+        <li className={styles.VolumeAdjuster}>
+          <VolumeButton extraClassName={`increment${instrumentNum}`} text="Volume Down" icon="fa-volume-down" instrumentNum={instrumentNum} handleClick={changeVolume} volIncrement="-1" />
 
-          <VolumeRange extraClassName={`VolumeButton__mute ${instrumentMute ? "VolumeButton__mute--muted": ""}`} instrumentNum={instrumentNum} instrumentVolume={instrumentVolume} changeVolume={changeVolume} />
+          <VolumeRange instrumentNum={instrumentNum} instrumentVolume={instrumentVolume} changeVolume={changeVolume} />
 
-          <VolumeButton extraClassName="VolumeButton__increment"  text="Volume Up" icon="fa-volume-up" instrumentNum={instrumentNum} handleClick={changeVolume} volIncrement="1" />
+          <VolumeButton extraClassName={`increment${instrumentNum}`}  text="Volume Up" icon="fa-volume-up" instrumentNum={instrumentNum} handleClick={changeVolume} volIncrement="1" />
         </li>
       </ul>
     );

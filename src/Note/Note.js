@@ -1,22 +1,26 @@
 import React from 'react';
-import "./Note.scss";
+import styles from "./Note.scss";
 
 class Note extends React.Component {
+
+  current = styles.current;
+  selected = styles.selected;
+
   getClass = () => {
-    var classes = "";
+    var classes = [];
     if(this.props.index === this.props.currentFrame) {
-      classes += " current";
+      classes.push(this.current);
     }
     if(this.props.noteVal) {
-      classes += " selected";
+      classes.push(this.selected);
     }
-    return classes;
+    return classes.join(' ');
   }
 
   render(){
     return(
-      <li className="Note" onClick={() => this.props.changeNote(this.props.sequenceNum, this.props.instrumentNum, this.props.index)}>
-        <button className={`Note__button ${this.getClass()}`}>
+      <li className={styles.Note} onClick={() => this.props.changeNote(this.props.sequenceNum, this.props.instrumentNum, this.props.index)}>
+        <button className={`${styles.button} ${styles["button"+this.props.instrumentNum]} ${this.getClass()}`}>
         {this.props.noteVal ? <span onClick={this.playSound}>Note On</span> : <span>Note Off</span>}
         </button>
       </li>
