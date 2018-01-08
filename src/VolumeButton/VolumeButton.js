@@ -23,13 +23,11 @@ class VolumeButton extends React.Component {
   }
 
   volHandleClick = (e) => {
-    this.props.handleClick(this.props.instrumentNum, e, this.props.volIncrement);
+    this.props.handleClick(this.props.soundName, e, this.props.volIncrement);
   };
 
   render(){
     const { text, extraClassName } = this.props;
-    console.log("class");
-    console.log(extraClassName);
     return (
       <button className={`${styles.VolumeButton} ${styles[extraClassName]}`} onClick={ (e) => this.volHandleClick(e) }>
         <i className={`${this.getClass()}`} aria-hidden="true"></i>

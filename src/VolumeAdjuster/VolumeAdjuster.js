@@ -5,19 +5,19 @@ import VolumeRange from "../VolumeRange/VolumeRange";
 
 class VolumeAdjuster extends React.Component {
   render(){
-    const { instrumentMute, muteSound, changeVolume, instrumentNum, instrumentVolume } = this.props;
+    const { instrumentMute, muteSound, changeVolume, instrumentName, instrumentVolume, soundName } = this.props;
 
     return (
       <ul className={styles.list}>
         <li>
-          <VolumeButton extraClassName={`${instrumentMute ? "muted": ""}`} text="Mute" icon="fa-volume-off" instrumentNum={instrumentNum} handleClick={muteSound}  volIncrement="0" />
+          <VolumeButton extraClassName={`${instrumentMute ? "muted": ""}`} text="Mute" icon="fa-volume-off" instrumentName={instrumentName} handleClick={muteSound}  volIncrement="0" soundName={soundName} />
         </li>
         <li className={styles.VolumeAdjuster}>
-          <VolumeButton extraClassName={`increment${instrumentNum}`} text="Volume Down" icon="fa-volume-down" instrumentNum={instrumentNum} handleClick={changeVolume} volIncrement="-1" />
+          <VolumeButton extraClassName={`increment${instrumentName}`} text="Volume Down" icon="fa-volume-down" instrumentName={instrumentName} handleClick={changeVolume} volIncrement="-1" soundName={soundName} />
 
-          <VolumeRange instrumentNum={instrumentNum} instrumentVolume={instrumentVolume} changeVolume={changeVolume} />
+          <VolumeRange instrumentName={instrumentName} instrumentVolume={instrumentVolume} changeVolume={changeVolume} soundName={soundName} />
 
-          <VolumeButton extraClassName={`increment${instrumentNum}`}  text="Volume Up" icon="fa-volume-up" instrumentNum={instrumentNum} handleClick={changeVolume} volIncrement="1" />
+          <VolumeButton extraClassName={`increment${instrumentName}`}  text="Volume Up" icon="fa-volume-up" instrumentName={instrumentName} handleClick={changeVolume} volIncrement="1" soundName={soundName} />
         </li>
       </ul>
     );
@@ -25,18 +25,3 @@ class VolumeAdjuster extends React.Component {
 }
 
 export default VolumeAdjuster;
-
-/*
-
-
-      <button className="VolumeButton__vol-button VolumeButton__vol-button--gold" instrument={instrumentNum} onClick={(e) => {changeVolume(e, -1)}}>
-        <i instrument={instrumentNum} className="fa fa-volume-down" aria-hidden="true"></i>
-        <span className="VolumeButton__vol-button-text">Volume Down</span>
-      </button>
-         
-      <button className="VolumeButton__vol-button VolumeButton__vol-button--gold" instrument={instrumentNum} onClick={(e) => {changeVolume(e, 1)}}>
-        <i instrument={instrumentNum} className="fa fa-volume-up" aria-hidden="true"></i>
-        <span className="VolumeButton__vol-button-text">Volume Up</span>
-      </button>
-
-      */

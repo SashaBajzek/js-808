@@ -50,52 +50,52 @@
   opacity: 0.8;
 }
 
-.button0 {
+.buttonKick {
   background-color: $magenta-dark;
   color: $magenta-dark;
 }
 
-.button0:hover {
+.buttonKick:hover {
   background-image: radial-gradient($magenta-light-transparent 0%,$magenta-dark 100%);
 }
 
-.button0.selected {
+.buttonKick.selected {
   background-image: radial-gradient($magenta-light 10%,$magenta-light-transparent 100%);
 }
 
-.button1 {
+.buttonSnare {
   background-color: $gold-dark;
 }
 
-.button1:hover {
+.buttonSnare:hover {
   background-image: radial-gradient($gold-light-transparent 0%, $gold-dark 100%);
 }
 
-.button1.selected {
+.buttonSnare.selected {
   background-image: radial-gradient($gold-light 10%, $gold-light-transparent 100%);
 }
 
-.button2 {
+.buttonOpenHat {
   background-color: $teal-dark;
 }
 
-.button2:hover {
+.buttonOpenHat:hover {
   background-image: radial-gradient($teal-light-transparent 0%, $teal-dark 100%);
 }
 
-.button2.selected {
+.buttonOpenHat.selected {
   background-image: radial-gradient($teal-light 10%, $teal-light-transparent 100%);
 }
 
-.button3 {
+.buttonClosedHat {
   background-color: $green-dark;
 }
 
-.button3:hover {
+.buttonClosedHat:hover {
   background-image: radial-gradient($green-light-transparent 0%, $green-dark 100%);
 }
 
-.button3.selected {
+.buttonClosedHat.selected {
   background-image: radial-gradient($green-light 10%, $green-light-transparent 100%);
 }
 

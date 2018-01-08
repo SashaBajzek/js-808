@@ -26,51 +26,51 @@ input[type=range]:focus {
 
 /* Box shadows added here to replace the outline */
 
-.input0[type=range]:focus::-webkit-slider-thumb {
+.inputKick[type=range]:focus::-webkit-slider-thumb {
   box-shadow: 0 0 10px $magenta-light;
 }
 
-.input0[type=range]:focus::-moz-range-thumb {
+.inputKick[type=range]:focus::-moz-range-thumb {
   box-shadow: 0 0 10px $magenta-light;
 }
 
-.input0[type=range]:focus::-ms-thumb {
+.inputKick[type=range]:focus::-ms-thumb {
   box-shadow: 0 0 10px $magenta-light;
 }
 
-.input1[type=range]:focus::-webkit-slider-thumb {
+.inputSnare[type=range]:focus::-webkit-slider-thumb {
   box-shadow: 0 0 10px $gold-light;
 }
 
-.input1[type=range]:focus::-moz-range-thumb {
+.inputSnare[type=range]:focus::-moz-range-thumb {
   box-shadow: 0 0 10px $gold-light;
 }
 
-.input1[type=range]:focus::-ms-thumb {
+.inputSnare[type=range]:focus::-ms-thumb {
   box-shadow: 0 0 10px $gold-light;
 }
 
-.input2[type=range]:focus::-webkit-slider-thumb {
+.inputOpenHat[type=range]:focus::-webkit-slider-thumb {
   box-shadow: 0 0 10px $teal-light;
 }
 
-.input2[type=range]:focus::-moz-range-thumb {
+.inputOpenHat[type=range]:focus::-moz-range-thumb {
   box-shadow: 0 0 10px $teal-light;
 }
 
-.input2[type=range]:focus::-ms-thumb {
+.inputOpenHat[type=range]:focus::-ms-thumb {
   box-shadow: 0 0 10px $teal-light;
 }
 
-.input3[type=range]:focus::-webkit-slider-thumb {
+.inputClosedHat[type=range]:focus::-webkit-slider-thumb {
   box-shadow: 0 0 10px $green-light;
 }
 
-.input3[type=range]:focus::-moz-range-thumb {
+.inputClosedHat[type=range]:focus::-moz-range-thumb {
   box-shadow: 0 0 10px $green-light;
 }
 
-.input3[type=range]:focus::-ms-thumb {
+.inputClosedHat[type=range]:focus::-ms-thumb {
   box-shadow: 0 0 10px $green-light;
 }
 

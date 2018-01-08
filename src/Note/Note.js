@@ -19,8 +19,8 @@ class Note extends React.Component {
 
   render(){
     return(
-      <li className={styles.Note} onClick={() => this.props.changeNote(this.props.sequenceNum, this.props.instrumentNum, this.props.index)}>
-        <button className={`${styles.button} ${styles["button"+this.props.instrumentNum]} ${this.getClass()}`}>
+      <li className={styles.Note} onClick={() => this.props.changeNote(this.props.sequenceNum, this.props.instrumentName, this.props.index)}>
+        <button className={`${styles.button} ${styles["button"+this.props.instrumentName]} ${this.getClass()}`}>
         {this.props.noteVal ? <span onClick={this.playSound}>Note On</span> : <span>Note Off</span>}
         </button>
       </li>

@@ -5,15 +5,15 @@ import styles from "./Instrument.scss";
 
 class Instrument extends React.Component {
   render(){
-    const { name, frames, currentFrame, changeNote, instrumentMute, muteSound, changeVolume, sequenceNum, instrumentNum, instrumentVolume } = this.props;
+    const { name, frames, currentFrame, changeNote, instrumentMute, muteSound, changeVolume, sequenceNum, instrumentName, instrumentVolume, soundName } = this.props;
 
     return (
-      <li className={`${styles.Instrument} ${styles["Instrument"+instrumentNum]}`}>
+      <li className={`${styles.Instrument} ${styles["Instrument"+instrumentName]}`}>
         <div className={styles.details}>
           <h2 className={styles.title}>{name}</h2>
-          <VolumeAdjuster instrumentMute={instrumentMute} muteSound={muteSound} changeVolume={changeVolume} instrumentNum={instrumentNum} instrumentVolume={instrumentVolume} />
+          <VolumeAdjuster instrumentMute={instrumentMute} muteSound={muteSound} changeVolume={changeVolume} instrumentName={instrumentName} instrumentVolume={instrumentVolume} soundName={soundName} />
         </div>
-        <FramePattern frames={frames} currentFrame={currentFrame} changeNote={changeNote} sequenceNum={sequenceNum} instrumentNum={instrumentNum} />
+        <FramePattern frames={frames} currentFrame={currentFrame} changeNote={changeNote} sequenceNum={sequenceNum} instrumentName={instrumentName} />
       </li>
     );
   }

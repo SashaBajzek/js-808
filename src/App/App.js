@@ -11,27 +11,35 @@ class App extends Component {
     this.state = initialState;
   }
 
-  changeNote = (sequenceNum, instrumentNum, frameNum) => {
+  getFrame = (sequenceNum, instrument) => {
+    return this.state.sequences[sequenceNum].frames[instrument].notes;
+  }
+
+  getNote = (sequenceNum, instrument, noteNum) => {
+    return this.state.sequences[sequenceNum].frames[instrument].notes[noteNum];
+  }
+
+  changeNote = (sequenceNum, instrument, noteNum) => {
     var newSequences = this.state.sequences;
-    var currentNoteVal = newSequences[sequenceNum].frames[instrumentNum][frameNum];
+    var currentNoteVal = this.getNote(sequenceNum, instrument, noteNum);
     if(currentNoteVal === 0) {
-      newSequences[sequenceNum].frames[instrumentNum][frameNum] = 1;
+      newSequences[sequenceNum].frames[instrument].notes[noteNum] = 1;
     } else {
-      newSequences[sequenceNum].frames[instrumentNum][frameNum] = 0;
+      newSequences[sequenceNum].frames[instrument].notes[noteNum] = 0;
     }
     this.setState({sequences: newSequences})
   }
 
-  muteSound = (instrumentNum) => {
+  muteSound = (sound) => {
     var newSounds = this.state.sounds;
-    var instrument = newSounds[instrumentNum];
+    var instrument = newSounds[sound].sound;
     instrument.mute(!instrument.mute());
     this.setState({sounds: newSounds});
   }
 
-  changeVolume = (instrumentNum, event, increment) => {
+  changeVolume = (sound, event, increment) => {
     var newSounds = this.state.sounds;
-    var instrument = newSounds[instrumentNum];
+    var instrument = newSounds[sound].sound;
     var newVolume = instrument.volume();
     if(increment) {
       //if using buttons
@@ -56,7 +64,7 @@ class App extends Component {
   timer = () => {
     const {currentFrame, currentSequence, sequences} = this.state;
     //advance frame number
-    if (currentFrame < sequences[currentSequence].totalFrames - 1) {
+    if (currentFrame < sequences[currentSequence].maxFrames - 1) {
       this.setState({currentFrame: currentFrame + 1});
     } else {
       this.setState({currentFrame: 0});
@@ -66,17 +74,11 @@ class App extends Component {
   }
 
   playSounds = (currentFrame, currentSequence, sequences) => {
-    if(sequences[currentSequence].frames[0][currentFrame]){
-      this.state.sounds[0].play();
-    }
-    if(sequences[currentSequence].frames[1][currentFrame]){
-      this.state.sounds[1].play();
-    }
-    if(sequences[currentSequence].frames[2][currentFrame]){
-      this.state.sounds[2].play();
-    }
-    if(sequences[currentSequence].frames[3][currentFrame]){
-      this.state.sounds[3].play();
+    let frames = sequences[currentSequence].frames;
+    for (const prop in frames) {
+      if(frames[prop].notes[currentFrame]) {
+        this.state.sounds[frames[prop].sound].sound.play();
+      }
     }
   }
 
