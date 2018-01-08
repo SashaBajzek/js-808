@@ -146,7 +146,7 @@ class App extends Component {
 
     return (
       <div className={styles.App}>
-        <Header play={this.playSequence} stop={this.stop} updateBPM={this.updateBPM} updateSequence={this.updateSequence} bpm={this.state.bpm} playing={this.state.playing}/>
+        <Header play={this.playSequence} stop={this.stop} updateBPM={this.updateBPM} updateSequence={this.updateSequence} bpm={this.state.bpm} playing={this.state.playing}numSequences={this.state.sequences.length} />
         <Sequence sequence={this.state.sequences[this.state.currentSequence]} number={this.state.currentSequence} currentFrame={this.state.currentFrame} changeNote={this.changeNote} 
         sounds={this.state.sounds} muteSound={this.muteSound} changeVolume={this.changeVolume}/>
         <Footer />

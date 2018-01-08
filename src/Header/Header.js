@@ -7,6 +7,14 @@ class Header extends React.Component {
     event.preventDefault();
   }
 
+  renderOptions = () => {
+    var options = [];
+    for(var i = 0; i < this.props.numSequences; i++) {
+      options.push(<option key={`sequence${i}`} value={i}>Sequence {i + 1}</option>);
+    }
+    return options;
+  }
+
   render(){
     const {stop, play, bpm, updateBPM, updateSequence, playing} = this.props;
     const { fa, 'fa-stop':fa_stop, 'fa-play':fa_play, 'fa-pause':fa_pause } = fontAwesome;
@@ -25,9 +33,7 @@ class Header extends React.Component {
             <input className={styles.input} type="number" name="bpm" id="bpm" value={bpm} onChange={updateBPM}/>
             <label htmlFor="bpm">BPM</label>
             <select className={styles.select} name="sequence" id="sequence" onChange={updateSequence}>
-              <option value="0">Sequence 1</option>
-              <option value="1">Sequence 2</option>
-              <option value="2">Sequence 3</option>
+              {this.renderOptions()}
             </select>
             <label htmlFor="sequence" className={styles.label}>Sequence</label>
           </form>
