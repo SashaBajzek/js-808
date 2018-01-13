@@ -1,6 +1,6 @@
 import React from 'react';
 import styles from "./VolumeButton.scss";
-import fontAwesome from '../../node_modules/font-awesome/css/font-awesome.min.css';
+import fontAwesome from '../../../node_modules/font-awesome/css/font-awesome.min.css';
 
 class VolumeButton extends React.Component {
   fa = fontAwesome['fa'];

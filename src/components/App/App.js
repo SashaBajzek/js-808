@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import styles from './App.scss';
-import initialState from './initialState';
+import initialState from '../../initialState';
 import Header from '../Header/Header';
 import Sequence from '../Sequence/Sequence';
 import Footer from '../Footer/Footer';
