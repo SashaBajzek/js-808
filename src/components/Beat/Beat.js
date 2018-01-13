@@ -1,7 +1,7 @@
 import React from 'react';
-import styles from "./Note.scss";
+import styles from "./Beat.scss";
 
-class Note extends React.Component {
+class Beat extends React.Component {
 
   current = styles.current;
   selected = styles.selected;
@@ -28,4 +28,4 @@ class Note extends React.Component {
   }
 }
 
-export default Note;
+export default Beat;

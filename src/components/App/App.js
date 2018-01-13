@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import styles from './App.scss';
 import initialState from '../../initialState';
 import Header from '../Header/Header';
-import Sequence from '../Sequence/Sequence';
+import Loop from '../Loop/Loop';
 import Footer from '../Footer/Footer';
 
 class App extends Component {
@@ -147,7 +147,7 @@ class App extends Component {
     return (
       <div className={styles.App}>
         <Header play={this.playSequence} stop={this.stop} updateBPM={this.updateBPM} updateSequence={this.updateSequence} bpm={this.state.bpm} playing={this.state.playing}numSequences={this.state.sequences.length} />
-        <Sequence sequence={this.state.sequences[this.state.currentSequence]} number={this.state.currentSequence} currentFrame={this.state.currentFrame} changeNote={this.changeNote} 
+        <Loop sequence={this.state.sequences[this.state.currentSequence]} number={this.state.currentSequence} currentFrame={this.state.currentFrame} changeNote={this.changeNote} 
         sounds={this.state.sounds} muteSound={this.muteSound} changeVolume={this.changeVolume}/>
         <Footer />
       </div>

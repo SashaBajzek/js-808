@@ -1,6 +1,6 @@
 @import "../../styles/variables.scss";
 
-.FramePattern {
+.Pattern {
   display: flex;
   flex-grow: 1;
   height: 100%;
@@ -9,7 +9,7 @@
 }
 
 @media (min-width: 800px) {
-  .FramePattern {
+  .Pattern {
     width: inherit;
   }
 }

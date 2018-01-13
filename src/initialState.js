@@ -50,7 +50,7 @@ const initialState = {
         },
         OpenHat: {
           instrumentName: "Open Hat",
-          sound: "coronaSound",
+          sound: "coronaSound",   
           notes: [0, 0, 1, 0, 0, 0, 1, 0]
         },
         ClosedHat: {
