@@ -1,6 +1,6 @@
 @import '../../styles/variables.scss';
 
-.Note {
+.Beat {
   border-radius: 5px;
   cursor: pointer;
   flex-grow: 1;
@@ -50,57 +50,57 @@
   opacity: 0.8;
 }
 
-.buttonKick {
+.buttonmagenta {
   background-color: $magenta-dark;
   color: $magenta-dark;
 }
 
-.buttonKick:hover {
+.buttonmagenta:hover {
   background-image: radial-gradient($magenta-light-transparent 0%,$magenta-dark 100%);
 }
 
-.buttonKick.selected {
+.buttonmagenta.selected {
   background-image: radial-gradient($magenta-light 10%,$magenta-light-transparent 100%);
 }
 
-.buttonSnare {
+.buttongold {
   background-color: $gold-dark;
 }
 
-.buttonSnare:hover {
+.buttongold:hover {
   background-image: radial-gradient($gold-light-transparent 0%, $gold-dark 100%);
 }
 
-.buttonSnare.selected {
+.buttongold.selected {
   background-image: radial-gradient($gold-light 10%, $gold-light-transparent 100%);
 }
 
-.buttonOpenHat {
+.buttonteal {
   background-color: $teal-dark;
 }
 
-.buttonOpenHat:hover {
+.buttonteal:hover {
   background-image: radial-gradient($teal-light-transparent 0%, $teal-dark 100%);
 }
 
-.buttonOpenHat.selected {
+.buttonteal.selected {
   background-image: radial-gradient($teal-light 10%, $teal-light-transparent 100%);
 }
 
-.buttonClosedHat {
+.buttongreen {
   background-color: $green-dark;
 }
 
-.buttonClosedHat:hover {
+.buttongreen:hover {
   background-image: radial-gradient($green-light-transparent 0%, $green-dark 100%);
 }
 
-.buttonClosedHat.selected {
+.buttongreen.selected {
   background-image: radial-gradient($green-light 10%, $green-light-transparent 100%);
 }
 
 @media (min-width: 800px) {
-  .Note {
+  .Beat {
     min-height: 60px;
   }
 }

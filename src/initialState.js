@@ -5,124 +5,139 @@ import * as coronaSound from "./sounds/corona.mp3";
 import * as moonSound from "./sounds/moon.mp3";
 
 const initialState = {
-  sequences: [
+  bpm: 128,
+  currentBeat: -1,
+  currentLoop: 0,
+  intervalId: 0,
+  playing: false,
+  loops: [
     { 
-      sequenceNum: 0,
-      sequenceName: "Sequence 1",
-      maxFrames: 8,
-      frames: {
-        Kick: {
-          instrumentName: "Kick",
-          sound: "bubbleSound",
-          notes: [1, 1, 0, 0, 0, 0, 0, 0]
+      name: "Loop 1",
+      maxBeats: 8,
+      sequences: [
+        {
+          instrument: "kick",
+          pattern: [true, true, false, false, false, false, false, false]
         },
-        Snare: {
-          instrumentName: "Snare",
-          sound: "claySound",
-          notes: [0, 0, 1, 1, 0, 0, 0, 0]
+        {
+          instrument: "snare",
+          pattern: [false, false, true, true, false, false, false, false]
         },
-        OpenHat: {
-          instrumentName: "Open Hat",
-          sound: "coronaSound",
-          notes: [0, 0, 0, 0, 1, 1, 0, 0]
+        {
+          instrument: "openHat",
+          pattern: [false, false, false, false, true, true, false, false]
         },
-        ClosedHat: {
-          instrumentName: "Closed Hat",
-          sound: "moonSound",
-          notes: [0, 0, 0, 0, 0, 0, 1, 1]
+        {
+          instrument: "closedHat",
+          pattern: [false, false, false, false, false, false, true, true]
         }
-      }
+      ]
     },
     { 
-      sequenceNum: 1,
-      sequenceName: "Sequence 2",
-      maxFrames: 8,
-      frames: {
-        Kick: {
-          instrumentName: "Kick",
-          sound: "bubbleSound",
-          notes: [1, 0, 0, 0, 1, 0, 0, 0]
+      name: "Loop 2",
+      maxBeats: 8,
+      sequences: [
+        {
+          instrument: "kick",
+          pattern: [true, false, false, false, false, false, false, false]
         },
-        Snare: {
-          instrumentName: "Snare",
-          sound: "claySound",
-          notes: [0, 1, 0, 0, 0, 1, 0, 0]
+        {
+          instrument: "snare",
+          pattern: [false, false, true, false, false, false, false, false]
         },
-        OpenHat: {
-          instrumentName: "Open Hat",
-          sound: "coronaSound",   
-          notes: [0, 0, 1, 0, 0, 0, 1, 0]
+        {
+          instrument: "openHat",
+          pattern: [false, false, false, false, true, false, false, false]
         },
-        ClosedHat: {
-          instrumentName: "Closed Hat",
-          sound: "moonSound",
-          notes: [0, 0, 0, 1, 0, 0, 0, 1]
+        {
+          instrument: "closedHat",
+          pattern: [false, false, false, false, false, false, true, false]
         }
-      }
+      ]
     },
     { 
-      sequenceNum: 2,
-      sequenceName: "Sequence 3",
-      maxFrames: 16,
-      frames: {
-        Kick: {
-          instrumentName: "Kick",
-          sound: "bubbleSound",
-          notes: [1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0]
+      name: "Loop 3",
+      maxBeats: 16,
+      sequences: [
+        {
+          instrument: "kick",
+          pattern: [true, false, false, false, false, false, false, false, true, false, false, false, false, false, false, false]
         },
-        Snare: {
-          instrumentName: "Snare",
-          sound: "claySound",
-          notes: [0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0]
+        {
+          instrument: "snare",
+          pattern: [false, false, true, false, false, false, false, false, false, false, true, false, false, false, false, false]
         },
-        OpenHat: {
-          instrumentName: "Open Hat",
-          sound: "coronaSound",
-          notes: [0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0]
+        {
+          instrument: "openHat",
+          pattern: [false, false, false, false, true, false, false, false, false, false, false, false, true, false, false, false]
         },
-        ClosedHat: {
-          instrumentName: "Closed Hat",
-          sound: "moonSound",
-          notes: [0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1]
+        {
+          instrument: "closedHat",
+          pattern: [false, false, false, false, false, false, true, false, false, false, false, false, false, false, true, false]
         }
-      }
+      ]
     }
   ],
-  currentSequence: 0,
-  currentFrame: -1,
-  playing: false,
-  bpm: 128,
-  intervalId: 0,
-  sounds: {
-    bubbleSound: {
+  instruments: [
+    {
+      id: "kick",
+      displayName: "Kick",
+      sound: "bubbleSound",
+      color: "magenta"
+    },
+    {
+      id: "snare",
+      displayName: "Snare",
+      sound: "claySound",
+      color: "gold"
+    },
+    {
+      id: "openHat",
+      displayName: "Open Hat",
+      sound: "coronaSound",
+      color: "teal"
+    },
+    {
+      id: "closedHat",
+      displayName: "Closed Hat",
+      sound: "moonSound",
+      color: "green"
+    }
+  ],
+  sounds: [
+    {
+      id: "bubbleSound",
       sound: new Howl({
         src: [bubbleSound],
         volume: 0.5,
         mute: false
-      })
+      }) 
     },
-    claySound: {
+    {
+      id: "claySound",
       sound: new Howl({
         src: [claySound],
         volume: 0.5,
         mute: false
-      })
+      }) 
     },
-    coronaSound: {
+    {
+      id: "coronaSound",
       sound: new Howl({
         src: [coronaSound],
         volume: 0.5,
         mute: false
-      })
+      }) 
     },
-    moonSound: {
+    {
+      id: "moonSound",
       sound: new Howl({
         src: [moonSound],
         volume: 0.5,
         mute: false
-      })
+      }) 
     }
-  }
+  ]
 }
 
 export default initialState;

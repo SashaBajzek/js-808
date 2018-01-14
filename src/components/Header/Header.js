@@ -9,14 +9,14 @@ class Header extends React.Component {
 
   renderOptions = () => {
     var options = [];
-    for(var i = 0; i < this.props.numSequences; i++) {
-      options.push(<option key={`sequence${i}`} value={i}>Sequence {i + 1}</option>);
+    for(var i = 0; i < this.props.loops.length; i++) {
+      options.push(<option key={`loop${i}`} value={i}>{this.props.loops[i].name}</option>);
     }
     return options;
   }
 
   render(){
-    const {stop, play, bpm, updateBPM, updateSequence, playing} = this.props;
+    const {stop, play, bpm, updateBPM, changePlayingLoop, playing} = this.props;
     const { fa, 'fa-stop':fa_stop, 'fa-play':fa_play, 'fa-pause':fa_pause } = fontAwesome;
     return (
       <header className={styles.header}>
@@ -32,10 +32,10 @@ class Header extends React.Component {
           <form onSubmit={this.handleSubmit}>
             <input className={styles.input} type="number" name="bpm" id="bpm" value={bpm} onChange={updateBPM}/>
             <label htmlFor="bpm">BPM</label>
-            <select className={styles.select} name="sequence" id="sequence" onChange={updateSequence}>
+            <select className={styles.select} name="loopName" id="loopName" onChange={changePlayingLoop}>
               {this.renderOptions()}
             </select>
-            <label htmlFor="sequence" className={styles.label}>Sequence</label>
+            <label htmlFor="loopName" className={styles.label}>Loop</label>
           </form>
         </div>
       </header>

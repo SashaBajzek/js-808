@@ -23,7 +23,7 @@ class VolumeButton extends React.Component {
   }
 
   volHandleClick = (e) => {
-    this.props.handleClick(this.props.soundName, e, this.props.volIncrement);
+    this.props.handleClick(this.props.soundId, e, this.props.volIncrement);
   };
 
   render(){

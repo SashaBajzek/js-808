@@ -5,15 +5,42 @@ import styles from "./Sequence.scss";
 
 class Sequence extends React.Component {
   render(){
-    const { name, frames, currentFrame, changeNote, instrumentMute, muteSound, changeVolume, sequenceNum, instrumentName, instrumentVolume, soundName } = this.props;
+    const { 
+      changeBeat, 
+      changeVolume, 
+      color, 
+      currentBeat, 
+      currentLoopNum, 
+      currentSequenceNum, 
+      getInstrumentFromId, 
+      getSoundFromSequence,
+      instrumentMute,
+      instrumentVolume,
+      muteSound, 
+      sequence} = this.props;
 
     return (
-      <li className={`${styles.Sequence} ${styles["Sequence"+instrumentName]}`}>
+      <li className={`${styles.Sequence} ${styles["Sequence"+color]}`}>
         <div className={styles.details}>
-          <h2 className={styles.title}>{name}</h2>
-          <VolumeAdjuster instrumentMute={instrumentMute} muteSound={muteSound} changeVolume={changeVolume} instrumentName={instrumentName} instrumentVolume={instrumentVolume} soundName={soundName} />
+          <h2 className={styles.title}>{getInstrumentFromId(sequence.instrument).displayName}</h2>
+          <VolumeAdjuster 
+            changeVolume={changeVolume}
+            color={color}
+            instrumentMute={instrumentMute} 
+            instrumentName={sequence.instrument} 
+            instrumentVolume={instrumentVolume}
+            muteSound={muteSound} 
+            soundId={getSoundFromSequence(sequence).id} 
+          />
         </div>
-        <Pattern frames={frames} currentFrame={currentFrame} changeNote={changeNote} sequenceNum={sequenceNum} instrumentName={instrumentName} />
+        <Pattern 
+          changeBeat={changeBeat}
+          color={color} 
+          currentBeat={currentBeat} 
+          currentLoopNum={currentLoopNum} 
+          currentSequenceNum={currentSequenceNum}
+          pattern={sequence.pattern}
+        />
       </li>
     );
   }
