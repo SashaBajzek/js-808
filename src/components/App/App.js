@@ -49,10 +49,18 @@ class App extends Component {
   }
 
   changeBeat = (loop, sequence, beatNum) => {
-    let newLoops = this.state.loops;
+    let newLoops = Object.assign({}, this.state.loops);
     let currentBeatVal = this.getBeat(loop, sequence, beatNum);
+
+    console.log("before", this.state.loops[loop].sequences[sequence].pattern[beatNum]);
+
     newLoops[loop].sequences[sequence].pattern[beatNum] = !currentBeatVal;
+
+    console.log("after newloops", this.state.loops[loop].sequences[sequence].pattern[beatNum]);
+
     this.setState({loops: newLoops});
+    
+    console.log("after setstate", this.state.loops[loop].sequences[sequence].pattern[beatNum]);
   }
 
   muteSound = (soundId) => {
