@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import update from 'immutability-helper';
 import styles from './App.scss';
 import initialState from '../../initialState';
 import Header from '../Header/Header';
@@ -12,7 +13,7 @@ class App extends Component {
   }
 
   getPattern = (loop, sequence) => {
-    let pattern = Object.assign({}, this.state.loops[loop].sequences[sequence].pattern);
+    let pattern = this.state.loops[loop].sequences[sequence].pattern;
     return pattern;
   }
 
@@ -24,13 +25,13 @@ class App extends Component {
   getInstrumentFromSequence = (loop, sequence) => {
     let instrumentId = this.state.loops[loop].sequences[sequence].instrument;
     let instrumentIndex = this.state.instruments.findIndex(x => x.id === instrumentId);
-    let instrument = Object.assign({}, this.state.instruments[instrumentIndex]);
+    let instrument = this.state.instruments[instrumentIndex];
     return instrument;
   }
 
   getInstrumentFromId = (instrumentId) => {
     let instrumentIndex = this.state.instruments.findIndex(x => x.id === instrumentId);
-    let instrument = Object.assign({}, this.state.instruments[instrumentIndex]);
+    let instrument = this.state.instruments[instrumentIndex];
     return instrument;
   }
 
@@ -49,18 +50,21 @@ class App extends Component {
   }
 
   changeBeat = (loop, sequence, beatNum) => {
-    let newLoops = Object.assign({}, this.state.loops);
     let currentBeatVal = this.getBeat(loop, sequence, beatNum);
-
-    console.log("before", this.state.loops[loop].sequences[sequence].pattern[beatNum]);
-
-    newLoops[loop].sequences[sequence].pattern[beatNum] = !currentBeatVal;
-
-    console.log("after newloops", this.state.loops[loop].sequences[sequence].pattern[beatNum]);
-
+    let newLoops = update(this.state.loops, {
+      [loop]: {
+        sequences: {
+          [sequence]: {
+            pattern: {
+              [beatNum]: {
+                $apply: function (x) {return !currentBeatVal}
+              }
+            }
+          }
+        }
+      }
+    });
     this.setState({loops: newLoops});
-    
-    console.log("after setstate", this.state.loops[loop].sequences[sequence].pattern[beatNum]);
   }
 
   muteSound = (soundId) => {
