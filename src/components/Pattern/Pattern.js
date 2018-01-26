@@ -1,28 +1,19 @@
 import React from 'react';
 import styles from './Pattern.scss';
-import Beat from "../Beat/Beat";
+import BeatContainer from "../Beat/BeatContainer";
 
 class Pattern extends React.Component {
   render() {
     const { 
-      changeBeat,
-      color, 
-      currentBeat,
-      currentLoopNum,
-      currentSequenceNum,
-      pattern } = this.props;
+      pattern,
+      sequenceId } = this.props;
     return (
       <ul className={styles.Pattern}>
         {pattern.map((beat, index) => (
-          <Beat 
+          <BeatContainer 
             key={`beat${index}`}
-            beatNum={index}
-            beatOn = {beat}
-            changeBeat={changeBeat}
-            color={color}
-            currentBeat={currentBeat}
-            currentLoopNum={currentLoopNum} 
-            currentSequenceNum={currentSequenceNum}
+            sequenceId={sequenceId}
+            beatId={index}
           />
         ))}
       </ul>

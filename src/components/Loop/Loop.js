@@ -1,5 +1,5 @@
 import React from 'react';
-import Sequence from "../Sequence/Sequence";
+import SequenceContainer from "../Sequence/SequenceContainer";
 import styles from "./Loop.scss";
 
 class Loop extends React.Component {
@@ -7,34 +7,24 @@ class Loop extends React.Component {
   
   renderHeader = () => {
     let headerList = [];
-    for(var i = 1; i <= this.props.loop.maxBeats; i += 1) {
-      headerList.push(<li className={`${styles.headeritem} ${this.getClass(i)}`} key={`header${i}`}>{i}</li>)
+    for(var i = 1; i <= this.props.maxBeats; i += 1) {
+      headerList.push(<li className={`${styles.headeritem} ${this.getClass(i)}`} key={`header${i}`} id={i}>{i}</li>)
     }
     return headerList;
   }
 
   renderSequences = () => {
     let sequenceList = [];
-    var sequences = this.props.loop.sequences;
-    const { changeBeat, changeVolume, currentBeat, currentLoopNum, getInstrumentFromId, getSoundFromSequence, muteSound } = this.props;
 
-    sequences.forEach((sequence, index) => {
-      sequenceList.push(<Sequence 
-        key={`sequence${index}`} 
-        changeBeat={changeBeat}
-        changeVolume={changeVolume}
-        color={getInstrumentFromId(sequence.instrument).color}
-        currentBeat = {currentBeat}
-        currentLoopNum={currentLoopNum}
-        currentSequenceNum={index}
-        getInstrumentFromId={getInstrumentFromId}
-        getSoundFromSequence={getSoundFromSequence}
-        sequence={sequence}
-        muteSound={muteSound}
-        instrumentVolume={getSoundFromSequence(sequence).sound.volume()} 
-        instrumentMute={getSoundFromSequence(sequence).sound.mute()}
-        />);
-    });
+    for(let i=0; i<this.props.numSequences; i+=1) {
+      sequenceList.push(
+        <SequenceContainer 
+          key={`sequence${i}`}
+          sequenceId={i}
+        />
+      );
+    }
+
     return sequenceList;
   }
 
@@ -46,13 +36,13 @@ class Loop extends React.Component {
     return (
       <div className={styles.Loop}>
         <div className={styles.header}>
-          <h2 className={styles.title}>{this.props.loop.name}</h2>
+          <h2 className={styles.title}>{this.props.loopName}</h2>
           <ul className={styles.headerlist}>
             {this.renderHeader()}
           </ul>
         </div>
         <ul className={styles.sequencelist}>
-          {this.renderSequences()}
+            {this.renderSequences()}
         </ul>
       </div>
     )

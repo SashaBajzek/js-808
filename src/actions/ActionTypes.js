@@ -2,16 +2,20 @@ const actions = [
   "PLAY",
   "PAUSE",
   "STOP",
-  "MUTE",
-  "INCREASE_VOLUME",
-  "DECREASE_VOLUME",
-  "CHANGE_BPM",
-  "CHANGE_CURRENT_LOOP",
   "ADVANCE_BEAT",
+  "TOGGLE_BEAT",
   "PLAY_SOUND",
+  "CHANGE_CURRENT_LOOP",
+  "CHANGE_BPM",
+  "MUTE",
+  "CHANGE_VOLUME",
+  
+  
+  
   "ADD_SEQUENCE",
   "DELETE_SEQUENCE",
-  "CHANGE_INSTRUMENT"
+  "CHANGE_INSTRUMENT",
+  "INCREMENT_TIMER"
 ]
 
 const actionMap = {};

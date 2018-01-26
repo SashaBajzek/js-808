@@ -1,54 +1,51 @@
 import React from 'react';
 import styles from "./VolumeAdjuster.scss";
-import VolumeButton from "../VolumeButton/VolumeButton";
-import VolumeRange from "../VolumeRange/VolumeRange";
+import VolumeButtonContainer from "../VolumeButton/VolumeButtonContainer";
+import VolumeRangeContainer from "../VolumeRange/VolumeRangeContainer";
 
 class VolumeAdjuster extends React.Component {
+
+  muteSound = () => {
+    this.props.mute(this.props.sequenceId);
+  }
+
   render(){
     const { 
-      changeVolume,
-      color,
-      instrumentMute, 
-      instrumentVolume,
-      muteSound, 
-      soundId } = this.props;
+      sequenceId,
+      instrumentMute
+    } = this.props;
 
     return (
       <ul className={styles.list}>
         <li>
-          <VolumeButton 
+          <VolumeButtonContainer 
             extraClassName={`${instrumentMute ? "muted": ""}`} 
-            handleClick={muteSound} 
             icon="fa-volume-off" 
-            soundId={soundId}
             text="Mute" 
             volIncrement="0"
+            sequenceId={sequenceId}
+            type="mute"
           />
         </li>
         <li className={styles.VolumeAdjuster}>
-          <VolumeButton 
-            extraClassName={`increment${color}`} 
-            handleClick={changeVolume} 
+          <VolumeButtonContainer 
+            sequenceId={sequenceId}
             icon="fa-volume-down" 
-            soundId={soundId}
             text="Volume Down"
-            volIncrement="-1" 
+            volIncrement="-1"
+            type="increment"
           />
 
-          <VolumeRange 
-            changeVolume={changeVolume} 
-            color={color} 
-            instrumentVolume={instrumentVolume} 
-            soundId={soundId}
+          <VolumeRangeContainer 
+            sequenceId={sequenceId} 
           />
 
-          <VolumeButton 
-            extraClassName={`increment${color}`} 
-            handleClick={changeVolume} 
+          <VolumeButtonContainer 
+            sequenceId={sequenceId}
             icon="fa-volume-up" 
-            soundId={soundId}
             text="Volume Up" 
-            volIncrement="1" 
+            volIncrement="1"
+            type="increment"
           />
         </li>
       </ul>

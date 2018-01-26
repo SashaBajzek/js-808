@@ -23,13 +23,25 @@ class VolumeButton extends React.Component {
   }
 
   volHandleClick = (e) => {
-    this.props.handleClick(this.props.soundId, e, this.props.volIncrement);
+    const { type, mute, sequenceId, volIncrement, changeVolume } = this.props;
+
+    if(type === "mute") {
+      mute(sequenceId);
+    } else {
+      let rangeVolume = parseFloat(e.target.value, 0);
+
+      if(!rangeVolume) {
+        rangeVolume = null;
+      }
+
+      changeVolume(sequenceId, rangeVolume, volIncrement);
+    }
   };
 
   render(){
-    const { text, extraClassName } = this.props;
+    const { text, extraClassName, type, instrumentColor } = this.props;
     return (
-      <button className={`${styles.VolumeButton} ${styles[extraClassName]}`} onClick={ (e) => this.volHandleClick(e) }>
+      <button className={`${styles.VolumeButton} ${styles[extraClassName]} ${styles[type + instrumentColor]}`} onClick={ (e) => this.volHandleClick(e) }>
         <i className={`${this.getClass()}`} aria-hidden="true"></i>
         <span className={styles.text}>{text}</span>
       </button>

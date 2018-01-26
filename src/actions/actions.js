@@ -1,5 +1,6 @@
 import ActionTypes from './ActionTypes';
 
+
 export function play() {
   return {
     type: ActionTypes.PLAY
@@ -18,27 +19,31 @@ export function stop() {
   };
 }
 
-export function mute(soundId) {
+export function advanceBeat() {
   return {
-    type: ActionTypes.MUTE,
-    soundId
-  };
-}
-
-export function increaseVolume(soundId, increment) {
-  return {
-    type: ActionTypes.INCREASE_VOLUME,
-    soundId,
-    increment
-  };
-}
-
-export function decreaseVolume(soundId, increment) {
-  return {
-    type: ActionTypes.DECREASE_VOLUME,
-    soundId,
-    increment
+    type: ActionTypes.ADVANCE_BEAT
   }
+}
+
+export function toggleBeat(beat, sequence) {
+  return {
+    type: ActionTypes.TOGGLE_BEAT,
+    beat,
+    sequence
+  }
+}
+
+export function playSound() {
+  return {
+    type: ActionTypes.PLAY_SOUND
+  };
+}
+
+export function changeCurrentLoop(newCurrentLoop) {
+  return {
+    type: ActionTypes.CHANGE_CURRENT_LOOP,
+    newCurrentLoop
+  };
 }
 
 export function changeBPM(newBPM) {
@@ -48,24 +53,22 @@ export function changeBPM(newBPM) {
   };
 }
 
-export function changeCurrentLoop(loop) {
+export function mute(sequenceId) {
   return {
-    type: ActionTypes.CHANGE_CURRENT_LOOP,
-    loop
+    type: ActionTypes.MUTE,
+    sequenceId
   };
 }
 
-export function advanceBeat() {
+export function changeVolume(sequenceId, rangeVolume, increment) {
   return {
-    type: ActionTypes.ADVANCE_BEAT
+    type: ActionTypes.CHANGE_VOLUME,
+    sequenceId,
+    rangeVolume,
+    increment
   };
 }
 
-export function playSound() {
-  return {
-    type: ActionTypes.PLAY_SOUND
-  };
-}
 
 /*
 Later add:
