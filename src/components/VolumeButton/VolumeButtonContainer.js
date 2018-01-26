@@ -1,14 +1,7 @@
 import { connect } from 'react-redux';
 import { mute, changeVolume } from '../../actions/actions';
+import {getInstrumentFromSequence} from '../../getters';
 import VolumeButton from './VolumeButton';
-
-const getInstrumentFromSequence = (state, sequenceId) => {
-  const {currentLoop} = state;
-  let instrumentId = state.loops[currentLoop].sequences[sequenceId].instrument;
-  let instrumentIndex = state.instruments.findIndex(x => x.id === instrumentId);
-  let instrument = state.instruments[instrumentIndex];
-  return instrument;
-}
 
 const mapStateToProps = (state, ownProps) => ({
   instrumentMute: getInstrumentFromSequence(state, ownProps.sequenceId).mute,

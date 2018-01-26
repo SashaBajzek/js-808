@@ -1,35 +1,6 @@
 import initialState from '../initialState';
 import update from 'immutability-helper';
-
-//Getter Functions:
-
-function getBeat(state, sequenceId, beatId) {
-  const {currentLoop, loops} = state;
-  let beat = loops[currentLoop].sequences[sequenceId].pattern[beatId];
-  return beat;
-}
-
-
-function getInstrumentFromSequence(state, sequenceId) {
-  const {currentLoop} = state;
-  let instrumentId = state.loops[currentLoop].sequences[sequenceId].instrument;
-  let instrumentIndex = state.instruments.findIndex(x => x.id === instrumentId);
-  let instrument = state.instruments[instrumentIndex];
-  return instrument;
-}
-
-function getSoundFromId(state, soundId){
-  let soundIndex = state.sounds.findIndex(x => x.id === soundId);
-  let sound = state.sounds[soundIndex];
-  return sound;
-}
-
-function getSoundIndexFromSoundId(state, soundId){
-  let index = state.sounds.findIndex(x => x.id === soundId);
-  return index;
-}
-
-//Reducer Functions
+import { getInstrumentFromSequence, getBeat, getSoundFromId, getSoundIndexFromSoundId } from '../getters';
 
 function play(state) {
   return Object.assign({}, state, {
