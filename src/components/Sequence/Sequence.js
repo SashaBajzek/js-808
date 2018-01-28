@@ -13,6 +13,10 @@ class Sequence extends React.Component {
     this.props.changeInstrument(this.props.sequenceId, newInstrument);
   }
 
+  instrumentDelete = () => {
+    this.props.deleteSequence(this.props.sequenceId);
+  }
+
   renderOptions = () => {
     //current instrument displayed first
     var options = [
@@ -36,13 +40,15 @@ class Sequence extends React.Component {
     return (
       <li className={`${styles.Sequence} ${styles["Sequence"+instrumentColor]}`}>
         <div className={styles.details}>
-          {/* <h2 className={styles.title}>{instrumentName}</h2> */}
-          <form onSubmit={this.handleSubmit}>
-            <select name="instrumentName" id={`instrumentName${sequenceId}`} onChange={this.instrumentHandleChange} value={currentInstrument.id} className={styles.select} >
-              {this.renderOptions()}
-            </select>
-            <label htmlFor={`instrumentName${sequenceId}`} className={styles.label}>instrument</label>
-          </form>
+          <div className={styles.detailsCRUD}>
+            <form onSubmit={this.handleSubmit}>
+              <select name="instrumentName" id={`instrumentName${sequenceId}`} onChange={this.instrumentHandleChange} value={currentInstrument.id} className={styles.select} >
+                {this.renderOptions()}
+              </select>
+              <label htmlFor={`instrumentName${sequenceId}`} className={styles.label}>instrument</label>
+            </form>
+            <button onClick={this.instrumentDelete} className={styles.button}>X</button>
+          </div>
           <VolumeAdjusterContainer
             sequenceId={sequenceId}
           />

@@ -166,11 +166,11 @@ function addSequence(state) {
   });
 }
 
-function deleteSequence(state, sequence) {
+function deleteSequence(state, sequenceId) {
   let newLoops = update(state.loops, {
     [state.currentLoop]: {
       sequences: {
-        $unshift: [sequence]
+        $splice: [[sequenceId, 1]]
       }
     }
   })
@@ -222,7 +222,7 @@ export default function reducerJS808 (state = initialState, action) {
     case 'ADD_SEQUENCE':
       return addSequence(state);
     case 'DELETE_SEQUENCE':
-      return deleteSequence(state, action.sequence);
+      return deleteSequence(state, action.sequenceId);
     case 'CHANGE_INSTRUMENT':
       return changeInstrument(state, action.sequenceId, action.newInstrument);
     default:

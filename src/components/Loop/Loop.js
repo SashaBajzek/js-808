@@ -44,7 +44,7 @@ class Loop extends React.Component {
         <ul className={styles.sequencelist}>
             {this.renderSequences()}
         </ul>
-        <button onClick={this.props.addSequence} className={styles.button}>Add Instrument</button>
+        <button onClick={this.props.addSequence} className={styles.button}>Add Sequence</button>
       </div>
     )
   }

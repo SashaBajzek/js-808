@@ -10,11 +10,6 @@
   padding: 10px 0;
 }
 
-.title {
-  flex-grow: 1;
-  margin: 0;
-}
-
 .Sequencemagenta .title,
 .Sequencemagenta .select {
   color: #DB3DB4; /* Need to increase lightness for enough contrast */
@@ -75,6 +70,35 @@
   display: flex;
   width: 100%;
 }
+
+.detailsCRUD {
+  align-items: center;
+  display: flex;
+}
+
+.button {
+  background: $darkgrey;
+  border: 1px solid transparent;
+  border-radius: 13px;
+  color: $white;
+  cursor: pointer;
+  flex-shrink: 0;
+  font-size: 14px;
+  height: 26px;
+  margin-left: 10px;
+  outline: none; /* replaced with boxshadow */
+  overflow: hidden;
+  width: 26px;
+}
+
+.button:hover {
+  background: $vol-button-hover;
+}
+
+.button:focus {
+  box-shadow: 0 0 10px $mediumgrey;
+}
+
 
 @media (min-width: 800px) {
   .Sequence {

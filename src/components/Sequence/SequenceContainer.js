@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import { getInstrumentFromSequence } from '../../getters';
-import { changeInstrument } from '../../actions/actions';
+import { changeInstrument, deleteSequence } from '../../actions/actions';
 import Sequence from './Sequence';
 
 const mapStateToProps = (state, ownProps) => ({
@@ -11,7 +11,8 @@ const mapStateToProps = (state, ownProps) => ({
 });
 
 const dispatchProps = {
-  changeInstrument
+  changeInstrument,
+  deleteSequence
 };
 
 const SequenceContainer = connect(

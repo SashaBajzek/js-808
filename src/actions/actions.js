@@ -75,10 +75,10 @@ export function addSequence() {
   };
 }
 
-export function deleteSequence(sequence) {
+export function deleteSequence(sequenceId) {
   return {
     type: ActionTypes.DELETE_SEQUENCE,
-    sequence
+    sequenceId
   };
 }
 
