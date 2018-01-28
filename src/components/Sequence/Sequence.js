@@ -4,16 +4,45 @@ import PatternContainer from "../Pattern/PatternContainer";
 import styles from "./Sequence.scss";
 
 class Sequence extends React.Component {
+  handleSubmit = (event) => {
+    event.preventDefault();
+  }
+
+  instrumentHandleChange = (event) => {
+    let newInstrument = event.target.value;
+    this.props.changeInstrument(this.props.sequenceId, newInstrument);
+  }
+
+  renderOptions = () => {
+    //current instrument displayed first
+    var options = [
+     
+    ];
+    this.props.allInstruments.forEach((instrument) => {
+      options.push(
+        <option className={`${styles["option"+instrument.color]}`} key={`instrument${instrument.id}`} id={`instrument${instrument.id}`} value={instrument.id}>{instrument.displayName}</option>
+      );
+    });
+    return options;
+  }
+
   render(){
     const {
       instrumentName,
       instrumentColor,
-      sequenceId
+      sequenceId,
+      currentInstrument
     } = this.props;
     return (
       <li className={`${styles.Sequence} ${styles["Sequence"+instrumentColor]}`}>
         <div className={styles.details}>
-          <h2 className={styles.title}>{instrumentName}</h2>
+          {/* <h2 className={styles.title}>{instrumentName}</h2> */}
+          <form onSubmit={this.handleSubmit}>
+            <select name="instrumentName" id={`instrumentName${sequenceId}`} onChange={this.instrumentHandleChange} value={currentInstrument.id} className={styles.select} >
+              {this.renderOptions()}
+            </select>
+            <label htmlFor={`instrumentName${sequenceId}`} className={styles.label}>instrument</label>
+          </form>
           <VolumeAdjusterContainer
             sequenceId={sequenceId}
           />
@@ -25,60 +54,3 @@ class Sequence extends React.Component {
 }
 
 export default Sequence;
-
-
-
-
-
-/*
-import React from 'react';
-import VolumeAdjuster from '../VolumeAdjuster/VolumeAdjuster';
-import Pattern from "../Pattern/Pattern";
-import styles from "./Sequence.scss";
-
-class Sequence extends React.Component {
-  render(){
-    const { 
-      changeBeat, 
-      changeVolume, 
-      color, 
-      currentBeat, 
-      currentLoopNum, 
-      currentSequenceNum, 
-      getInstrumentFromId, 
-      getSoundFromSequence,
-      instrumentMute,
-      instrumentVolume,
-      muteSound, 
-      sequence} = this.props;
-
-    return (
-      <li className={`${styles.Sequence} ${styles["Sequence"+color]}`}>
-        <div className={styles.details}>
-          <h2 className={styles.title}>{getInstrumentFromId(sequence.instrument).displayName}</h2>
-          <VolumeAdjuster 
-            changeVolume={changeVolume}
-            color={color}
-            instrumentMute={instrumentMute} 
-            instrumentName={sequence.instrument} 
-            instrumentVolume={instrumentVolume}
-            muteSound={muteSound} 
-            soundId={getSoundFromSequence(sequence).id} 
-          />
-        </div>
-        <Pattern 
-          changeBeat={changeBeat}
-          color={color} 
-          currentBeat={currentBeat} 
-          currentLoopNum={currentLoopNum} 
-          currentSequenceNum={currentSequenceNum}
-          pattern={sequence.pattern}
-        />
-      </li>
-    );
-  }
-}
-
-export default Sequence;
-
-*/

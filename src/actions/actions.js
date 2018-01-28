@@ -69,14 +69,9 @@ export function changeVolume(sequenceId, rangeVolume, increment) {
   };
 }
 
-
-/*
-Later add:
-
-export function addSequence(newSequence) {
+export function addSequence() {
   return {
-    type: ActionTypes.ADD_SEQUENCE,
-    newSequence
+    type: ActionTypes.ADD_SEQUENCE
   };
 }
 
@@ -87,13 +82,10 @@ export function deleteSequence(sequence) {
   };
 }
 
-export function changeInstrument(sequence, soundId) {
+export function changeInstrument(sequenceId, newInstrument) {
   return {
     type: ActionTypes.CHANGE_INSTRUMENT,
-    sequence,
-    soundId
+    sequenceId,
+    newInstrument
   };
 }
-
-
-*/

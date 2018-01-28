@@ -58,6 +58,24 @@
   justify-content: space-between;
 }
 
+.button {
+  background: rgba(0, 0, 0, 0);
+  border-radius: 5px;
+  color: $white;
+  cursor: pointer;
+  flex-shrink: 0;
+  font-size: 14px;
+  font-weight: bold;
+  height: 28px;
+  line-height: 14px;
+  margin: 5px 0;
+}
+
+.button:active {
+  background: $gold-light-transparent;
+  color: $blackgrey;
+}
+
 @media (min-width: 800px) {
   .header {
     flex-direction: row;

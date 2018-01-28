@@ -140,6 +140,61 @@ function changeVolume(state, sequenceId, rangeVolume, increment) {
   });
 }
 
+function addSequence(state) {
+  let newSequence = {};
+  let defaultInstrument = state.instruments[0].id;
+  if(state.loops[state.currentLoop].maxBeats === 8) {
+    newSequence = {
+      instrument: defaultInstrument,
+      pattern: [false, false, false, false, false, false, false, false]
+    }
+  } else if(state.loops[state.currentLoop].maxBeats === 16) {
+    newSequence = {
+      instrument: defaultInstrument,
+      pattern: [false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false]
+    }
+  }
+  let newLoops = update(state.loops, {
+    [state.currentLoop]: {
+      sequences: {
+        $push: [newSequence]
+      }
+    }
+  });
+  return Object.assign({}, state, {
+    loops: newLoops
+  });
+}
+
+function deleteSequence(state, sequence) {
+  let newLoops = update(state.loops, {
+    [state.currentLoop]: {
+      sequences: {
+        $unshift: [sequence]
+      }
+    }
+  })
+  return Object.assign({}, state, {
+    loops: newLoops
+  });
+}
+
+function changeInstrument(state, sequenceId, newInstrument) {
+  let newLoops = update(state.loops, {
+    [state.currentLoop]: {
+      sequences: {
+        [sequenceId]: {
+          instrument: {
+            $set: newInstrument
+          }
+        }
+      }
+    }
+  })
+  return Object.assign({}, state, {
+    loops: newLoops
+  });
+}
 
 
 export default function reducerJS808 (state = initialState, action) {
@@ -164,6 +219,12 @@ export default function reducerJS808 (state = initialState, action) {
       return mute(state, action.sequenceId);
     case 'CHANGE_VOLUME':
       return changeVolume(state, action.sequenceId, action.rangeVolume, action.increment);
+    case 'ADD_SEQUENCE':
+      return addSequence(state);
+    case 'DELETE_SEQUENCE':
+      return deleteSequence(state, action.sequence);
+    case 'CHANGE_INSTRUMENT':
+      return changeInstrument(state, action.sequenceId, action.newInstrument);
     default:
       return state;
   }

@@ -1,4 +1,5 @@
 import { connect } from 'react-redux';
+import { addSequence } from '../../actions/actions';
 import Loop from './Loop';
 
 const mapStateToProps = (state, ownProps) => ({
@@ -8,9 +9,11 @@ const mapStateToProps = (state, ownProps) => ({
   numSequences: state.loops[state.currentLoop].sequences.length
 });
 
+const dispatchProps = { addSequence };
+
 const LoopContainer = connect(
   mapStateToProps,
-  null
+  dispatchProps
 )(Loop);
 
 export default LoopContainer;

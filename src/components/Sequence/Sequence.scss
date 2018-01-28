@@ -15,20 +15,59 @@
   margin: 0;
 }
 
-.Sequencemagenta .title {
+.Sequencemagenta .title,
+.Sequencemagenta .select {
   color: #DB3DB4; /* Need to increase lightness for enough contrast */
 }
 
-.Sequencegold .title {
+.Sequencemagenta .select {
+  border-color: #DB3DB4; /* Need to increase lightness for enough contrast */
+}
+
+.Sequencegold .title,
+.Sequencegold .select {
   color: $gold-light;
 }
 
-.Sequenceteal .title {
+.Sequencegold .select {
+  border-color: $gold-light;
+}
+
+.Sequenceteal .title,
+.Sequenceteal .select {
   color: $teal-light;
 }
 
-.Sequencegreen .title {
+.Sequenceteal .select {
+  border-color: $teal-light;
+}
+
+.Sequencegreen .title,
+.Sequencegreen .select {
   color: $green-light;
+}
+
+.Sequencegreen .select {
+  border-color: $green-light;
+}
+
+.select {
+  background: rgba(0, 0, 0, 0);
+  color: $blackgrey;
+  font-size: 1.5em;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.select option {
+  font-size: 10px;
+}
+
+.label {
+  color: white;
+  position: absolute;
+  transform: translateX(100vw);
+  /* Buttons use an icon visually, pushing text off screen */
 }
 
 .details {
