@@ -46,6 +46,42 @@
   border-color: $green-light;
 }
 
+.Sequenceblue .title,
+.Sequenceblue .select {
+  color: $blue-light;
+}
+
+.Sequenceblue .select {
+  border-color: $blue-light;
+}
+
+.Sequenceorange .title,
+.Sequenceorange .select {
+  color: $orange-light;
+}
+
+.Sequenceorange .select {
+  border-color: $orange-light;
+}
+
+.Sequencecherry .title,
+.Sequencecherry .select {
+  color: $cherry-light;
+}
+
+.Sequencecherry .select {
+  border-color: $cherry-light;
+}
+
+.Sequencepurple .title,
+.Sequencepurple .select {
+  color: $purple-light;
+}
+
+.Sequencepurple .select {
+  border-color: $purple-light;
+}
+
 .select {
   background: rgba(0, 0, 0, 0);
   color: $blackgrey;

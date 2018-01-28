@@ -74,6 +74,54 @@ input[type=range]:focus {
   box-shadow: 0 0 10px $green-light;
 }
 
+.inputblue[type=range]:focus::-webkit-slider-thumb {
+  box-shadow: 0 0 10px $blue-light;
+}
+
+.inputblue[type=range]:focus::-moz-range-thumb {
+  box-shadow: 0 0 10px $blue-light;
+}
+
+.inputblue[type=range]:focus::-ms-thumb {
+  box-shadow: 0 0 10px $blue-light;
+}
+
+.inputorange[type=range]:focus::-webkit-slider-thumb {
+  box-shadow: 0 0 10px $orange-light;
+}
+
+.inputorange[type=range]:focus::-moz-range-thumb {
+  box-shadow: 0 0 10px $orange-light;
+}
+
+.inputorange[type=range]:focus::-ms-thumb {
+  box-shadow: 0 0 10px $orange-light;
+}
+
+.inputcherry[type=range]:focus::-webkit-slider-thumb {
+  box-shadow: 0 0 10px $cherry-light;
+}
+
+.inputcherry[type=range]:focus::-moz-range-thumb {
+  box-shadow: 0 0 10px $cherry-light;
+}
+
+.inputcherry[type=range]:focus::-ms-thumb {
+  box-shadow: 0 0 10px $cherry-light;
+}
+
+.inputpurple[type=range]:focus::-webkit-slider-thumb {
+  box-shadow: 0 0 10px $purple-light;
+}
+
+.inputpurple[type=range]:focus::-moz-range-thumb {
+  box-shadow: 0 0 10px $purple-light;
+}
+
+.inputpurple[type=range]:focus::-ms-thumb {
+  box-shadow: 0 0 10px $purple-light;
+}
+
 
 /* Generic formatting for new range css */
 

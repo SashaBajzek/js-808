@@ -3,6 +3,10 @@ import * as bubbleSound from "./sounds/bubbles.mp3";
 import * as claySound from "./sounds/clay.mp3";
 import * as coronaSound from "./sounds/corona.mp3";
 import * as moonSound from "./sounds/moon.mp3";
+import * as spiralSound from "./sounds/dotted-spiral.mp3";
+import * as ufoSound from "./sounds/ufo.mp3";
+import * as splitsSound from "./sounds/splits.mp3";
+import * as veilSound from "./sounds/veil.mp3";
 
 const initialState = {
   bpm: 128,
@@ -102,6 +106,30 @@ const initialState = {
       displayName: "Closed Hat",
       sound: "moonSound",
       color: "green"
+    },
+    {
+      id: "spiral",
+      displayName: "Spiral",
+      sound: "spiralSound",
+      color: "blue"
+    },
+    {
+      id: "ufo",
+      displayName: "UFO",
+      sound: "ufoSound",
+      color: "orange"
+    },
+    {
+      id: "splits",
+      displayName: "Splits",
+      sound: "splitsSound",
+      color: "cherry"
+    },
+    {
+      id: "veil",
+      displayName: "Veil",
+      sound: "veilSound",
+      color: "purple"
     }
   ],
   sounds: [
@@ -133,6 +161,38 @@ const initialState = {
       id: "moonSound",
       sound: new Howl({
         src: [moonSound],
+        volume: 0.5,
+        mute: false
+      }) 
+    },
+    {
+      id: "spiralSound",
+      sound: new Howl({
+        src: [spiralSound],
+        volume: 0.5,
+        mute: false
+      }) 
+    },
+    {
+      id: "ufoSound",
+      sound: new Howl({
+        src: [ufoSound],
+        volume: 0.5,
+        mute: false
+      }) 
+    },
+    {
+      id: "splitsSound",
+      sound: new Howl({
+        src: [splitsSound],
+        volume: 0.5,
+        mute: false
+      }) 
+    },
+    {
+      id: "veilSound",
+      sound: new Howl({
+        src: [veilSound],
         volume: 0.5,
         mute: false
       }) 

@@ -99,6 +99,54 @@
   background-image: radial-gradient($green-light 10%, $green-light-transparent 100%);
 }
 
+.buttonblue {
+  background-color: $blue-dark;
+}
+
+.buttonblue:hover {
+  background-image: radial-gradient($blue-light-transparent 0%, $blue-dark 100%);
+}
+
+.buttonblue.selected {
+  background-image: radial-gradient($blue-light 10%, $blue-light-transparent 100%);
+}
+
+.buttoncherry {
+  background-color: $cherry-dark;
+}
+
+.buttoncherry:hover {
+  background-image: radial-gradient($cherry-light-transparent 0%, $cherry-dark 100%);
+}
+
+.buttoncherry.selected {
+  background-image: radial-gradient($cherry-light 10%, $cherry-light-transparent 100%);
+}
+
+.buttonorange {
+  background-color: $orange-dark;
+}
+
+.buttonorange:hover {
+  background-image: radial-gradient($orange-light-transparent 0%, $orange-dark 100%);
+}
+
+.buttonorange.selected {
+  background-image: radial-gradient($orange-light 10%, $orange-light-transparent 100%);
+}
+
+.buttonpurple {
+  background-color: $purple-dark;
+}
+
+.buttonpurple:hover {
+  background-image: radial-gradient($purple-light-transparent 0%, $purple-dark 100%);
+}
+
+.buttonpurple.selected {
+  background-image: radial-gradient($purple-light 10%, $purple-light-transparent 100%);
+}
+
 @media (min-width: 800px) {
   .Beat {
     min-height: 60px;

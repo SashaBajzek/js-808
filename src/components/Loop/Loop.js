@@ -33,10 +33,11 @@ class Loop extends React.Component {
   }
 
   render() {
+    const { loopName, disableAddSequence } = this.props;
     return (
       <div className={styles.Loop}>
         <div className={styles.header}>
-          <h2 className={styles.title}>{this.props.loopName}</h2>
+          <h2 className={styles.title}>{loopName}</h2>
           <ul className={styles.headerlist}>
             {this.renderHeader()}
           </ul>
@@ -44,7 +45,7 @@ class Loop extends React.Component {
         <ul className={styles.sequencelist}>
             {this.renderSequences()}
         </ul>
-        <button onClick={this.props.addSequence} className={styles.button}>Add Sequence</button>
+        <button onClick={this.props.addSequence} className={styles.button} disabled={disableAddSequence} >{disableAddSequence ? "Out of available instruments" : "Add Sequence"}</button>
       </div>
     )
   }

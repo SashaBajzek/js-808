@@ -33,3 +33,19 @@ export const getSoundIndexFromSoundId = (state, soundId) => {
   let index = state.sounds.findIndex(x => x.id === soundId);
   return index;
 }
+
+export const getAvailableInstruments = (state) => {
+  let availableInstruments = [];
+  let used = false;
+  state.instruments.forEach((instrument) => {
+    if (
+      state.loops[state.currentLoop].sequences.find(function (obj) { return obj.instrument === instrument.id;})
+    ){
+
+    } else {
+      availableInstruments.push(instrument);
+    }
+  })
+
+  return availableInstruments;
+}

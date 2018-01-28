@@ -19,10 +19,11 @@ class Sequence extends React.Component {
 
   renderOptions = () => {
     //current instrument displayed first
+    const { currentInstrument } = this.props;
     var options = [
-     
+      <option className={`${styles["option"+currentInstrument.color]}`} key={`instrument${currentInstrument.id}`} id={`instrument${currentInstrument.id}`} value={currentInstrument.id}>{currentInstrument.displayName}</option>
     ];
-    this.props.allInstruments.forEach((instrument) => {
+    this.props.availableInstruments.forEach((instrument) => {
       options.push(
         <option className={`${styles["option"+instrument.color]}`} key={`instrument${instrument.id}`} id={`instrument${instrument.id}`} value={instrument.id}>{instrument.displayName}</option>
       );

@@ -1,6 +1,6 @@
 import initialState from '../initialState';
 import update from 'immutability-helper';
-import { getInstrumentFromSequence, getBeat, getSoundFromId, getSoundIndexFromSoundId } from '../getters';
+import { getInstrumentFromSequence, getBeat, getSoundFromId, getSoundIndexFromSoundId, getAvailableInstruments } from '../getters';
 
 function play(state) {
   return Object.assign({}, state, {
@@ -142,7 +142,7 @@ function changeVolume(state, sequenceId, rangeVolume, increment) {
 
 function addSequence(state) {
   let newSequence = {};
-  let defaultInstrument = state.instruments[0].id;
+  let defaultInstrument = getAvailableInstruments(state)[0].id;
   if(state.loops[state.currentLoop].maxBeats === 8) {
     newSequence = {
       instrument: defaultInstrument,
