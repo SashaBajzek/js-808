@@ -12,15 +12,12 @@
 
 @media (min-width: 800px) {
   .VolumeAdjuster {
-    justify-content: flex-start;
-    width: 80%;
+    padding-right: 0;
+    width: 100%;
   }
 
   .VolumeAdjuster__details {
-    align-items: flex-start;
     flex-direction: column;
-    padding-right: 10px;
-    width: 25%;
   }
 
   .list {

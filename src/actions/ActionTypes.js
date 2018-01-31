@@ -9,10 +9,9 @@ const actions = [
   "CHANGE_BPM",
   "MUTE",
   "CHANGE_VOLUME",
-
   "ADD_SEQUENCE",
   "DELETE_SEQUENCE",
-  "CHANGE_INSTRUMENT",
+  "CHANGE_INSTRUMENT"
 ]
 
 const actionMap = {};

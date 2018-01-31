@@ -4,7 +4,6 @@ import {getInstrumentFromSequence} from '../../getters';
 import VolumeButton from './VolumeButton';
 
 const mapStateToProps = (state, ownProps) => ({
-  instrumentMute: getInstrumentFromSequence(state, ownProps.sequenceId).mute,
   soundId: getInstrumentFromSequence(state, ownProps.sequenceId).id,
   instrumentColor: getInstrumentFromSequence(state, ownProps.sequenceId).color
 });

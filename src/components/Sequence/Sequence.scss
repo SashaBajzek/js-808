@@ -85,13 +85,15 @@
 .select {
   background: rgba(0, 0, 0, 0);
   color: $blackgrey;
-  font-size: 1.5em;
+  cursor: pointer;
+  font-size: 1.1em;
   font-weight: bold;
   margin-bottom: 5px;
+  min-width: 120px;
 }
 
-.select option {
-  font-size: 10px;
+.select:hover {
+  background: rgba(250, 250, 250, .05);
 }
 
 .label {
@@ -104,12 +106,15 @@
 .details {
   align-items: center;
   display: flex;
+  justify-content: space-between;
   width: 100%;
 }
 
 .detailsCRUD {
   align-items: center;
   display: flex;
+  flex-grow: 1;
+  justify-content: space-between;
 }
 
 .button {
@@ -128,11 +133,22 @@
 }
 
 .button:hover {
+  color: $red;
+}
+
+.button:hover {
   background: $vol-button-hover;
 }
 
 .button:focus {
   box-shadow: 0 0 10px $mediumgrey;
+}
+
+@media (min-width: 425px) {
+  .select {
+    font-size: 1.3em;
+    min-width: 135px;
+  }
 }
 
 
@@ -144,7 +160,19 @@
   .details {
     align-items: flex-start;
     flex-direction: column;
-    padding-right: 10px;
+    max-width: 250px;
+    padding-right: 50px;
     width: 25%;
+  }
+
+  .detailsCRUD {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+  }
+
+  .select {
+    font-size: 1.4em;
+    min-width: 145px;
   }
 }

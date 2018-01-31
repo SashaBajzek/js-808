@@ -33,7 +33,6 @@ class Sequence extends React.Component {
 
   render(){
     const {
-      instrumentName,
       instrumentColor,
       sequenceId,
       currentInstrument
@@ -43,10 +42,10 @@ class Sequence extends React.Component {
         <div className={styles.details}>
           <div className={styles.detailsCRUD}>
             <form onSubmit={this.handleSubmit}>
-              <select name="instrumentName" id={`instrumentName${sequenceId}`} onChange={this.instrumentHandleChange} value={currentInstrument.id} className={styles.select} >
+              <select name="instrument" id={`instrument${sequenceId}`} onChange={this.instrumentHandleChange} value={currentInstrument.id} className={styles.select} >
                 {this.renderOptions()}
               </select>
-              <label htmlFor={`instrumentName${sequenceId}`} className={styles.label}>instrument</label>
+              <label htmlFor={`instrument${sequenceId}`} className={styles.label}>instrument</label>
             </form>
             <button onClick={this.instrumentDelete} className={styles.button}>X</button>
           </div>

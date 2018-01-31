@@ -5,14 +5,18 @@
 }
 
 html,
-body,
+body {
+  min-height: 100vh;
+  overflow: hidden;
+}
+
 #root {
-  height: 100vh;
+  min-height: 100%;
   overflow-x: hidden;
 }
 
 body {
-  background-color: $mediumgrey;
+  background-color: $charcoal;
   color: white;
   font-family: Roboto, sans-serif;
   margin: 0;
@@ -30,8 +34,8 @@ li {
 .App {
   display: flex;
   flex-direction: column;
-  height: 100%;
   justify-content: space-between;
-  overflow-x: hidden;
+  min-height: 100%;
+  overflow: hidden;
   width: 100vw;
 }

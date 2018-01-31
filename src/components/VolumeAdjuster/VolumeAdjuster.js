@@ -8,13 +8,13 @@ class VolumeAdjuster extends React.Component {
   muteSound = () => {
     this.props.mute(this.props.sequenceId);
   }
-
+  
   render(){
     const { 
       sequenceId,
       instrumentMute
     } = this.props;
-
+  
     return (
       <ul className={styles.list}>
         <li>

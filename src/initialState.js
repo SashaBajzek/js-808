@@ -138,7 +138,7 @@ const initialState = {
       sound: new Howl({
         src: [bubbleSound],
         volume: 0.5,
-        mute: false
+        muted: false
       }) 
     },
     {
@@ -146,7 +146,7 @@ const initialState = {
       sound: new Howl({
         src: [claySound],
         volume: 0.5,
-        mute: false
+        muted: false
       }) 
     },
     {
@@ -154,7 +154,7 @@ const initialState = {
       sound: new Howl({
         src: [coronaSound],
         volume: 0.5,
-        mute: false
+        muted: false
       }) 
     },
     {
@@ -162,7 +162,7 @@ const initialState = {
       sound: new Howl({
         src: [moonSound],
         volume: 0.5,
-        mute: false
+        muted: false
       }) 
     },
     {
@@ -170,7 +170,7 @@ const initialState = {
       sound: new Howl({
         src: [spiralSound],
         volume: 0.5,
-        mute: false
+        muted: false
       }) 
     },
     {
@@ -178,7 +178,7 @@ const initialState = {
       sound: new Howl({
         src: [ufoSound],
         volume: 0.5,
-        mute: false
+        muted: false
       }) 
     },
     {
@@ -186,7 +186,7 @@ const initialState = {
       sound: new Howl({
         src: [splitsSound],
         volume: 0.5,
-        mute: false
+        muted: false
       }) 
     },
     {
@@ -194,7 +194,7 @@ const initialState = {
       sound: new Howl({
         src: [veilSound],
         volume: 0.5,
-        mute: false
+        muted: false
       }) 
     }
   ]

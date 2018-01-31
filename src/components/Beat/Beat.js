@@ -2,21 +2,25 @@ import React from 'react';
 import styles from "./Beat.scss";
 
 class Beat extends React.Component {
-
   current = styles.current;
   selected = styles.selected;
+  instrumentMute = styles.instrumentMute;
 
   getClass = () => {
     const {
       beatOn, 
       beatId, 
-      currentBeat} = this.props;
+      currentBeat,
+      instrumentMute } = this.props;
     var classes = [];
     if(beatId === currentBeat) {
       classes.push(this.current);
     }
     if(beatOn) {
       classes.push(this.selected);
+    }
+    if(instrumentMute) {
+      classes.push(this.instrumentMute);
     }
     return classes.join(' ');
   }

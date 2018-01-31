@@ -4,12 +4,10 @@ import { changeInstrument, deleteSequence } from '../../actions/actions';
 import Sequence from './Sequence';
 
 const mapStateToProps = (state, ownProps) => ({
-  instrumentName: getInstrumentFromSequence(state, ownProps.sequenceId).displayName,
   instrumentColor: getInstrumentFromSequence(state, ownProps.sequenceId).color,
   currentInstrument: getInstrumentFromSequence(state, ownProps.sequenceId),
   allInstruments: state.instruments,
-  availableInstruments: getAvailableInstruments(state),
-  currentInstrument: getInstrumentFromSequence(state, ownProps.sequenceId)
+  availableInstruments: getAvailableInstruments(state)
 });
 
 const dispatchProps = {

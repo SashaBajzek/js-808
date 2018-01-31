@@ -1,7 +1,6 @@
 @import '../../styles/variables.scss';
 
 .Loop {
-  background-color: rgba(0, 0, 0, 0.75);
   display: flex;
   flex-direction: column;
   flex-grow: 1;
@@ -26,7 +25,7 @@
   display: flex;
   flex-grow: 1;
   justify-content: space-between;
-  margin: 0 auto 30px;
+  margin: 0 auto;
   width: 100%;
 }
 
@@ -83,6 +82,8 @@
 
   .title {
     font-size: 30px;
+    max-width: 250px;
+    padding-right: 50px;
     width: 25%;
   }
 
@@ -95,5 +96,13 @@
     font-size: 18px;
     height: 40px;
     line-height: 40px;
+  }
+}
+
+@media (min-width: 1000px) {
+  .Loop {
+    margin: 0 auto;
+    padding: 0;
+    width: 80%;
   }
 }

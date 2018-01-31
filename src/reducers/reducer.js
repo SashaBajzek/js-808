@@ -1,6 +1,6 @@
 import initialState from '../initialState';
 import update from 'immutability-helper';
-import { getInstrumentFromSequence, getBeat, getSoundFromId, getSoundIndexFromSoundId, getAvailableInstruments } from '../getters';
+import { getInstrumentFromSequence, getBeat, getSoundFromId, getSoundIndexFromSoundId, getAvailableInstruments, getMuteFromSequence, getSoundIdFromInstrumentId } from '../getters';
 
 function play(state) {
   return Object.assign({}, state, {
@@ -180,6 +180,8 @@ function deleteSequence(state, sequenceId) {
 }
 
 function changeInstrument(state, sequenceId, newInstrument) {
+  //If you change instrument, new instrument is muted
+  //original instrument removes the mute
   let newLoops = update(state.loops, {
     [state.currentLoop]: {
       sequences: {
@@ -190,7 +192,45 @@ function changeInstrument(state, sequenceId, newInstrument) {
         }
       }
     }
-  })
+  });
+
+  //See if original instrument was muted
+  let isOriginalMuted = getMuteFromSequence(state, sequenceId);
+
+  if (isOriginalMuted) {
+    //If original was muted, Remove mute from original instrument & mute new instrument
+    let originalSoundId = getInstrumentFromSequence(state, sequenceId).sound;
+    let originalIndex = getSoundIndexFromSoundId(state, originalSoundId);
+
+  
+    let newSoundToMuteId = getSoundIdFromInstrumentId(state, newInstrument);
+    let newIndex = getSoundIndexFromSoundId(state, newSoundToMuteId);
+
+    let newSounds = update(state.sounds, {
+      [originalIndex]: {
+        sound: {
+            $apply: function(x) {
+              return x.mute(false);
+            }
+          
+        }
+      },
+      [newIndex]: {
+        sound: {
+            $apply: function(x) {
+              return x.mute(true);
+            }
+          
+        }
+      }
+    });
+
+    return Object.assign({}, state, {
+      loops: newLoops,
+      sounds: newSounds
+    });
+  }
+
   return Object.assign({}, state, {
     loops: newLoops
   });

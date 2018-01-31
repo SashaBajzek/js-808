@@ -10,7 +10,6 @@
   padding: 0;
   position: relative;
   text-align: center;
-  transition: all .2s linear;
 }
 
 .button {
@@ -145,6 +144,16 @@
 
 .buttonpurple.selected {
   background-image: radial-gradient($purple-light 10%, $purple-light-transparent 100%);
+}
+
+/* Mute overrides all button colors with grey */
+.button.instrumentMute.selected {
+  background-color: $blackgrey;
+  background-image: radial-gradient($blackgrey 0%, $blackgrey 100%);
+}
+
+.instrumentMute {
+  background-color: $darkgrey;
 }
 
 @media (min-width: 800px) {

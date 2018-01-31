@@ -1,12 +1,15 @@
 @import '../../styles/variables.scss';
 
 .header {
-  align-items: center;
   background-color: $blackgrey;
+}
+
+.container {
+  align-items: center;
   color: $white;
   display: flex;
   flex-direction: column;
-  height: 100px;
+  height: 80px;
   justify-content: space-between;
   padding: 0 10px;
 }
@@ -92,16 +95,14 @@
   margin-left: 20px;
 }
 
-@media (min-width: 430px) {
-  .controlscontainer {
-    width: 80%;
-  }
-}
-
-@media (min-width: 650px) {
-  .header {
-    flex-direction: row;
+@media (min-width: 500px) {
+  .header,
+  .container {
     height: 70px;
+  }
+
+  .container {
+    flex-direction: row;
   }
 
   .title {
@@ -112,11 +113,19 @@
   .controlscontainer {
     justify-content: space-between;
     margin: 0;
-    width: inherit;
+    width: 350px;
   }
 
   .buttoncontainer {
     margin-right: 50px;
+  }
+}
+
+@media (min-width: 1000px) {
+  .container {
+    margin: 0 auto;
+    padding: 0;
+    width: 80%;
   }
 }
 

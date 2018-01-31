@@ -7,9 +7,11 @@ class VolumeButton extends React.Component {
   fa_volume_off = fontAwesome['fa-volume-off'];
   fa_volume_up = fontAwesome['fa-volume-up'];
   fa_volume_down = fontAwesome['fa-volume-down'];
+  icon = styles.icon;
 
   getClass = () => {
     var classes = [this.fa];
+    classes.push(this.icon);
     if(this.props.icon === 'fa-volume-off') {
       classes.push(this.fa_volume_off);
     }

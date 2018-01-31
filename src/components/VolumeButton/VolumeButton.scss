@@ -11,6 +11,7 @@
   height: 26px;
   outline: none; /* replaced with boxshadow */
   overflow: hidden;
+  position: relative;
   width: 26px;
 }
 
@@ -20,6 +21,14 @@
 
 .VolumeButton:focus {
   box-shadow: 0 0 10px $mediumgrey;
+}
+
+.icon {
+  left: -1px; /* left 0 is mysteriously off by 1px */
+  position: absolute;
+  text-align: center;
+  top: 5px; /* (button height 26px - font size 14px) / 2 = 5px */
+  width: 26px;
 }
 
 .text.muted,
