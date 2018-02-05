@@ -5,16 +5,22 @@
   flex-direction: column;
   flex-grow: 1;
   justify-content: space-between;
+  margin-top: 80px;
   overflow-x: hidden;
   padding: 0 10px;
 }
 
 .header {
   align-items: center;
+  background-color: $charcoal;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   margin: 0;
+  position: fixed;
+  top: 80px;
+  width: calc(100% - 20px);
+  z-index: 1;
 }
 
 .title {
@@ -78,6 +84,7 @@
 @media (min-width: 800px) {
   .header {
     flex-direction: row;
+    top: 70px;
   }
 
   .title {
@@ -89,7 +96,7 @@
 
   .headerlist {
     margin: 16px 0;
-    width: inherit;
+    width: 75%;
   }
 
   .headeritem {
@@ -101,8 +108,12 @@
 
 @media (min-width: 1000px) {
   .Loop {
-    margin: 0 auto;
+    margin: 80px auto 0;
     padding: 0;
+    width: 80%;
+  }
+
+  .header {
     width: 80%;
   }
 }

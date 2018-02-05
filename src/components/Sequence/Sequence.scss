@@ -10,6 +10,10 @@
   padding: 10px 0;
 }
 
+.Sequence:first-of-type {
+  margin-top: 80px;
+}
+
 .Sequencemagenta .title,
 .Sequencemagenta .select {
   color: #DB3DB4; /* Need to increase lightness for enough contrast */
