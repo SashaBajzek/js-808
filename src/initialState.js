@@ -82,122 +82,88 @@ const initialState = {
       ]
     }
   ],
-  instruments: [
-    {
+  instruments: {
+    kick: {
       id: "kick",
       displayName: "Kick",
-      sound: "bubbleSound",
-      color: "magenta"
-    },
-    {
-      id: "snare",
-      displayName: "Snare",
-      sound: "claySound",
-      color: "gold"
-    },
-    {
-      id: "openHat",
-      displayName: "Open Hat",
-      sound: "coronaSound",
-      color: "teal"
-    },
-    {
-      id: "closedHat",
-      displayName: "Closed Hat",
-      sound: "moonSound",
-      color: "green"
-    },
-    {
-      id: "spiral",
-      displayName: "Spiral",
-      sound: "spiralSound",
-      color: "blue"
-    },
-    {
-      id: "ufo",
-      displayName: "UFO",
-      sound: "ufoSound",
-      color: "orange"
-    },
-    {
-      id: "splits",
-      displayName: "Splits",
-      sound: "splitsSound",
-      color: "cherry"
-    },
-    {
-      id: "veil",
-      displayName: "Veil",
-      sound: "veilSound",
-      color: "purple"
-    }
-  ],
-  sounds: [
-    {
-      id: "bubbleSound",
+      color: "magenta",
       sound: new Howl({
         src: [bubbleSound],
         volume: 0.5,
         muted: false
-      }) 
+      })
     },
-    {
-      id: "claySound",
+    snare: {
+      id: "snare",
+      displayName: "Snare",
+      color: "gold",
       sound: new Howl({
         src: [claySound],
         volume: 0.5,
         muted: false
-      }) 
+      })
     },
-    {
-      id: "coronaSound",
+    openHat: {
+      id: "openHat",
+      displayName: "Open Hat",
+      color: "teal",
       sound: new Howl({
         src: [coronaSound],
         volume: 0.5,
         muted: false
       }) 
     },
-    {
-      id: "moonSound",
+    closedHat: {
+      id: "closedHat",
+      displayName: "Closed Hat",
+      color: "green",
       sound: new Howl({
         src: [moonSound],
         volume: 0.5,
         muted: false
       }) 
     },
-    {
-      id: "spiralSound",
+    spiral: {
+      id: "spiral",
+      displayName: "Spiral",
+      color: "blue",
       sound: new Howl({
         src: [spiralSound],
         volume: 0.5,
         muted: false
       }) 
     },
-    {
-      id: "ufoSound",
+    ufo: {
+      id: "ufo",
+      displayName: "UFO",
+      color: "orange",
       sound: new Howl({
         src: [ufoSound],
         volume: 0.5,
         muted: false
       }) 
     },
-    {
-      id: "splitsSound",
+    splits: {
+      id: "splits",
+      displayName: "Splits",
+      color: "cherry",
       sound: new Howl({
         src: [splitsSound],
         volume: 0.5,
         muted: false
       }) 
     },
-    {
-      id: "veilSound",
+    veil: {
+      id: "veil",
+      displayName: "Veil",
+      color: "purple",
       sound: new Howl({
         src: [veilSound],
         volume: 0.5,
         muted: false
       }) 
     }
-  ]
+  }
 }
 
 export default initialState;
