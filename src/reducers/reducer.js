@@ -1,6 +1,6 @@
 import initialState from '../initialState';
 import update from 'immutability-helper';
-import { getInstrumentFromSequence, getBeat, getSoundFromId, getSoundIndexFromSoundId, getAvailableInstruments, getMuteFromSequence, getSoundIdFromInstrumentId } from '../getters';
+import { getInstrumentFromSequence, getBeat, getAvailableInstruments, getMuteFromSequence } from '../getters';
 
 function play(state) {
   return Object.assign({}, state, {
@@ -64,8 +64,7 @@ function playSound(state) {
       let sequenceNum = index;
       let playBeat = getBeat(state, sequenceNum, currentBeat);
       if(playBeat) {
-        let soundId = getInstrumentFromSequence(state, sequenceNum).sound;
-        getSoundFromId(state, soundId).sound.play();
+        getInstrumentFromSequence(state, sequenceNum).sound.play();
       }
     });
   return state;
@@ -85,12 +84,11 @@ function changeBPM(state, newBPM) {
 }
 
 function mute(state, sequenceId) {
-  let soundId = getInstrumentFromSequence(state, sequenceId).sound;
-  let soundToMute = getSoundFromId(state, soundId);
-  let index = getSoundIndexFromSoundId(state, soundId);
-  let isMuted = soundToMute.sound.mute();
-  let newSounds = update(state.sounds, {
-    [index]: {
+  let instrument = getInstrumentFromSequence(state, sequenceId);
+  let soundId = instrument.id;
+  let isMuted = instrument.sound.mute();
+  let newSounds = update(state.instruments, {
+    [soundId]: {
       sound: {
           $apply: function(x) {
             return x.mute(!isMuted);
@@ -105,11 +103,10 @@ function mute(state, sequenceId) {
 }
 
 function changeVolume(state, sequenceId, rangeVolume, increment) {
-  let soundId = getInstrumentFromSequence(state, sequenceId).sound;
-  let soundToChange = getSoundFromId(state, soundId);
-  let index = getSoundIndexFromSoundId(state, soundId);
-  let currentVolume = soundToChange.sound.volume();
-  let newVolume = currentVolume;
+  let instrument = getInstrumentFromSequence(state, sequenceId);
+  let soundId = instrument.id;
+  let currentVolume = instrument.sound.volume();
+  let newVolume = currentVolume; //set initial newVolume
 
   if(increment) {
     //if using buttons
@@ -123,8 +120,8 @@ function changeVolume(state, sequenceId, rangeVolume, increment) {
     newVolume = rangeVolume;
   }
 
-  let newSounds = update(state.sounds, {
-    [index]: {
+  let newSounds = update(state.instruments, {
+    [soundId]: {
       sound: {
           $apply: function(x) {
             x.volume(newVolume);
@@ -199,15 +196,10 @@ function changeInstrument(state, sequenceId, newInstrument) {
 
   if (isOriginalMuted) {
     //If original was muted, Remove mute from original instrument & mute new instrument
-    let originalSoundId = getInstrumentFromSequence(state, sequenceId).sound;
-    let originalIndex = getSoundIndexFromSoundId(state, originalSoundId);
+    let originalSoundId = getInstrumentFromSequence(state, sequenceId).id;
 
-  
-    let newSoundToMuteId = getSoundIdFromInstrumentId(state, newInstrument);
-    let newIndex = getSoundIndexFromSoundId(state, newSoundToMuteId);
-
-    let newSounds = update(state.sounds, {
-      [originalIndex]: {
+    let newSounds = update(state.instruments, {
+      [originalSoundId]: {
         sound: {
             $apply: function(x) {
               return x.mute(false);
@@ -215,7 +207,7 @@ function changeInstrument(state, sequenceId, newInstrument) {
           
         }
       },
-      [newIndex]: {
+      [newInstrument]: {
         sound: {
             $apply: function(x) {
               return x.mute(true);
