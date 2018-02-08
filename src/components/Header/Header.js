@@ -1,15 +1,42 @@
+// @flow
+
 import React from 'react';
 import styles from './Header.scss';
-import fontAwesome from '../../../node_modules/font-awesome/css/font-awesome.min.css'; 
+import fontAwesome from '../../../node_modules/font-awesome/css/font-awesome.min.css';
 
-class Header extends React.Component {
+type Props = {
+  playing: boolean,
+  bpm: number,
+  loops: Array<
+    { 
+      name: string,
+      maxBeats: number,
+      sequences: Array<
+        {
+          instrument: string,
+          pattern: [boolean]
+        }
+      >
+    }
+  >,
+  play: () => void,
+  pause: () => void,
+  stop: () => void,
+  changeBPM: (number) => void,
+  changeCurrentLoop: (number) => void,
+  advanceBeat: () => void,
+  playSound: () => void
+}
 
-  constructor(props) {
-    super(props);
-    this.state = {
-      intervalId: 0
-    };
-  }
+type State = {
+	intervalId: number
+};
+
+class Header extends React.Component<Props, State> {
+
+  state = {
+    intervalId: 0
+  };
 
   componentWillUnmount = () => {
     this.clearPlayingInterval();
@@ -47,12 +74,12 @@ class Header extends React.Component {
     this.clearPlayingInterval();
   }
 
-  handleSubmit(event){
+  handleSubmit(event: SyntheticEvent<HTMLInputElement>){
     event.preventDefault();
   }
 
-  bpmHandleChange = (e) => {
-    const newBPM = e.target.value;
+  bpmHandleChange = (e: SyntheticEvent<HTMLInputElement>) => {
+    const newBPM = parseInt(e.currentTarget.value, 0);
     this.props.changeBPM(newBPM);
     this.clearPlayingInterval();
     if(this.props.playing) {
@@ -60,8 +87,8 @@ class Header extends React.Component {
     }
   }
 
-  loopHandleChange = (e) => {
-    const newCurrentLoop = parseInt(e.target.value, 0);
+  loopHandleChange = (e: SyntheticEvent<HTMLInputElement>) => {
+    const newCurrentLoop = parseInt(e.currentTarget.value, 0);
     this.props.changeCurrentLoop(newCurrentLoop);
   }
 

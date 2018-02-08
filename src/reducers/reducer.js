@@ -1,6 +1,10 @@
+// @flow
+
 import initialState from '../initialState';
 import update from 'immutability-helper';
 import { getInstrumentFromSequence, getBeat, getAvailableInstruments, getMuteFromSequence } from '../getters';
+import { State } from '../initialState';
+import { Action } from '../actions/actions';
 
 function play(state) {
   return Object.assign({}, state, {
@@ -229,7 +233,7 @@ function changeInstrument(state, sequenceId, newInstrument) {
 }
 
 
-export default function reducerJS808 (state = initialState, action) {
+export default function reducerJS808 (state: State = initialState, action: Action) {
   switch (action.type) {
     case 'PLAY':
       return play(state);

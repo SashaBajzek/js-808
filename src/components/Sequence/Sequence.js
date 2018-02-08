@@ -1,15 +1,46 @@
+// @flow
+
 import React from 'react';
 import VolumeAdjusterContainer from '../VolumeAdjuster/VolumeAdjusterContainer';
 import PatternContainer from "../Pattern/PatternContainer";
 import styles from "./Sequence.scss";
 
-class Sequence extends React.Component {
-  handleSubmit = (event) => {
+type Props = {
+  changeInstrument: (number, string) => void,
+  deleteSequence: (number) => void,
+  currentInstrument: {
+    id: string,
+    displayName: string,
+    color: string,
+    sound: {
+      src: string,
+      volume: number,
+      muted: boolean
+    }
+  },
+  sequenceId: number,
+  instrumentColor: string,
+  availableInstruments: Array<{
+    id: string,
+    displayName: string,
+    color: string,
+    sound: {
+      src: string,
+      volume: number,
+      muted: boolean
+    }
+  }>
+}
+
+class Sequence extends React.Component<Props> {
+  handleSubmit = (event: SyntheticEvent<HTMLInputElement>) => {
     event.preventDefault();
   }
 
-  instrumentHandleChange = (event) => {
-    let newInstrument = event.target.value;
+  instrumentHandleChange = (event: SyntheticEvent<HTMLInputElement>) => {
+    // to access input instance use event.currentTarget
+		//(event.currentTarget: HTMLInputElement);
+    let newInstrument = event.currentTarget.value;
     this.props.changeInstrument(this.props.sequenceId, newInstrument);
   }
 

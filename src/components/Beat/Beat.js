@@ -1,7 +1,18 @@
+// @flow
 import React from 'react';
 import styles from "./Beat.scss";
 
-class Beat extends React.Component {
+type Props = {
+  beatOn: boolean,
+  beatId: number,
+  currentBeat: number,
+  instrumentMute: boolean,
+  sequenceId: number,
+  color: string,
+  toggleBeat: (number, number) => void
+}
+
+class Beat extends React.Component<Props> {
   current = styles.current;
   selected = styles.selected;
   instrumentMute = styles.instrumentMute;
