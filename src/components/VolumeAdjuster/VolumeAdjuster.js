@@ -1,9 +1,17 @@
+// @flow
+
 import React from 'react';
 import styles from "./VolumeAdjuster.scss";
 import VolumeButtonContainer from "../VolumeButton/VolumeButtonContainer";
 import VolumeRangeContainer from "../VolumeRange/VolumeRangeContainer";
 
-class VolumeAdjuster extends React.Component {
+type Props = {
+  mute: (number) => void,
+  sequenceId: number,
+  instrumentMute: boolean
+}
+
+class VolumeAdjuster extends React.Component<Props> {
 
   muteSound = () => {
     this.props.mute(this.props.sequenceId);

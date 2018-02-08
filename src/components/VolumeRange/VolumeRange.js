@@ -1,12 +1,23 @@
+// @flow
+
 import React from 'react';
 import styles from "./VolumeRange.scss";
 
-class VolumeRange extends React.Component {
+type Props = {
+  sequenceId: number,
+  rangeVolume: number,
+  instrumentName: string,
+  instrumentVolume: number,
+  instrumentColor: string,
+  changeVolume: (number, number, null) => void
+}
 
-  volHandleChange = (e) => {
+class VolumeRange extends React.Component<Props> {
+
+  volHandleChange = (e: SyntheticEvent<HTMLInputElement>) => {
     const { sequenceId, changeVolume } = this.props;
 
-    let rangeVolume = parseFloat(e.target.value, 0);
+    let rangeVolume = parseFloat(e.currentTarget.value);
 
     changeVolume(sequenceId, rangeVolume, null);
   };

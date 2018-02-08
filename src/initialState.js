@@ -167,3 +167,107 @@ const initialState = {
 }
 
 export default initialState;
+
+// Set up typechecking of the state with flow
+
+export type State = {
+  bpm: number,
+  currentBeat: number,
+  currentLoop: number,
+  intervalId: number,
+  playing: boolean,
+  loops: Array<
+    { 
+      name: string,
+      maxBeats: number,
+      sequences: Array<
+        {
+          instrument: string,
+          pattern: [boolean]
+        }
+      >
+    }
+  >,
+  instruments: {
+    kick: {
+      id: string,
+      displayName: string,
+      color: string,
+      sound: {
+        src: string,
+        volume: number,
+        muted: boolean
+      }
+    },
+    snare: {
+      id: string,
+      displayName: string,
+      color: string,
+      sound: {
+        src: string,
+        volume: number,
+        muted: boolean
+      }
+    },
+    openHat: {
+      id: string,
+      displayName: string,
+      color: string,
+      sound: {
+        src: string,
+        volume: number,
+        muted: boolean
+      }
+    },
+    closedHat: {
+      id: string,
+      displayName: string,
+      color: string,
+      sound: {
+        src: string,
+        volume: number,
+        muted: boolean
+      }
+    },
+    spiral: {
+      id: string,
+      displayName: string,
+      color: string,
+      sound: {
+        src: string,
+        volume: number,
+        muted: boolean
+      }
+    },
+    ufo: {
+      id: string,
+      displayName: string,
+      color: string,
+      sound: {
+        src: string,
+        volume: number,
+        muted: boolean
+      }
+    },
+    splits: {
+      id: string,
+      displayName: string,
+      color: string,
+      sound: {
+        src: string,
+        volume: number,
+        muted: boolean
+      }
+    },
+    veil: {
+      id: string,
+      displayName: string,
+      color: string,
+      sound: {
+        src: string,
+        volume: number,
+        muted: boolean
+      }
+    }
+  }
+}

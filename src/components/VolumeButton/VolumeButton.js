@@ -1,8 +1,21 @@
+// @flow
+
 import React from 'react';
 import styles from "./VolumeButton.scss";
 import fontAwesome from '../../../node_modules/font-awesome/css/font-awesome.min.css';
 
-class VolumeButton extends React.Component {
+type Props = {
+  type: string,
+  mute: (number) => void,
+  sequenceId: number,
+  volIncrement: number,
+  changeVolume: (number, number, number) => void,
+  text: string,
+  extraClassName: string,
+  instrumentColor: string
+}
+
+class VolumeButton extends React.Component<Props> {
   fa = fontAwesome['fa'];
   fa_volume_off = fontAwesome['fa-volume-off'];
   fa_volume_up = fontAwesome['fa-volume-up'];
@@ -24,16 +37,18 @@ class VolumeButton extends React.Component {
     return classes.join(' ');
   }
 
-  volHandleClick = (e) => {
+  volHandleClick = (e: SyntheticEvent<HTMLInputElement>) => {
+    // to access input instance use event.currentTarget
+		//(event.currentTarget: HTMLInputElement);
     const { type, mute, sequenceId, volIncrement, changeVolume } = this.props;
 
     if(type === "mute") {
       mute(sequenceId);
     } else {
-      let rangeVolume = parseFloat(e.target.value, 0);
+      let rangeVolume = parseFloat(e.currentTarget.value);
 
       if(!rangeVolume) {
-        rangeVolume = null;
+        rangeVolume = 0;
       }
 
       changeVolume(sequenceId, rangeVolume, volIncrement);

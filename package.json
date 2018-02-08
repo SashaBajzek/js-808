@@ -50,7 +50,8 @@
   "scripts": {
     "start": "node scripts/start.js",
     "build": "node scripts/build.js",
-    "test": "node scripts/test.js --env=jsdom"
+    "test": "node scripts/test.js --env=jsdom",
+    "flow": "flow"
   },
   "jest": {
     "collectCoverageFrom": [
@@ -95,6 +96,10 @@
     "extends": "react-app"
   },
   "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-preset-flow": "^6.23.0",
+    "empty": "^0.10.1",
+    "flow-bin": "^0.64.0",
     "node-sass": "^4.7.2",
     "sass-loader": "^6.0.6"
   }
