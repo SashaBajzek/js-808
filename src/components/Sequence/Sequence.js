@@ -4,6 +4,7 @@ import React from 'react';
 import VolumeAdjusterContainer from '../VolumeAdjuster/VolumeAdjusterContainer';
 import PatternContainer from "../Pattern/PatternContainer";
 import styles from "./Sequence.scss";
+import fontAwesome from '../../../node_modules/font-awesome/css/font-awesome.min.css';
 
 type Props = {
   changeInstrument: (number, string) => void,
@@ -33,6 +34,9 @@ type Props = {
 }
 
 class Sequence extends React.Component<Props> {
+  fa = fontAwesome['fa'];
+  fa_chevron_down = fontAwesome['fa-chevron-down'];
+
   handleSubmit = (event: SyntheticEvent<HTMLInputElement>) => {
     event.preventDefault();
   }
@@ -73,9 +77,11 @@ class Sequence extends React.Component<Props> {
         <div className={styles.details}>
           <div className={styles.detailsCRUD}>
             <form onSubmit={this.handleSubmit}>
-              <select name="instrument" id={`instrument${sequenceId}`} onChange={this.instrumentHandleChange} value={currentInstrument.id} className={styles.select} >
-                {this.renderOptions()}
-              </select>
+              <div className={styles.selectwrapper}>
+                <select name="instrument" id={`instrument${sequenceId}`} onChange={this.instrumentHandleChange} value={currentInstrument.id} className={styles.select} >
+                  {this.renderOptions()}
+                </select>
+              </div>
               <label htmlFor={`instrument${sequenceId}`} className={styles.label}>instrument</label>
             </form>
             <button onClick={this.instrumentDelete} className={styles.button}>X</button>

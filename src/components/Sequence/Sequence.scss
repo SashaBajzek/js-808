@@ -15,7 +15,8 @@
 }
 
 .Sequencemagenta .title,
-.Sequencemagenta .select {
+.Sequencemagenta .select,
+.Sequencemagenta .selectwrapper::after {
   color: #DB3DB4; /* Need to increase lightness for enough contrast */
 }
 
@@ -24,16 +25,19 @@
 }
 
 .Sequencegold .title,
-.Sequencegold .select {
+.Sequencegold .select,
+.Sequencegold .selectwrapper::after {
   color: $gold-light;
 }
 
-.Sequencegold .select {
+.Sequencegold .select,
+.Sequencegold .selectwrapper::after {
   border-color: $gold-light;
 }
 
 .Sequenceteal .title,
-.Sequenceteal .select {
+.Sequenceteal .select,
+.Sequenceteal .selectwrapper::after {
   color: $teal-light;
 }
 
@@ -42,7 +46,8 @@
 }
 
 .Sequencegreen .title,
-.Sequencegreen .select {
+.Sequencegreen .select,
+.Sequencegreen .selectwrapper::after {
   color: $green-light;
 }
 
@@ -51,7 +56,8 @@
 }
 
 .Sequenceblue .title,
-.Sequenceblue .select {
+.Sequenceblue .select,
+.Sequenceblue .selectwrapper::after {
   color: $blue-light;
 }
 
@@ -60,7 +66,8 @@
 }
 
 .Sequenceorange .title,
-.Sequenceorange .select {
+.Sequenceorange .select,
+.Sequenceorange .selectwrapper::after {
   color: $orange-light;
 }
 
@@ -69,7 +76,8 @@
 }
 
 .Sequencecherry .title,
-.Sequencecherry .select {
+.Sequencecherry .select,
+.Sequencecherry .selectwrapper::after {
   color: $cherry-light;
 }
 
@@ -78,7 +86,8 @@
 }
 
 .Sequencepurple .title,
-.Sequencepurple .select {
+.Sequencepurple .select,
+.Sequencepurple .selectwrapper::after {
   color: $purple-light;
 }
 
@@ -86,18 +95,41 @@
   border-color: $purple-light;
 }
 
-.select {
-  background: rgba(0, 0, 0, 0);
-  color: $blackgrey;
-  cursor: pointer;
-  font-size: 1.1em;
-  font-weight: bold;
-  margin-bottom: 5px;
-  min-width: 120px;
+.selectwrapper {
+  min-width: 150px;
+  position: relative;
 }
 
-.select:hover {
+.selectwrapper:hover .select {
   background: rgba(250, 250, 250, .05);
+  cursor: pointer;
+}
+
+.selectwrapper::after {
+  // Chevron arrow
+  content: '\f078';
+  cursor: pointer;
+  font: normal normal normal 17px/1 FontAwesome;
+  position: absolute;
+  right: 6px;
+  top: calc((100% - 17px)/2);
+}
+
+.select {
+  /* normalizing select */
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  border-style: solid; /* needed for FF */
+  border-width: 1px; /* needed for FF */
+  border-radius: 5px; /* needed for FF */
+
+  background: rgba(0, 0, 0, 0);
+  color: $blackgrey;
+  font-size: 1.1em;
+  font-weight: bold;
+  padding: 1px 0 1px 5px;
+  width: 100%;
 }
 
 .label {
