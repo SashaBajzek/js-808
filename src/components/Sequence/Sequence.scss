@@ -96,7 +96,7 @@
 }
 
 .selectwrapper {
-  min-width: 150px;
+  min-width: 120px;
   position: relative;
 }
 
@@ -109,10 +109,11 @@
   // Chevron arrow
   content: '\f078';
   cursor: pointer;
-  font: normal normal normal 17px/1 FontAwesome;
+  font: normal normal normal 12px/1 FontAwesome;
   position: absolute;
   right: 6px;
-  top: calc((100% - 17px)/2);
+  top: calc((100% - 12px)/2);
+  z-index: -1; /* Needed to put the clickable select in front */
 }
 
 .select {
@@ -181,9 +182,15 @@
 }
 
 @media (min-width: 425px) {
-  .select {
+  .selectwrapper {
     font-size: 1.3em;
-    min-width: 135px;
+    min-width: 150px;
+  }
+
+  .selectwrapper::after {
+    font: normal normal normal 15px/1 FontAwesome;
+    right: 6px;
+    top: calc((100% - 15px)/2);
   }
 }
 
@@ -207,8 +214,14 @@
     width: 100%;
   }
 
-  .select {
+  .selectwrapper {
     font-size: 1.4em;
-    min-width: 145px;
+    min-width: 160px;
+  }
+
+  .selectwrapper::after {
+    font: normal normal normal 17px/1 FontAwesome;
+    right: 6px;
+    top: calc((100% - 17px)/2);
   }
 }
