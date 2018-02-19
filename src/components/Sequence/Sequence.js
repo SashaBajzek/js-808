@@ -72,6 +72,7 @@ class Sequence extends React.Component<Props> {
       sequenceId,
       currentInstrument
     } = this.props;
+    const { fa, 'fa-times':fa_times } = fontAwesome;
     return (
       <li className={`${styles.Sequence} ${styles["Sequence"+instrumentColor]}`}>
         <div className={styles.details}>
@@ -84,7 +85,9 @@ class Sequence extends React.Component<Props> {
               </div>
               <label htmlFor={`instrument${sequenceId}`} className={styles.label}>instrument</label>
             </form>
-            <button onClick={this.instrumentDelete} className={styles.button}>X</button>
+            <button onClick={this.instrumentDelete} className={styles.button}>
+              <i className={[fa, fa_times].join(' ')} aria-hidden="true"></i>
+            </button>
           </div>
           <VolumeAdjusterContainer
             sequenceId={sequenceId}

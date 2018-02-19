@@ -150,8 +150,10 @@
 .detailsCRUD {
   align-items: center;
   display: flex;
-  flex-grow: 1;
+  //flex-grow: 1;
   justify-content: space-between;
+  padding: 10px 0;
+  width: 160px;
 }
 
 .button {
@@ -166,8 +168,32 @@
   margin-left: 10px;
   outline: none; /* replaced with boxshadow */
   overflow: hidden;
+  padding: 0;
   width: 26px;
+
+  /* Had a difficult time getting icon to center in button */
+  /* This was my work around */
+  align-items: center;
+  display: flex;
+  justify-content: center;
 }
+
+.button i {
+  /* Had a difficult time getting icon to center in button */
+  /* This was my work around */
+  align-items: center;
+  display: flex;
+  height: 24px;  //minus 2px for the border
+  justify-content: center;
+  width: 24px;
+}
+
+.button i::before {
+  /* Had a difficult time getting icon to center in button */
+  /* This was my work around */
+  width: 14px;
+}
+
 
 .button:hover {
   color: $red;
@@ -204,7 +230,7 @@
     align-items: flex-start;
     flex-direction: column;
     max-width: 250px;
-    padding-right: 50px;
+    padding-right: 10px;
     width: 25%;
   }
 
@@ -223,5 +249,15 @@
     font: normal normal normal 17px/1 FontAwesome;
     right: 6px;
     top: calc((100% - 17px)/2);
+  }
+
+  .button {
+    margin-left: 2px;
+  }
+}
+
+@media (min-width: 1150px) {
+  .details {
+    padding-right: 30px;
   }
 }
