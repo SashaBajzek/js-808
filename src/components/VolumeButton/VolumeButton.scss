@@ -9,10 +9,18 @@
   flex-shrink: 0;
   font-size: 14px;
   height: 26px;
+  margin: 0 2px;
   outline: none; /* replaced with boxshadow */
   overflow: hidden;
+  padding: 0;
   position: relative;
   width: 26px;
+
+  /* Had a difficult time getting icon to center in button */
+  /* This was my work around */
+  align-items: center;
+  display: flex;
+  justify-content: center;
 }
 
 .VolumeButton:hover {
@@ -24,11 +32,19 @@
 }
 
 .icon {
-  left: -1px; /* left 0 is mysteriously off by 1px */
-  position: absolute;
-  text-align: center;
-  top: 5px; /* (button height 26px - font size 14px) / 2 = 5px */
-  width: 26px;
+  /* Had a difficult time getting icon to center in button */
+  /* This was my work around */
+  align-items: center;
+  display: flex;
+  height: 24px;  //minus 2px for the border
+  justify-content: center;
+  width: 24px;
+}
+
+.icon::before {
+  /* Had a difficult time getting icon to center in button */
+  /* This was my work around */
+  width: 14px;
 }
 
 .text.muted,

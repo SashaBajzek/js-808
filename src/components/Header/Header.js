@@ -115,12 +115,16 @@ class Header extends React.Component<Props, State> {
               <i className={[fa, fa_play].join(' ')}><span className={styles.buttontext}>Play</span></i> }
               </button>
             </div>
-            <form onSubmit={this.handleSubmit}>
-              <input className={styles.input} type="number" name="bpm" id="bpm" value={bpm} onChange={this.bpmHandleChange}/>
-              <label htmlFor="bpm">BPM</label>
-              <select className={styles.select} name="loopName" id="loopName" onChange={this.loopHandleChange}>
+            <form className={styles.form} onSubmit={this.handleSubmit}>
+              <div>
+                <input className={styles.input} type="number" name="bpm" id="bpm" value={bpm} onChange={this.bpmHandleChange}/>
+                <label htmlFor="bpm">BPM</label>
+              </div>
+              <div className={styles.selectwrapper}>
+                <select className={styles.select} name="loopName" id="loopName" onChange={this.loopHandleChange}>
                 {this.renderOptions()}
               </select>
+              </div>
               <label htmlFor="loopName" className={styles.label}>Loop</label>
             </form>
           </div>

@@ -71,10 +71,12 @@
   /* Buttons use an icon visually, pushing text off screen */
 }
 
+.form {
+  display: flex;
+}
+
 .input:focus,
-.input:hover,
-.select:focus,
-.select:hover {
+.input:hover {
   box-shadow: 0 0 10px $gold-light;
   background: $gold-light;
 }
@@ -86,16 +88,56 @@
   color: $blackgrey;
   font-size: 14px;
   margin-right: 5px;
+  padding: 2px;
   text-align: center;
-  width: 80px;
+  width: 60px;
+}
+
+.selectwrapper {
+  background: $white;
+  border-radius: 3px;
+  margin-left: 20px;
+  position: relative;
+  width: 70px;
+  z-index: 1; /* Needed to put the clickable select in front */
+}
+
+.selectwrapper:hover .select {
+  cursor: pointer;
+}
+
+.selectwrapper::before {
+  // Chevron arrow
+  color: $blackgrey;
+  content: '\f078';
+  cursor: pointer;
+  font: normal normal normal 14px/1 FontAwesome;
+  position: absolute;
+  right: 4px;
+  top: calc((100% - 14px)/2);
+  z-index: -1; /* Needed to put the clickable select in front */
 }
 
 .select {
-  background: $white;
+  /* normalizing select */
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  border-radius: 5px; /* needed for FF */
+
+  background: transparent;
+  background-color: transparent;
   border: none;
   color: $blackgrey;
   font-size: 14px;
-  margin-left: 20px;
+  padding: 2px 0 2px 6px;
+  width: 100%;
+}
+
+/* Padding behaved differently for FF */
+@-moz-document url-prefix() { 
+  .select {
+    padding: 2px 0 2px 2px;
+  }
 }
 
 @media (min-width: 500px) {
@@ -121,6 +163,15 @@
 
   .buttoncontainer {
     margin-right: 50px;
+  }
+
+  .form {
+    flex-grow: 1;
+    justify-content: space-between;
+  }
+
+  .selectwrapper {
+    margin-left: 0;
   }
 }
 
