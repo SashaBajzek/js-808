@@ -87,6 +87,7 @@ class Sequence extends React.Component<Props> {
             </form>
             <button onClick={this.instrumentDelete} className={styles.button}>
               <i className={[fa, fa_times].join(' ')} aria-hidden="true"></i>
+              <span className={styles.butontext}>Delete</span>
             </button>
           </div>
           <VolumeAdjusterContainer

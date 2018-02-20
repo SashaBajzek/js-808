@@ -194,7 +194,6 @@
   width: 14px;
 }
 
-
 .button:hover {
   color: $red;
 }
@@ -205,6 +204,12 @@
 
 .button:focus {
   box-shadow: 0 0 10px $mediumgrey;
+}
+
+.butontext {
+  color: white;
+  position: absolute;
+  transform: translateX(100vw);
 }
 
 @media (min-width: 425px) {
