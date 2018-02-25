@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { play, pause, stop, changeBPM, changeCurrentLoop, advanceBeat, playSound } from '../../actions/actions';
+import { play, pause, stop, changeBPM, changeCurrentLoop, advanceBeat, playSound, clearBeats } from '../../actions/actions';
 import Header from './Header';
 
 const mapStateToProps = (state) => ({
@@ -8,7 +8,7 @@ const mapStateToProps = (state) => ({
   loops: state.loops
 });
 
-const dispatchProps = { play, pause, stop, changeBPM, changeCurrentLoop, advanceBeat, playSound };
+const dispatchProps = { play, pause, stop, changeBPM, changeCurrentLoop, advanceBeat, playSound, clearBeats };
 
 const HeaderContainer = connect(
 	mapStateToProps,

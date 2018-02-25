@@ -12,7 +12,8 @@ const actions = [
   "ADD_SEQUENCE",
   "DELETE_SEQUENCE",
   "CHANGE_INSTRUMENT",
-  "JUMP_TO_BEAT"
+  "JUMP_TO_BEAT",
+  "CLEAR_BEATS"
 ]
 
 const actionMap = {};

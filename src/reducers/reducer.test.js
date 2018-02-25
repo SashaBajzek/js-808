@@ -666,3 +666,44 @@ it('should handle JUMP_TO_BEAT', () => {
     currentBeat: 4
   });
 });
+
+it('should handle CLEAR_BEATS', () => {
+  expect(reducerJS808({
+    currentBeat: 0,
+    currentLoop: 0, 
+    loops: [
+      { 
+        name: "Loop 1",
+        maxBeats: 8,
+        sequences: [
+          {
+            instrument: "kick",
+            pattern: [false, true, true, false, false, true, false, false]
+          }
+        ]
+      }
+    ]
+    },
+    { 
+      type: ActionTypes.CLEAR_BEATS
+    }
+  )
+)
+  .toEqual({
+    currentBeat: 0,
+    currentLoop: 0, 
+    loops: [
+      { 
+        name: "Loop 1",
+        maxBeats: 8,
+        sequences: [
+          {
+            instrument: "kick",
+            pattern: [false, false, false, false, false, false, false, false]
+          }
+        ]
+      }
+    ]
+    }
+  );
+});
