@@ -164,6 +164,16 @@ export function jumpToBeat(newCurrentBeat): JumpToBeatAction {
   };
 }
 
+type ClearBeatsAction = {
+  type: "CLEAR_BEATS"
+};
+
+export function clearBeats(): ClearBeatsAction {
+  return {
+    type: ActionTypes.CLEAR_BEATS
+  };
+}
+
 
 export type Action = 
   | PlayAction

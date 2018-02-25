@@ -42,14 +42,21 @@
   padding: 2px 10px;
 }
 
+.buttonclear {
+  font-size: 14px;
+  margin: 0 10px;
+}
+
 .buttonplay:hover,
-.buttonstop:hover {
+.buttonstop:hover,
+.buttonclear:hover {
   background: $header-button-hover;
   border: 1px solid $header-button-hover;
 }
 
 .buttonplay:focus,
-.buttonstop:focus {
+.buttonstop:focus,
+.buttonclear:focus {
   box-shadow: 0 0 10px $mediumgrey;
 }
 
@@ -58,7 +65,8 @@
   color: $gold-light;
 }
 
-.buttonstop:active {
+.buttonstop:active,
+.buttonclear:active {
   box-shadow: 0 0 10px $red;
   color: $red;
 }
@@ -158,11 +166,11 @@
   .controlscontainer {
     justify-content: space-between;
     margin: 0;
-    width: 350px;
+    width: 400px;
   }
 
-  .buttoncontainer {
-    margin-right: 50px;
+  .buttonclear {
+    margin: 0 40px;
   }
 
   .form {

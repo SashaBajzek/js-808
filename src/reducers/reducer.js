@@ -238,6 +238,37 @@ function jumpToBeat(state, newCurrentBeat) {
   });
 }
 
+function clearBeats(state) {
+  let currentLoop = state.loops[state.currentLoop];
+  let emptyPattern = [];
+  for(let i=0; i<currentLoop.maxBeats; i += 1) {
+    emptyPattern.push(false);
+  }
+
+  let newSequences = currentLoop.sequences.map(
+    obj => {
+      obj.pattern = emptyPattern;
+      return obj;
+    }
+  )
+
+  let newLoops = update(state.loops, {
+    [state.currentLoop]: {
+      sequences: {
+        $apply: function() {
+          return newSequences;
+        }
+      }
+    }
+  });
+  
+  return Object.assign({}, state, {
+    loops: newLoops
+  });
+}
+
+
+
 export default function reducerJS808 (state: State = initialState, action: Action) {
   switch (action.type) {
     case 'PLAY':
@@ -268,6 +299,8 @@ export default function reducerJS808 (state: State = initialState, action: Actio
       return changeInstrument(state, action.sequenceId, action.newInstrument);
     case 'JUMP_TO_BEAT':
       return jumpToBeat(state, action.newCurrentBeat);
+    case 'CLEAR_BEATS':
+      return clearBeats(state);
     default:
       return state;
   }

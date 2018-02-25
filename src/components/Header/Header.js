@@ -25,7 +25,8 @@ type Props = {
   changeBPM: (number) => void,
   changeCurrentLoop: (number) => void,
   advanceBeat: () => void,
-  playSound: () => void
+  playSound: () => void,
+  clearBeats: () => void
 }
 
 type State = {
@@ -74,6 +75,10 @@ class Header extends React.Component<Props, State> {
     this.clearPlayingInterval();
   }
 
+  clearBeats = () => {
+    this.props.clearBeats();
+  }
+
   handleSubmit(event: SyntheticEvent<HTMLInputElement>){
     event.preventDefault();
   }
@@ -114,6 +119,7 @@ class Header extends React.Component<Props, State> {
               {playing ? <i className={[fa, fa_pause].join(' ')}><span className={styles.buttontext}>Pause</span></i> :
               <i className={[fa, fa_play].join(' ')}><span className={styles.buttontext}>Play</span></i> }
               </button>
+              <button className={`${styles.button} ${styles.buttonclear}`} onClick={this.clearBeats}>Clear</button>
             </div>
             <form className={styles.form} onSubmit={this.handleSubmit}>
               <div>
