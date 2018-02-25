@@ -232,6 +232,11 @@ function changeInstrument(state, sequenceId, newInstrument) {
   });
 }
 
+function jumpToBeat(state, newCurrentBeat) {
+  return Object.assign({}, state, {
+    currentBeat: newCurrentBeat
+  });
+}
 
 export default function reducerJS808 (state: State = initialState, action: Action) {
   switch (action.type) {
@@ -261,6 +266,8 @@ export default function reducerJS808 (state: State = initialState, action: Actio
       return deleteSequence(state, action.sequenceId);
     case 'CHANGE_INSTRUMENT':
       return changeInstrument(state, action.sequenceId, action.newInstrument);
+    case 'JUMP_TO_BEAT':
+      return jumpToBeat(state, action.newCurrentBeat);
     default:
       return state;
   }

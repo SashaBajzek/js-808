@@ -11,7 +11,8 @@ const actions = [
   "CHANGE_VOLUME",
   "ADD_SEQUENCE",
   "DELETE_SEQUENCE",
-  "CHANGE_INSTRUMENT"
+  "CHANGE_INSTRUMENT",
+  "JUMP_TO_BEAT"
 ]
 
 const actionMap = {};

@@ -651,3 +651,18 @@ describe('js808 reducer', () => {
   //   );
   });
 })
+
+it('should handle JUMP_TO_BEAT', () => {
+  expect(
+    reducerJS808({
+      currentBeat: 1
+    },
+    {
+      type: ActionTypes.JUMP_TO_BEAT,
+      newCurrentBeat: 4
+    })
+  )
+  .toEqual({
+    currentBeat: 4
+  });
+});

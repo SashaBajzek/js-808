@@ -152,6 +152,18 @@ export function changeInstrument(sequenceId, newInstrument): ChangeInstrumentAct
   };
 }
 
+type JumpToBeatAction = {
+  type: "JUMP_TO_BEAT",
+  newCurrentBeat: number
+};
+
+export function jumpToBeat(newCurrentBeat): JumpToBeatAction {
+  return {
+    type: ActionTypes.JUMP_TO_BEAT,
+    newCurrentBeat
+  };
+}
+
 
 export type Action = 
   | PlayAction
@@ -166,4 +178,5 @@ export type Action =
   | ChangeVolumeAction
   | AddSequenceAction
   | DeleteSequenceAction
-  | ChangeInstrumentAction;
+  | ChangeInstrumentAction
+  | JumpToBeatAction;

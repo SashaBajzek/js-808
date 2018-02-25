@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { addSequence } from '../../actions/actions';
+import { addSequence, jumpToBeat } from '../../actions/actions';
 import { getAvailableInstruments } from '../../getters';
 import Loop from './Loop';
 
@@ -19,7 +19,7 @@ const mapStateToProps = (state, ownProps) => ({
   disableAddSequence: shouldDisable(state)
 });
 
-const dispatchProps = { addSequence };
+const dispatchProps = { addSequence, jumpToBeat };
 
 const LoopContainer = connect(
   mapStateToProps,

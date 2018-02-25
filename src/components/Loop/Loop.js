@@ -3,6 +3,7 @@
 import React from 'react';
 import SequenceContainer from "../Sequence/SequenceContainer";
 import styles from "./Loop.scss";
+import LoopHeaderContainer from '../LoopHeader/LoopHeaderContainer';
 
 type Props = {
   loopName: string,
@@ -15,14 +16,6 @@ type Props = {
 
 class Loop extends React.Component<Props> {
   current = styles.current;
-  
-  renderHeader = () => {
-    let headerList = [];
-    for(var i = 1; i <= this.props.maxBeats; i += 1) {
-      headerList.push(<li className={`${styles.headeritem} ${this.getClass(i)}`} key={`header${i}`} id={i}>{i}</li>)
-    }
-    return headerList;
-  }
 
   renderSequences = () => {
     let sequenceList = [];
@@ -49,9 +42,7 @@ class Loop extends React.Component<Props> {
       <div className={styles.Loop}>
         <div className={styles.header}>
           <h2 className={styles.title}>{loopName}</h2>
-          <ul className={styles.headerlist}>
-            {this.renderHeader()}
-          </ul>
+          <LoopHeaderContainer />
         </div>
         <ul className={styles.sequencelist}>
             {this.renderSequences()}

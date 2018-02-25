@@ -1,0 +1,66 @@
+@import '../../styles/variables.scss';
+
+.headerlist {
+  display: flex;
+  flex-grow: 1;
+  justify-content: space-between;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.headeritem {
+  background-color: $darkgrey;
+  //border: 2px solid $darkgrey;
+  flex-basis: 0; /* grow the elements equally, ignoring content size */
+  flex-grow: 1;
+  height: 30px;
+  margin: 1px;
+  padding: 0;
+}
+
+.headerbutton {
+  background-color: $darkgrey;
+  border: none;
+  box-sizing: border-box;
+  color: $white;
+  cursor: pointer;
+  font-size: 16px;
+  height: 100%;
+  line-height: 30px;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+  transition: all .1s linear;
+  width: 100%;
+}
+
+.headerbutton:hover {
+  background: $vol-button-hover;
+}
+
+.headerbutton:focus {
+  box-shadow: 0 0 10px $mediumgrey;
+}
+
+.current {
+  background-color: $white;
+  box-shadow: 0 0 10px $white;
+  color: black;
+}
+
+.current:hover {
+  background-color: $white;
+}
+
+@media (min-width: 800px) {
+  .headerlist {
+    margin: 16px 0;
+    width: 75%;
+  }
+
+  .headeritem {
+    font-size: 18px;
+    height: 40px;
+    line-height: 40px;
+  }
+}

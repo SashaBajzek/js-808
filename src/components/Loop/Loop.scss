@@ -27,35 +27,6 @@
   margin: 10px auto;
 }
 
-.headerlist {
-  display: flex;
-  flex-grow: 1;
-  justify-content: space-between;
-  margin: 0 auto;
-  width: 100%;
-}
-
-.headeritem {
-  background-color: $darkgrey;
-  border: 2px solid $darkgrey;
-  flex-basis: 0; /* grow the elements equally, ignoring content size */
-  flex-grow: 1;
-  font-size: 16px;
-  height: 30px;
-  line-height: 30px;
-  margin: 1px;
-  padding: 0;
-  text-align: center;
-  transition: all .2s linear;
-}
-
-.current {
-  background-color: $white;
-  border: 2px solid $white;
-  box-shadow: 0 0 10px $white;
-  color: black;
-}
-
 .sequencelist {
   display: flex;
   flex-direction: column;
@@ -92,17 +63,6 @@
     max-width: 250px;
     padding-right: 50px;
     width: 25%;
-  }
-
-  .headerlist {
-    margin: 16px 0;
-    width: 75%;
-  }
-
-  .headeritem {
-    font-size: 18px;
-    height: 40px;
-    line-height: 40px;
   }
 }
 
