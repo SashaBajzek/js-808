@@ -13,6 +13,7 @@
 
 .label {
   color: white;
+  left: -9999px;  //Needed to move off of the range
   position: absolute;
   text-indent: -9999px;
 }
