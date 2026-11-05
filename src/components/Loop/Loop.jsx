@@ -1,20 +1,9 @@
-// @flow
-
 import React from 'react';
 import SequenceContainer from "../Sequence/SequenceContainer";
-import styles from "./Loop.scss";
+import styles from "./Loop.module.scss";
 import LoopHeaderContainer from '../LoopHeader/LoopHeaderContainer';
 
-type Props = {
-  loopName: string,
-  maxBeats: number,
-  currentBeat: number,
-  numSequences: number,
-  disableAddSequence: boolean,
-  addSequence: () => void
-}
-
-class Loop extends React.Component<Props> {
+class Loop extends React.Component {
   current = styles.current;
 
   renderSequences = () => {

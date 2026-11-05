@@ -1,8 +1,8 @@
 import reducerJS808 from './reducer';
 import ActionTypes from '../actions/ActionTypes';
 import initialState from '../initialState';
-import * as bubbleSound from "../sounds/bubbles.mp3";
-import * as claySound from "../sounds/clay.mp3";
+import bubbleSound from "../sounds/bubbles.mp3";
+import claySound from "../sounds/clay.mp3";
 
 describe('js808 reducer', () => {
   it('should return the initial state', () => {
@@ -95,7 +95,6 @@ describe('js808 reducer', () => {
       ]
     });
   });
-
 
  
   it('should handle TOGGLE_BEAT', () => {

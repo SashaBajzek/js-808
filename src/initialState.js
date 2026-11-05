@@ -1,12 +1,12 @@
 import { Howl } from 'howler';
-import * as bubbleSound from "./sounds/bubbles.mp3";
-import * as claySound from "./sounds/clay.mp3";
-import * as coronaSound from "./sounds/corona.mp3";
-import * as moonSound from "./sounds/moon.mp3";
-import * as spiralSound from "./sounds/dotted-spiral.mp3";
-import * as ufoSound from "./sounds/ufo.mp3";
-import * as splitsSound from "./sounds/splits.mp3";
-import * as veilSound from "./sounds/veil.mp3";
+import bubbleSound from "./sounds/bubbles.mp3";
+import claySound from "./sounds/clay.mp3";
+import coronaSound from "./sounds/corona.mp3";
+import moonSound from "./sounds/moon.mp3";
+import spiralSound from "./sounds/dotted-spiral.mp3";
+import ufoSound from "./sounds/ufo.mp3";
+import splitsSound from "./sounds/splits.mp3";
+import veilSound from "./sounds/veil.mp3";
 
 const initialState = {
   bpm: 128,
@@ -167,107 +167,3 @@ const initialState = {
 }
 
 export default initialState;
-
-// Set up typechecking of the state with flow
-
-export type State = {
-  bpm: number,
-  currentBeat: number,
-  currentLoop: number,
-  intervalId: number,
-  playing: boolean,
-  loops: Array<
-    { 
-      name: string,
-      maxBeats: number,
-      sequences: Array<
-        {
-          instrument: string,
-          pattern: [boolean]
-        }
-      >
-    }
-  >,
-  instruments: {
-    kick: {
-      id: string,
-      displayName: string,
-      color: string,
-      sound: {
-        src: string,
-        volume: number,
-        muted: boolean
-      }
-    },
-    snare: {
-      id: string,
-      displayName: string,
-      color: string,
-      sound: {
-        src: string,
-        volume: number,
-        muted: boolean
-      }
-    },
-    openHat: {
-      id: string,
-      displayName: string,
-      color: string,
-      sound: {
-        src: string,
-        volume: number,
-        muted: boolean
-      }
-    },
-    closedHat: {
-      id: string,
-      displayName: string,
-      color: string,
-      sound: {
-        src: string,
-        volume: number,
-        muted: boolean
-      }
-    },
-    spiral: {
-      id: string,
-      displayName: string,
-      color: string,
-      sound: {
-        src: string,
-        volume: number,
-        muted: boolean
-      }
-    },
-    ufo: {
-      id: string,
-      displayName: string,
-      color: string,
-      sound: {
-        src: string,
-        volume: number,
-        muted: boolean
-      }
-    },
-    splits: {
-      id: string,
-      displayName: string,
-      color: string,
-      sound: {
-        src: string,
-        volume: number,
-        muted: boolean
-      }
-    },
-    veil: {
-      id: string,
-      displayName: string,
-      color: string,
-      sound: {
-        src: string,
-        volume: number,
-        muted: boolean
-      }
-    }
-  }
-}
