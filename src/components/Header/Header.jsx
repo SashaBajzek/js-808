@@ -1,39 +1,7 @@
-// @flow
-
 import React from 'react';
-import styles from './Header.scss';
-import fontAwesome from '../../../node_modules/font-awesome/css/font-awesome.min.css';
+import styles from './Header.module.scss';
 
-type Props = {
-  playing: boolean,
-  bpm: number,
-  loops: Array<
-    { 
-      name: string,
-      maxBeats: number,
-      sequences: Array<
-        {
-          instrument: string,
-          pattern: [boolean]
-        }
-      >
-    }
-  >,
-  play: () => void,
-  pause: () => void,
-  stop: () => void,
-  changeBPM: (number) => void,
-  changeCurrentLoop: (number) => void,
-  advanceBeat: () => void,
-  playSound: () => void,
-  clearBeats: () => void
-}
-
-type State = {
-	intervalId: number
-};
-
-class Header extends React.Component<Props, State> {
+class Header extends React.Component {
 
   state = {
     intervalId: 0
@@ -79,11 +47,11 @@ class Header extends React.Component<Props, State> {
     this.props.clearBeats();
   }
 
-  handleSubmit(event: SyntheticEvent<HTMLInputElement>){
+  handleSubmit(event){
     event.preventDefault();
   }
 
-  bpmHandleChange = (e: SyntheticEvent<HTMLInputElement>) => {
+  bpmHandleChange = (e) => {
     const newBPM = parseInt(e.currentTarget.value, 0);
     this.props.changeBPM(newBPM);
     this.clearPlayingInterval();
@@ -92,7 +60,7 @@ class Header extends React.Component<Props, State> {
     }
   }
 
-  loopHandleChange = (e: SyntheticEvent<HTMLInputElement>) => {
+  loopHandleChange = (e) => {
     const newCurrentLoop = parseInt(e.currentTarget.value, 0);
     this.props.changeCurrentLoop(newCurrentLoop);
   }
@@ -107,17 +75,16 @@ class Header extends React.Component<Props, State> {
 
   render(){
     const { playing, bpm} = this.props;
-    const { fa, 'fa-stop':fa_stop, 'fa-play':fa_play, 'fa-pause':fa_pause } = fontAwesome;
     return (
       <header className={styles.header}>
         <div className={styles.container}>
           <h1 className={styles.title}>JS-808</h1>
           <div className={styles.controlscontainer}>
             <div className={styles.buttoncontainer}>
-              <button className={`${styles.button} ${styles.buttonstop}`} onClick={this.stopLoop}><i className={[fa, fa_stop].join(' ')} aria-hidden="true"></i><span className={styles.buttontext}>Stop</span></button>
+              <button className={`${styles.button} ${styles.buttonstop}`} onClick={this.stopLoop}><i className="fa fa-stop" aria-hidden="true"></i><span className={styles.buttontext}>Stop</span></button>
               <button className={`${styles.button} ${styles.buttonplay}`} onClick={playing ? this.pauseLoop : this.playLoop}>
-              {playing ? <i className={[fa, fa_pause].join(' ')}><span className={styles.buttontext}>Pause</span></i> :
-              <i className={[fa, fa_play].join(' ')}><span className={styles.buttontext}>Play</span></i> }
+              {playing ? <i className="fa fa-pause"><span className={styles.buttontext}>Pause</span></i> :
+              <i className="fa fa-play"><span className={styles.buttontext}>Play</span></i> }
               </button>
               <button className={`${styles.button} ${styles.buttonclear}`} onClick={this.clearBeats}>Clear</button>
             </div>

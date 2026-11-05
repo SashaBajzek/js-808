@@ -1,14 +1,8 @@
-// @flow
 import React from 'react';
-import styles from './Pattern.scss';
+import styles from './Pattern.module.scss';
 import BeatContainer from "../Beat/BeatContainer";
 
-type Props = {
-  pattern: Array<boolean>,
-  sequenceId: number
-}
-
-class Pattern extends React.Component<Props> {
+class Pattern extends React.Component {
   render() {
     const { 
       pattern,

@@ -1,15 +1,7 @@
-// @flow
-
 import React from 'react';
-import styles from "./LoopHeader.scss";
+import styles from "./LoopHeader.module.scss";
 
-type Props = {
-  maxBeats: number,
-  currentBeat: number,
-  jumpToBeat: () => void
-}
-
-class LoopHeader extends React.Component<Props> {
+class LoopHeader extends React.Component {
   current = styles.current;
 
   makeButton = (i) => {

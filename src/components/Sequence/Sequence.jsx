@@ -1,47 +1,14 @@
-// @flow
-
 import React from 'react';
 import VolumeAdjusterContainer from '../VolumeAdjuster/VolumeAdjusterContainer';
 import PatternContainer from "../Pattern/PatternContainer";
-import styles from "./Sequence.scss";
-import fontAwesome from '../../../node_modules/font-awesome/css/font-awesome.min.css';
+import styles from "./Sequence.module.scss";
 
-type Props = {
-  changeInstrument: (number, string) => void,
-  deleteSequence: (number) => void,
-  currentInstrument: {
-    id: string,
-    displayName: string,
-    color: string,
-    sound: {
-      src: string,
-      volume: number,
-      muted: boolean
-    }
-  },
-  sequenceId: number,
-  instrumentColor: string,
-  availableInstruments: Array<{
-    id: string,
-    displayName: string,
-    color: string,
-    sound: {
-      src: string,
-      volume: number,
-      muted: boolean
-    }
-  }>
-}
-
-class Sequence extends React.Component<Props> {
-  fa = fontAwesome['fa'];
-  fa_chevron_down = fontAwesome['fa-chevron-down'];
-
-  handleSubmit = (event: SyntheticEvent<HTMLInputElement>) => {
+class Sequence extends React.Component {
+  handleSubmit = (event) => {
     event.preventDefault();
   }
 
-  instrumentHandleChange = (event: SyntheticEvent<HTMLInputElement>) => {
+  instrumentHandleChange = (event) => {
     // to access input instance use event.currentTarget
 		//(event.currentTarget: HTMLInputElement);
     let newInstrument = event.currentTarget.value;
@@ -72,7 +39,6 @@ class Sequence extends React.Component<Props> {
       sequenceId,
       currentInstrument
     } = this.props;
-    const { fa, 'fa-times':fa_times } = fontAwesome;
     return (
       <li className={`${styles.Sequence} ${styles["Sequence"+instrumentColor]}`}>
         <div className={styles.details}>
@@ -86,7 +52,7 @@ class Sequence extends React.Component<Props> {
               <label htmlFor={`instrument${sequenceId}`} className={styles.label}>instrument</label>
             </form>
             <button onClick={this.instrumentDelete} className={styles.button}>
-              <i className={[fa, fa_times].join(' ')} aria-hidden="true"></i>
+              <i className="fa fa-times" aria-hidden="true"></i>
               <span className={styles.butontext}>Delete</span>
             </button>
           </div>

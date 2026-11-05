@@ -1,48 +1,30 @@
 import ActionTypes from './ActionTypes';
 
-type PlayAction = { type: "PLAY" };
-
-export function play(): PlayAction {
+export function play() {
   return {
     type: ActionTypes.PLAY
   };
 }
 
-
-type PauseAction = { type: "PAUSE" };
-
-export function pause(): PauseAction {
+export function pause() {
   return {
     type: ActionTypes.PAUSE
   };
 }
 
-
-type StopAction = { type: "STOP" };
-
-export function stop(): StopAction {
+export function stop() {
   return {
     type: ActionTypes.STOP
   };
 }
 
-
-type AdvanceBeatAction = { type: "ADVANCE_BEAT" };
-
-export function advanceBeat(): AdvanceBeatAction {
+export function advanceBeat() {
   return {
     type: ActionTypes.ADVANCE_BEAT
   }
 }
 
-
-type ToggleBeatAction = { 
-  type: "TOGGLE_BEAT",
-  beat: number,
-  sequence: number
-};
-
-export function toggleBeat(beat: number, sequence: number): ToggleBeatAction {
+export function toggleBeat(beat, sequence) {
   return {
     type: ActionTypes.TOGGLE_BEAT,
     beat,
@@ -50,63 +32,34 @@ export function toggleBeat(beat: number, sequence: number): ToggleBeatAction {
   }
 }
 
-
-type PlaySoundAction = { type: "PLAY_SOUND" };
-
-export function playSound(): PlaySoundAction {
+export function playSound() {
   return {
     type: ActionTypes.PLAY_SOUND
   };
 }
 
-
-type ChangeCurrentLoopAction = { 
-  type: "CHANGE_CURRENT_LOOP",
-  newCurrentLoop: number
-};
-
-export function changeCurrentLoop(newCurrentLoop): ChangeCurrentLoopAction {
+export function changeCurrentLoop(newCurrentLoop) {
   return {
     type: ActionTypes.CHANGE_CURRENT_LOOP,
     newCurrentLoop
   };
 }
 
-
-type ChangeBPMAction = { 
-  type: "CHANGE_CURRENT_LOOP",
-  newBPM: number
-};
-
-export function changeBPM(newBPM): ChangeBPMAction {
+export function changeBPM(newBPM) {
   return {
     type: ActionTypes.CHANGE_BPM,
     newBPM
   };
 }
 
-
-type MuteAction = { 
-  type: "MUTE",
-  sequenceId: number
-};
-
-export function mute(sequenceId): MuteAction {
+export function mute(sequenceId) {
   return {
     type: ActionTypes.MUTE,
     sequenceId
   };
 }
 
-
-type ChangeVolumeAction = { 
-  type: "CHANGE_VOLUME",
-  sequenceId: number,
-  rangeVolume: number,
-  increment: number
-};
-
-export function changeVolume(sequenceId, rangeVolume, increment): ChangeVolumeAction {
+export function changeVolume(sequenceId, rangeVolume, increment) {
   return {
     type: ActionTypes.CHANGE_VOLUME,
     sequenceId,
@@ -115,36 +68,20 @@ export function changeVolume(sequenceId, rangeVolume, increment): ChangeVolumeAc
   };
 }
 
-
-type AddSequenceAction = { type: "ADD_SEQUENCE" };
-
-export function addSequence(): AddSequenceAction {
+export function addSequence() {
   return {
     type: ActionTypes.ADD_SEQUENCE
   };
 }
 
-
-type DeleteSequenceAction = { 
-  type: "DELETE_SEQUENCE",
-  sequenceId: number
-};
-
-export function deleteSequence(sequenceId): DeleteSequenceAction {
+export function deleteSequence(sequenceId) {
   return {
     type: ActionTypes.DELETE_SEQUENCE,
     sequenceId
   };
 }
 
-
-type ChangeInstrumentAction = { 
-  type: "CHANGE_INSTRUMENT",
-  sequenceId: number,
-  newInstrument: string
-};
-
-export function changeInstrument(sequenceId, newInstrument): ChangeInstrumentAction {
+export function changeInstrument(sequenceId, newInstrument) {
   return {
     type: ActionTypes.CHANGE_INSTRUMENT,
     sequenceId,
@@ -152,41 +89,16 @@ export function changeInstrument(sequenceId, newInstrument): ChangeInstrumentAct
   };
 }
 
-type JumpToBeatAction = {
-  type: "JUMP_TO_BEAT",
-  newCurrentBeat: number
-};
-
-export function jumpToBeat(newCurrentBeat): JumpToBeatAction {
+export function jumpToBeat(newCurrentBeat) {
   return {
     type: ActionTypes.JUMP_TO_BEAT,
     newCurrentBeat
   };
 }
 
-type ClearBeatsAction = {
-  type: "CLEAR_BEATS"
-};
-
-export function clearBeats(): ClearBeatsAction {
+export function clearBeats() {
   return {
     type: ActionTypes.CLEAR_BEATS
   };
 }
 
-
-export type Action = 
-  | PlayAction
-  | PauseAction
-  | StopAction
-  | AdvanceBeatAction
-  | ToggleBeatAction
-  | PlaySoundAction
-  | ChangeCurrentLoopAction
-  | ChangeBPMAction
-  | MuteAction
-  | ChangeVolumeAction
-  | AddSequenceAction
-  | DeleteSequenceAction
-  | ChangeInstrumentAction
-  | JumpToBeatAction;
